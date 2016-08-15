@@ -1,0 +1,867 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jey" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS常用宏定义#ifndef MacroDefinition_h
+#define MacroDefinition_h
+//——————-获取设备大小————————-//NavBar高度
+#define NavigationBar_HEIGHT 44
+//获取屏幕 宽度、高度
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.widt">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" iOS常用宏定义">
+<meta property="og:url" content="http://www.jeyblogs.com/2016/08/15/iOS常用宏定义/index.html">
+<meta property="og:site_name" content="Jey">
+<meta property="og:description" content="iOS常用宏定义#ifndef MacroDefinition_h
+#define MacroDefinition_h
+//——————-获取设备大小————————-//NavBar高度
+#define NavigationBar_HEIGHT 44
+//获取屏幕 宽度、高度
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.widt">
+<meta property="og:updated_time" content="2016-08-15T07:27:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" iOS常用宏定义">
+<meta name="twitter:description" content="iOS常用宏定义#ifndef MacroDefinition_h
+#define MacroDefinition_h
+//——————-获取设备大小————————-//NavBar高度
+#define NavigationBar_HEIGHT 44
+//获取屏幕 宽度、高度
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.widt">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Jey'
+    }
+  };
+</script>
+
+  <title>  iOS常用宏定义 | Jey </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ebd5b380279df550acd042285e42423b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jey</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Keep Calm and Carry On</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                 iOS常用宏定义
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T14:54:44+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Developer/" itemprop="url" rel="index">
+                    <span itemprop="name">Developer</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/iOS常用宏定义/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/iOS常用宏定义/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="iOS常用宏定义"><a href="#iOS常用宏定义" class="headerlink" title="iOS常用宏定义"></a>iOS常用宏定义</h3><p>#ifndef MacroDefinition_h</p>
+<p>#define MacroDefinition_h</p>
+<p>//——————-获取设备大小————————-<br>//NavBar高度</p>
+<p>#define NavigationBar_HEIGHT 44</p>
+<p>//获取屏幕 宽度、高度</p>
+<p>#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)</p>
+<p>#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)</p>
+<p>// MainScreen bounds</p>
+<p>#define Main_Screen_Bounds [[UIScreen mainScreen] bounds]<br>//——————-获取设备大小————————-</p>
+<p>//——————-打印日志————————-<br>//DEBUG 模式下打印日志,当前行</p>
+<p>#ifdef DEBUG</p>
+<h1 id="define-DLog-fmt-…-NSLog-”-s-Line-d-“-fmt-PRETTY-FUNCTION-LINE-VA-ARGS"><a href="#define-DLog-fmt-…-NSLog-”-s-Line-d-“-fmt-PRETTY-FUNCTION-LINE-VA-ARGS" class="headerlink" title="define DLog(fmt, …) NSLog((@”%s [Line %d] “ fmt), PRETTY_FUNCTION, LINE, ##VA_ARGS);"></a>define DLog(fmt, …) NSLog((@”%s [Line %d] “ fmt), <strong>PRETTY_FUNCTION</strong>, <strong>LINE</strong>, ##<strong>VA_ARGS</strong>);</h1><p>#else</p>
+<h1 id="define-DLog-…"><a href="#define-DLog-…" class="headerlink" title="define DLog(…)"></a>define DLog(…)</h1><p>#endif</p>
+<p>//重写NSLog,Debug模式下打印日志和当前行数</p>
+<p>#if DEBUG</p>
+<p>#define NSLog(FORMAT, …) fprintf(stderr,”\nfunction:%s line:%d content:%s\n”, <strong>FUNCTION</strong>, <strong>LINE</strong>, ［NSString stringWithFormat:FORMAT, ##<strong>VA_ARGS</strong>] UTF8String]);</p>
+<p>#else</p>
+<p>#define NSLog(FORMAT, …) nil</p>
+<p>#endif</p>
+<p>//DEBUG 模式下打印日志,当前行 并弹出一个警告</p>
+<p>#ifdef DEBUG</p>
+<h1 id="define-ULog-fmt-…-UIAlertView-alert-［UIAlertView-alloc-initWithTitle-NSString-stringWithFormat-”-s-n-Line-d-“-PRETTY-FUNCTION-LINE-message-NSString-stringWithFormat-fmt-VA-ARGS-delegate-nil-cancelButtonTitle-”Ok”-otherButtonTitles-nil-alert-show"><a href="#define-ULog-fmt-…-UIAlertView-alert-［UIAlertView-alloc-initWithTitle-NSString-stringWithFormat-”-s-n-Line-d-“-PRETTY-FUNCTION-LINE-message-NSString-stringWithFormat-fmt-VA-ARGS-delegate-nil-cancelButtonTitle-”Ok”-otherButtonTitles-nil-alert-show" class="headerlink" title="define ULog(fmt, …) { UIAlertView *alert = ［UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@”%s\n [Line %d] “, PRETTY_FUNCTION, LINE] message:[NSString stringWithFormat:fmt, ##VA_ARGS] delegate:nil cancelButtonTitle:@”Ok” otherButtonTitles:nil]; [alert show]; }"></a>define ULog(fmt, …) { UIAlertView *alert = ［UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@”%s\n [Line %d] “, <strong>PRETTY_FUNCTION</strong>, <strong>LINE</strong>] message:[NSString stringWithFormat:fmt, ##<strong>VA_ARGS</strong>] delegate:nil cancelButtonTitle:@”Ok” otherButtonTitles:nil]; [alert show]; }</h1><p>#else</p>
+<h1 id="define-ULog-…"><a href="#define-ULog-…" class="headerlink" title="define ULog(…)"></a>define ULog(…)</h1><p>#endif</p>
+<p>//打印Frame</p>
+<p>#define LogFrame(frame) NSLog(@”frame[X=%.1f,Y=%.1f,W=%.1f,H=%.1f”,frame.origin.x,frame.origin.y,frame.size.width,frame.size.height)<br>//打印Point</p>
+<p>#define LogPoint(point) NSLog(@”Point[X=%.1f,Y=%.1f]”,point.x,point.y)</p>
+<p>//———————————————–<br>// 字体大小(常规/粗体)</p>
+<p>#define BOLDSYSTEMFONT(FONTSIZE)[UIFont boldSystemFontOfSize:FONTSIZE]</p>
+<p>#define SYSTEMFONT(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]</p>
+<p>#define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]</p>
+<p>//———————-系统—————————-</p>
+<p>// 是否iPad</p>
+<p>#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)<br>// 是否iPad</p>
+<p>#define someThing (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? ipad: iphone</p>
+<p>//获取系统版本</p>
+<p>#define IOS_VERSION ［[UIDevice currentDevice] systemVersion] floatValue]</p>
+<p>#define CurrentSystemVersion ［UIDevice currentDevice] systemVersion]</p>
+<p>//App版本号</p>
+<p>#define appMPVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@”CFBundleShortVersionString”]</p>
+<p>//获取当前语言</p>
+<p>#define CurrentLanguage (［NSLocale preferredLanguages] objectAtIndex:0])</p>
+<p>//判断是否 Retina屏、设备是否%fhone 5、是否是iPad</p>
+<p>#define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), ［UIScreen mainScreen] currentMode].size) : NO)</p>
+<p>#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), ［UIScreen mainScreen] currentMode].size) : NO)</p>
+<p>#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)</p>
+<p>//判断设备的操做系统是不是ios7</p>
+<p>#define IOS7 (［[UIDevice currentDevice].systemVersion doubleValue] &gt;= 7.0]</p>
+<p>//判断当前设备是不是iphone5</p>
+<p>#define kScreenIphone5 ((［UIScreen mainScreen] bounds].size.height)&gt;=568)</p>
+<p>//获取当前屏幕的高度</p>
+<p>#define kMainScreenHeight ([UIScreen mainScreen].applicationFrame.size.height)</p>
+<p>//获取当前屏幕的宽度</p>
+<p>#define kMainScreenWidth ([UIScreen mainScreen].applicationFrame.size.width)</p>
+<p>//定义一个define函数</p>
+<p>#define TT_RELEASE_CF_SAFELY(<strong>REF) { if (nil != (</strong>REF)) { CFRelease(<strong>REF); </strong>REF = nil; } }</p>
+<p>//判断是真机还是模拟器</p>
+<p>#if TARGET_OS_IPHONE<br>//iPhone Device</p>
+<p>#endif</p>
+<p>#if TARGET_IPHONE_SIMULATOR<br>//iPhone Simulator</p>
+<p>#endif</p>
+<p>//检查系统版本</p>
+<p>#define SYSTEM_VERSION_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</p>
+<p>#define SYSTEM_VERSION_GREATER_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</p>
+<p>#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</p>
+<p>#define SYSTEM_VERSION_LESS_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</p>
+<p>#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</p>
+<p>//———————-系统—————————-</p>
+<p>#define TICK   NSDate *startTime = [NSDate date]     //写在方法头尾，测试运行时间</p>
+<p>#define TOCK   NSLog(@”Time: %f”, -[startTime timeIntervalSinceNow])</p>
+<p>#define TimeGetCurrent  CFAbsoluteTimeGetCurrent()  // 写在要测试代码片段头尾，两个相减算运行时间</p>
+<p>#define AC_Assert(condition) NSAssert(condition, ([NSString stringWithFormat:@”file name = %s —&gt; function name = %s at line: %d”, <strong>FILE</strong>, <strong>FUNCTION</strong>, <strong>LINE</strong>]));</p>
+<p>//————————————————————</p>
+<p>#define CHECK_AlphaNum   @”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789”</p>
+<p>#define CHECK_Num   @”0123456789”</p>
+<p>//———————-内存—————————-</p>
+<p>//使用ARC和不使用ARC</p>
+<p>#if __has_feature(objc_arc)<br>//compiling with ARC</p>
+<p>#else<br>// compiling without ARC</p>
+<p>#endif</p>
+<p>#pragma mark - common functions</p>
+<p>#define RELEASE_SAFELY(<strong>POINTER) { [</strong>POINTER release]; __POINTER = nil; }</p>
+<p>//释放一个对象</p>
+<p>#define SAFE_DELETE(P) if(P) { [P release], P = nil; }</p>
+<p>#define SAFE_RELEASE(x) [x release];x=nil</p>
+<p>// 是否空对象</p>
+<p>#define IS_NULL_CLASS(OBJECT) [OBJECT isKindOfClass:[NSNull class]]</p>
+<p>//———————-内存—————————-</p>
+<p>//———————-图片—————————-</p>
+<p>//读取本地图片</p>
+<p>#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:［NSBundle mainBundle]pathForResource:file ofType:ext］</p>
+<p>//定义UIImage对象</p>
+<p>#define IMAGE(A) [UIImage imageWithContentsOfFile:［NSBundle mainBundle] pathForResource:A ofType:nil］</p>
+<p>//定义UIImage对象</p>
+<p>#define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer］</p>
+<p>//可拉伸的图片</p>
+<p>#define ResizableImage(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]</p>
+<p>#define ResizableImageWithMode(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]<br>//建议使用前两种宏定义,性能高于后者<br>//———————-图片—————————-</p>
+<p>//———————-颜色类—————————<br>// rgb颜色转换（16进制-&gt;10进制）</p>
+<p>#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]</p>
+<p>//带有RGBA的颜色设置</p>
+<p>#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]</p>
+<p>// 获取RGB颜色</p>
+<p>#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</p>
+<p>#define RGB(r,g,b) RGBA(r,g,b,1.0f)</p>
+<p>//背景色</p>
+<p>#define BACKGROUND_COLOR [UIColor colorWithRed:242.0/255.0 green:236.0/255.0 blue:231.0/255.0 alpha:1.0]</p>
+<p>//清除背景色</p>
+<p>#define CLEARCOLOR [UIColor clearColor]</p>
+<p>#pragma mark - color functions</p>
+<p>#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]</p>
+<p>#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]</p>
+<p>//———————-颜色类————————–</p>
+<p>//———————-其他—————————-</p>
+<p>//方正黑体简体字体定义</p>
+<p>#define FONT(F) [UIFont fontWithName:@”FZHTJW–GB1-0” size:F]</p>
+<p>//定义一个API</p>
+<p>#define APIURL @”<a href="http://xxxxx/" target="_blank" rel="external">http://xxxxx/</a>“<br>//登录API</p>
+<p>#define APILogin [APIURL stringByAppendingString:@”Login”]</p>
+<p>//设置View的tag属性</p>
+<p>#define VIEWWITHTAG(_OBJECT, _TAG) [_OBJECT viewWithTag : _TAG]<br>//程序的本地化,引用国际化的文件</p>
+<p>#define MyLocal(x, …) NSLocalizedString(x, nil)</p>
+<p>//G－C－D</p>
+<p>#define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)</p>
+<p>#define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)</p>
+<p>//NSUserDefaults 实例化</p>
+<p>#define USER_DEFAULT [NSUserDefaults standardUserDefaults]</p>
+<p>//由角度获取弧度 有弧度获取角度</p>
+<p>#define degreesToRadian(x) (M_PI * (x) / 180.0)</p>
+<p>#define radianToDegrees(radian) (radian*180.0)/(M_PI)</p>
+<p>//单例化一个类</p>
+<p>#define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \<br>\<br>static classname *shared##classname = nil; \<br>\</p>
+<ul>
+<li>(classname *)shared##classname \<br>{ \<br>@synchronized(self) \<br>{ \<br>if (shared##classname == nil) \<br>{ \<br>shared##classname = ［self alloc] init]; \<br>} \<br>} \<br>\<br>return shared##classname; \<br>} \<br>\</li>
+<li>(id)allocWithZone:(NSZone *)zone \<br>{ \<br>@synchronized(self) \<br>{ \<br>if (shared##classname == nil) \<br>{ \<br>shared##classname = [super allocWithZone:zone]; \<br>return shared##classname; \<br>} \<br>} \<br>\<br>return nil; \<br>} \<br>\</li>
+</ul>
+<ul>
+<li>(id)copyWithZone:(NSZone *)zone \<br>{ \<br>return self; \<br>}</li>
+</ul>
+<p>#endif</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？求鼓励，求支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/payWeChat.jpg" alt="Jey.yuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/Alipay.jpg" alt="Jey.yuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/09/11/超全面！常用的 iOS 第三方资源/" rel="next" title="超全面！常用的 iOS 第三方资源">
+                <i class="fa fa-chevron-left"></i> 超全面！常用的 iOS 第三方资源
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/15/iOS常用宏定义/"
+     data-title=" iOS常用宏定义"
+     data-content=""
+     data-url="http://www.jeyblogs.com/2016/08/15/iOS常用宏定义/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/15/iOS常用宏定义/"
+           data-title=" iOS常用宏定义" data-url="http://www.jeyblogs.com/2016/08/15/iOS常用宏定义/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xsdar.com1.z0.glb.clouddn.com/headIcon.JPG"
+               alt="Jey.yuan" />
+          <p class="site-author-name" itemprop="name">Jey.yuan</p>
+          <p class="site-description motion-element" itemprop="description">Keep Calm and Carry On</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS常用宏定义"><span class="nav-number">1.</span> <span class="nav-text">iOS常用宏定义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#define-DLog-fmt-…-NSLog-”-s-Line-d-“-fmt-PRETTY-FUNCTION-LINE-VA-ARGS"><span class="nav-number"></span> <span class="nav-text">define DLog(fmt, …) NSLog((@”%s [Line %d] “ fmt), PRETTY_FUNCTION, LINE, ##VA_ARGS);</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#define-DLog-…"><span class="nav-number"></span> <span class="nav-text">define DLog(…)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#define-ULog-fmt-…-UIAlertView-alert-［UIAlertView-alloc-initWithTitle-NSString-stringWithFormat-”-s-n-Line-d-“-PRETTY-FUNCTION-LINE-message-NSString-stringWithFormat-fmt-VA-ARGS-delegate-nil-cancelButtonTitle-”Ok”-otherButtonTitles-nil-alert-show"><span class="nav-number"></span> <span class="nav-text">define ULog(fmt, …) { UIAlertView *alert = ［UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@”%s\n [Line %d] “, PRETTY_FUNCTION, LINE] message:[NSString stringWithFormat:fmt, ##VA_ARGS] delegate:nil cancelButtonTitle:@”Ok” otherButtonTitles:nil]; [alert show]; }</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#define-ULog-…"><span class="nav-number"></span> <span class="nav-text">define ULog(…)</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jey.yuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jeyblogs"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
