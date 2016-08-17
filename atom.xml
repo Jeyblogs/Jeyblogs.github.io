@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-08-17T15:22:20.000Z</updated>
+  <updated>2016-08-17T15:25:56.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -17,13 +17,12 @@
   
   <entry>
     <title>hexo——搭建Github Page博客之配置篇</title>
-    <link href="http://www.jeyblogs.com/2016/08/15/hexo%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BAGithub%20Page%E5%8D%9A%E5%AE%A2%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%AF%87/"/>
-    <id>http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客之配置篇/</id>
+    <link href="http://www.jeyblogs.com/2016/08/15/hexo%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BAGithub%20Page%E5%8D%9A%E5%AE%A2%E4%B9%8B%E9%85%8D%E7%BD%AE%E7%AF%87(1)/"/>
+    <id>http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客之配置篇(1)/</id>
     <published>2016-08-15T02:29:49.000Z</published>
-    <updated>2016-08-17T15:22:20.000Z</updated>
+    <updated>2016-08-17T15:25:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。</p>
-<h4 id="Hexo环境配置"><a href="#Hexo环境配置" class="headerlink" title="Hexo环境配置"></a>Hexo环境配置</h4><p>先屡一下思路<br>1.首先hexo是基于nodejs的，所以必须安装nodejs<br>2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它<br>3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定<br>4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的话也是一句话搞定（mac也有自带）<br>5.OK整理一下安装顺序：homebrew-nodejs-hexo-git</p>
+    <content type="html"><![CDATA[<p>hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。<br><strong>Hexo环境配置</strong><br>先屡一下思路<br>1.首先hexo是基于nodejs的，所以必须安装nodejs<br>2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它<br>3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定<br>4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的话也是一句话搞定（mac也有自带）<br>5.OK整理一下安装顺序：homebrew-nodejs-hexo-git</p>
 <h5 id="1-安装brewhome，一句话搞定"><a href="#1-安装brewhome，一句话搞定" class="headerlink" title="1.安装brewhome，一句话搞定"></a>1.安装brewhome，一句话搞定</h5><pre><code>ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)”
 </code></pre><h5 id="2-0-安装nodejs"><a href="#2-0-安装nodejs" class="headerlink" title="2.0 安装nodejs"></a>2.0 安装nodejs</h5><h6 id="2-1-第一种方式，brewhome安装，一句话搞定"><a href="#2-1-第一种方式，brewhome安装，一句话搞定" class="headerlink" title="2.1 第一种方式，brewhome安装，一句话搞定"></a>2.1 第一种方式，brewhome安装，一句话搞定</h6><pre><code>brew install node
 </code></pre><h6 id="2-2-第二种方式，前提是已经安装好Xcode和git"><a href="#2-2-第二种方式，前提是已经安装好Xcode和git" class="headerlink" title="2.2 第二种方式，前提是已经安装好Xcode和git"></a>2.2 第二种方式，前提是已经安装好Xcode和git</h6><pre><code>git clone git://github.com/joyent/node.git
@@ -42,7 +41,7 @@ cp ~/nodejs/bin/node /usr/sbin/node
 </code></pre><h6 id="5-2-备份已有的key，（如果有的话）"><a href="#5-2-备份已有的key，（如果有的话）" class="headerlink" title="5.2 备份已有的key，（如果有的话）"></a>5.2 备份已有的key，（如果有的话）</h6><pre><code>mkdir key_backup
 mv id_rsa* key_backup
 </code></pre><h6 id="5-3-生成SSH-key"><a href="#5-3-生成SSH-key" class="headerlink" title="5.3 生成SSH key"></a>5.3 生成SSH key</h6><pre><code>ssh-keygen -t rsa -C &quot;xxx@xxx.com”
-</code></pre><h6 id="5-4-将SSH-key添加到Github"><a href="#5-4-将SSH-key添加到Github" class="headerlink" title="5.4 将SSH key添加到Github"></a>5.4 将SSH key添加到Github</h6><p>登录到GitHub页面，Account Settings->SSH Public Keys->Add another key将生成的key(id<em>rsa.pub文件）内容copy到输入框中，save。</em></p>
+</code></pre><h6 id="5-4-将SSH-key添加到Github"><a href="#5-4-将SSH-key添加到Github" class="headerlink" title="5.4 将SSH key添加到Github"></a>5.4 将SSH key添加到Github</h6><p>登录到GitHub页面，Account Settings->SSH Public Keys->Add another key将生成的key(id_rsa.pub文件）内容copy到输入框中，save。_</p>
 <h6 id="5-5-测试连接"><a href="#5-5-测试连接" class="headerlink" title="5.5 测试连接"></a>5.5 测试连接</h6><pre><code>ssh git@github.com
 </code></pre><h6 id="5-6-设置个人信息"><a href="#5-6-设置个人信息" class="headerlink" title="5.6 设置个人信息"></a>5.6 设置个人信息</h6><pre><code>git config --global user.name &quot;xxx”
 git config --global user.email xxx@xxx.com
@@ -50,15 +49,14 @@ git config --global user.email xxx@xxx.com
     
     <summary type="html">
     
-      &lt;p&gt;hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。&lt;/p&gt;
-&lt;h4 id=&quot;Hexo环境配置&quot;&gt;&lt;a href=&quot;#Hexo环境配置&quot; class=&quot;headerlink&quot; title=&quot;Hexo环境配置&quot;&gt;&lt;/a&gt;Hexo环境配置&lt;/h4&gt;&lt;p&gt;先屡一下
+      &lt;p&gt;hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。&lt;br&gt;&lt;strong&gt;Hexo环境配置&lt;/strong&gt;&lt;br&gt;先屡一下思路&lt;br&gt;1.首先hexo是基于nodejs的，所以必须安装nodejs&lt;br&gt;2.安装nodejs方法很多，我选择homebre
     
     </summary>
     
-      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+      <category term="Hexo" scheme="http://www.jeyblogs.com/categories/Hexo/"/>
     
     
-      <category term="iOS" scheme="http://www.jeyblogs.com/tags/iOS/"/>
+      <category term="Hexo" scheme="http://www.jeyblogs.com/tags/Hexo/"/>
     
   </entry>
   
