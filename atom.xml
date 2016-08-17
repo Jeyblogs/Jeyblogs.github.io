@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-08-17T09:38:28.000Z</updated>
+  <updated>2016-08-17T09:43:03.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -16,29 +16,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://www.jeyblogs.com/2016/08/17/GCD%20Dispatch/"/>
-    <id>http://www.jeyblogs.com/2016/08/17/GCD Dispatch/</id>
-    <published>2016-08-17T09:38:28.000Z</published>
-    <updated>2016-08-17T09:38:28.000Z</updated>
+    <title>GCD Dispatch</title>
+    <link href="http://www.jeyblogs.com/2014/11/15/GCD%20Dispatch/"/>
+    <id>http://www.jeyblogs.com/2014/11/15/GCD Dispatch/</id>
+    <published>2014-11-15T02:29:49.000Z</published>
+    <updated>2016-08-17T09:43:03.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="GCD-Dispatch"><a href="#GCD-Dispatch" class="headerlink" title="GCD Dispatch"></a>GCD Dispatch</h3><h4 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h4><p>GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。<br>一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。<br>GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行<br>dispatch queue分为下面三种：</p>
+    <content type="html"><![CDATA[<h4 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h4><p>GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。<br>一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。<br>GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行<br>dispatch queue分为下面三种：</p>
 <h4 id="Serial"><a href="#Serial" class="headerlink" title="Serial"></a>Serial</h4><p>又称为private dispatch queues，同时只执行一个任务。Serial queue通常用于同步访问特定的资源或数据。当你创建多个Serial queue时，虽然它们各自是同步执行的，但Serial queue与Serial queue之间是并发执行的。</p>
 <h4 id="Concurrent"><a href="#Concurrent" class="headerlink" title="Concurrent"></a>Concurrent</h4><p>又称为global dispatch queue，可以并发地执行多个任务，但是执行完成的顺序是随机的。</p>
 <h4 id="Main-dispatch-queue"><a href="#Main-dispatch-queue" class="headerlink" title="Main dispatch queue"></a>Main dispatch queue</h4><p>它是全局可用的serial queue，它是在应用程序主线程上执行任务的。</p>
 <p>1、dispatch_group_async的使用<br>dispatch_group_async可以实现监听一组任务是否完成，完成后得到通知执行其他的操作。这个方法很有用，比如你执行三个下载任务，当三个任务都下载完成后你才通知界面说完成的了。下面是一段例子代码：</p>
-<p>1    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>2    dispatch_group_t group = dispatch_group_create();<br>3    dispatch_group_async(group, queue, ^<br>4        <a href="#">NSThread sleepForTimeInterval:1</a>;<br>5        NSLog(@”group1”);<br>6    });<br>7    dispatch_group_async(group, queue, ^<br>8        <a href="#">NSThread sleepForTimeInterval:2</a>;<br>9        NSLog(@”group2”);<br>10    });<br>11    dispatch_group_async(group, queue, ^<br>12        <a href="#">NSThread sleepForTimeInterval:3</a>;<br>13        NSLog(@”group3”);<br>14    });<br>15    dispatch_group_notify(group, dispatch_get_main_queue(), ^<br>16        NSLog(@”updateUi”);<br>17    });<br>18    dispatch_release(group);<br>dispatch_group_async是异步的方法，运行后可以看到打印结果：</p>
+<p>1   dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>2   dispatch_group_t group = dispatch_group_create();<br>3   dispatch_group_async(group, queue, ^<br>4       <a href="#">NSThread sleepForTimeInterval:1</a>;<br>5       NSLog(@”group1”);<br>6   });<br>7   dispatch_group_async(group, queue, ^<br>8       <a href="#">NSThread sleepForTimeInterval:2</a>;<br>9       NSLog(@”group2”);<br>10  });<br>11  dispatch_group_async(group, queue, ^<br>12      <a href="#">NSThread sleepForTimeInterval:3</a>;<br>13      NSLog(@”group3”);<br>14  });<br>15  dispatch_group_notify(group, dispatch_get_main_queue(), ^<br>16      NSLog(@”updateUi”);<br>17  });<br>18  dispatch_release(group);<br>dispatch_group_async是异步的方法，运行后可以看到打印结果：</p>
 <p>2012-09-25 16:04:16.737 gcdTest<a href="#">43328:11303</a> group1<br>2012-09-25 16:04:17.738 gcdTest<a href="#">43328:12a1b</a> group2<br>2012-09-25 16:04:18.738 gcdTest<a href="#">43328:13003</a> group3<br>2012-09-25 16:04:18.739 gcdTest<a href="#">43328:f803</a> updateUi<br>每个一秒打印一个，当第三个任务执行后，upadteUi被打印。</p>
 <p>2、dispatch_barrier_async的使用<br>dispatch_barrier_async是在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行<br>例子代码如下：</p>
-<p>1    dispatch_queue_t queue = dispatch_queue_create(“gcdtest.rongfzh.yc”, DISPATCH_QUEUE_CONCURRENT);<br>2    dispatch_async(queue, ^<br>3        <a href="#">NSThread sleepForTimeInterval:2</a>;<br>4        NSLog(@”dispatch_async1”);<br>5    });<br>6    dispatch_async(queue, ^<br>7        <a href="#">NSThread sleepForTimeInterval:4</a>;<br>8        NSLog(@”dispatch_async2”);<br>9    });<br>10    dispatch_barrier_async(queue, ^<br>11        NSLog(@”dispatch_barrier_async”);<br>12        <a href="#">NSThread sleepForTimeInterval:4</a>;<br>13<br>14    });<br>15    dispatch_async(queue, ^<br>16        <a href="#">NSThread sleepForTimeInterval:1</a>;<br>17        NSLog(@”dispatch_async3”);<br>18    });  </p>
+<p>1   dispatch_queue_t queue = dispatch_queue_create(“gcdtest.rongfzh.yc”, DISPATCH_QUEUE_CONCURRENT);<br>2   dispatch_async(queue, ^<br>3       <a href="#">NSThread sleepForTimeInterval:2</a>;<br>4       NSLog(@”dispatch_async1”);<br>5   });<br>6   dispatch_async(queue, ^<br>7       <a href="#">NSThread sleepForTimeInterval:4</a>;<br>8       NSLog(@”dispatch_async2”);<br>9   });<br>10  dispatch_barrier_async(queue, ^<br>11      NSLog(@”dispatch_barrier_async”);<br>12      <a href="#">NSThread sleepForTimeInterval:4</a>;<br>13<br>14  });<br>15  dispatch_async(queue, ^<br>16      <a href="#">NSThread sleepForTimeInterval:1</a>;<br>17      NSLog(@”dispatch_async3”);<br>18  });  </p>
 <p>打印结果：</p>
 <p>2012-09-25 16:20:33.967 gcdTest<a href="#">45547:11203</a> dispatch_async1<br>2012-09-25 16:20:35.967 gcdTest<a href="#">45547:11303</a> dispatch_async2<br>2012-09-25 16:20:35.967 gcdTest<a href="#">45547:11303</a> dispatch_barrier_async<br>2012-09-25 16:20:40.970 gcdTest<a href="#">45547:11303</a> dispatch_async3<br>请注意执行的时间，可以看到执行的顺序如上所述。<br>3、dispatch_apply<br>执行某个代码片段N次。<br>dispatch_apply(5, globalQ, ^(size_t index)<br>    // 执行5次<br>});</p>
 <h5 id="这段代码逐步演示了如何修正错误，其中用到的既是串行队列"><a href="#这段代码逐步演示了如何修正错误，其中用到的既是串行队列" class="headerlink" title="这段代码逐步演示了如何修正错误，其中用到的既是串行队列"></a>这段代码逐步演示了如何修正错误，其中用到的既是串行队列</h5><p>1。这个是原始代码<br>view plain</p>
 <ul>
 <li>(void)viewWillAppear:(BOOL)animated  </li>
 </ul>
-<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL](#);  
-UIImage *image = [UIImage imageWithData:imageData](#);  
+<pre><code>NSData \*imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL][16];  
+UIImage \*image = [UIImage imageWithData:imageData][17];  
 self.imageView.image = image;  
 self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
 self.scrollView.contentSize = image.size;  
@@ -47,8 +47,8 @@ self.scrollView.contentSize = image.size;
 <ul>
 <li><p>(void)viewWillAppear:(BOOL)animated  </p>
 <p>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
-<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL](#);  
-UIImage *image = [UIImage imageWithData:imageData](#);  
+<pre><code>NSData \*imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL][18];  
+UIImage \*image = [UIImage imageWithData:imageData][19];  
 self.imageView.image = image;  
 self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
 self.scrollView.contentSize = image.size;  
@@ -59,9 +59,9 @@ self.scrollView.contentSize = image.size;
 <ul>
 <li><p>(void)viewWillAppear:(BOOL)animated  </p>
 <p>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
-<pre><code> NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL](#);  
-dispatch_async(dispatch_get_main_queue(), ^
-     UIImage *image = [UIImage imageWithData:imageData](#);  
+<pre><code> NSData \*imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL][20];  
+dispatch\_async(dispatch\_get\_main\_queue(), ^
+     UIImage \*image = [UIImage imageWithData:imageData][21];  
      self.imageView.image = image;  
      self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
      self.scrollView.contentSize = image.size;  
@@ -73,9 +73,9 @@ dispatch_async(dispatch_get_main_queue(), ^
 <ul>
 <li><p>(void)viewWillAppear:(BOOL)animated  </p>
 <p>NSString *url = photo.URL;<br>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
-<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:url](#); 
-dispatch_async(dispatch_get_main_queue(), ^  
-    UIImage *image = [UIImage imageWithData:imageData](#);  
+<pre><code>NSData \*imageData = [FlickrFetcher imageDataForPhotoWithURLString:url][22]; 
+dispatch\_async(dispatch\_get\_main\_queue(), ^  
+    UIImage \*image = [UIImage imageWithData:imageData][23];  
     self.imageView.image = image;  
     self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
     self.scrollView.contentSize = image.size;  
@@ -83,9 +83,9 @@ dispatch_async(dispatch_get_main_queue(), ^
 </li>
 <li><p>(void)viewWillAppear:(BOOL)animated  </p>
 <p>  NSString *url = photo.URL;<br>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
-<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:url](#);  
-dispatch_async(dispatch_get_main_queue(), ^  
-    UIImage *image = [UIImage imageWithData:imageData](#);  
+<pre><code>NSData \*imageData = [FlickrFetcher imageDataForPhotoWithURLString:url][24];  
+dispatch\_async(dispatch\_get\_main\_queue(), ^  
+    UIImage \*image = [UIImage imageWithData:imageData][25];  
     self.imageView.image = image;  
     self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
     self.scrollView.contentSize = image.size;  
@@ -99,7 +99,7 @@ dispatch_async(dispatch_get_main_queue(), ^
 <li>dispatch_queue_t queue = dispatch_queue_create(“com.dispatch.serial”, DISPATCH_QUEUE_SERIAL); //生成一个串行队列，队列中的block按照先进先出（FIFO）的顺序去执行，实际上为单线程执行。第一个参数是队列的名称，在调试程序时会非常有用，所有尽量不要重名了。</li>
 <li>dispatch_queue_t queue = dispatch_queue_create(“com.dispatch.concurrent”, DISPATCH_QUEUE_CONCURRENT); //生成一个并发执行队列，block被分发到多个线程去执行</li>
 <li>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); //获得程序进程缺省产生的并发队列，可设定优先级来选择高、中、低三个优先级队列。由于是系统默认生成的，所以无法调用dispatch_resume()和dispatch_suspend()来控制执行继续或中断。需要注意的是，三个队列不代表三个线程，可能会有更多的线程。并发队列可以根据实际情况来自动产生合理的线程数，也可理解为dispatch队列实现了一个线程池的管理，对于程序逻辑是透明的。<br>官网文档解释说共有三个并发队列，但实际还有一个更低优先级的队列，设置优先级为DISPATCH_QUEUE_PRIORITY_BACKGROUND。Xcode调试时可以观察到正在使用的各个dispatch队列。</li>
-<li>dispatch_queue_t queue = dispatch_get_main_queue(); //获得主线程的dispatch队列，实际是一个串行队列。同样无法控制主线程dispatch队列的执行继续或中断。<br>接下来我们可以使用dispatch_async或dispatch_sync函数来加载需要运行的block。<br>dispatch_async(queue, ^<br>　　//block具体代码<br>}); //异步执行block，函数立即返回<br>dispatch_sync(queue, ^<br>　　//block具体代码<br>}); //同步执行block，函数不返回，一直等到block执行完毕。编译器会根据实际情况优化代码，所以有时候你会发现block其实还在当前线程上执行，并没用产生新线程。<br>实际编程经验告诉我们，尽可能避免使用dispatch_sync，嵌套使用时还容易引起程序死锁。<br>如果queue1是一个串行队列的话，这段代码立即产生死锁：<br>dispatch_sync(queue1, ^<br>   dispatch_sync(queue1, ^<br>　　　　……<br>　　});<br>　　……<br>　});<br>不妨思考下，为什么下面代码也肯定死锁：<br>dispatch_sync(dispatch_get_main_queue(), ^<br>　　……<br>});<br>原因：1主线程通过dispatch_sync把block交给主队列后，会等待block里的任务结束再往下走自身的任务，<br>　　2.而队列是先进先出的，block里的任务也在等待主队列当中排在它之前的任务都执行完了再走自己。<br>　　这种循环等待就形成了死锁。所以在主线程当中使用dispatch<em>sync将任务加到主队列是不可取的。</em><br>那实际运用中，一般可以用dispatch这样来写，常见的网络请求数据多线程执行模型：<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^<br>　　//子线程中开始网络请求数据<br>　　//更新数据模型<br>　　dispatch_sync(dispatch_get_main_queue(), ^<br>　　　　//在主线程中更新UI代码<br>　　});<br>});<br>程序的后台运行和UI更新代码紧凑，代码逻辑一目了然。</li>
+<li>dispatch_queue_t queue = dispatch_get_main_queue(); //获得主线程的dispatch队列，实际是一个串行队列。同样无法控制主线程dispatch队列的执行继续或中断。<br>接下来我们可以使用dispatch_async或dispatch_sync函数来加载需要运行的block。<br>dispatch_async(queue, ^<br>　　//block具体代码<br>}); //异步执行block，函数立即返回<br>dispatch_sync(queue, ^<br>　　//block具体代码<br>}); //同步执行block，函数不返回，一直等到block执行完毕。编译器会根据实际情况优化代码，所以有时候你会发现block其实还在当前线程上执行，并没用产生新线程。<br>实际编程经验告诉我们，尽可能避免使用dispatch_sync，嵌套使用时还容易引起程序死锁。<br>如果queue1是一个串行队列的话，这段代码立即产生死锁：<br>dispatch_sync(queue1, ^<br>   dispatch_sync(queue1, ^<br>　　　　……<br>　　});<br>　　……<br>　});<br>不妨思考下，为什么下面代码也肯定死锁：<br>dispatch_sync(dispatch_get_main_queue(), ^<br>　　……<br>});<br>原因：1主线程通过dispatch_sync把block交给主队列后，会等待block里的任务结束再往下走自身的任务，<br>　　2.而队列是先进先出的，block里的任务也在等待主队列当中排在它之前的任务都执行完了再走自己。<br>　　这种循环等待就形成了死锁。所以在主线程当中使用dispatch_sync将任务加到主队列是不可取的。_<br>那实际运用中，一般可以用dispatch这样来写，常见的网络请求数据多线程执行模型：<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^<br>　　//子线程中开始网络请求数据<br>　　//更新数据模型<br>　　dispatch_sync(dispatch_get_main_queue(), ^<br>　　　　//在主线程中更新UI代码<br>　　});<br>});<br>程序的后台运行和UI更新代码紧凑，代码逻辑一目了然。</li>
 </ol>
 <p>dispatch队列是线程安全的，可以利用串行队列实现锁的功能。比如多线程写同一数据库，需要保持写入的顺序和每次写入的完整性，简单地利用串行队列即可实现：<br>dispatch_queue_t queue1 = dispatch_queue_create(“com.dispatch.writedb”, DISPATCH_QUEUE_SERIAL);</p>
 <ul>
@@ -111,10 +111,14 @@ dispatch_async(dispatch_get_main_queue(), ^
     
     <summary type="html">
     
-      &lt;h3 id=&quot;GCD-Dispatch&quot;&gt;&lt;a href=&quot;#GCD-Dispatch&quot; class=&quot;headerlink&quot; title=&quot;GCD Dispatch&quot;&gt;&lt;/a&gt;GCD Dispatch&lt;/h3&gt;&lt;h4 id=&quot;设计：&quot;&gt;&lt;a href=&quot;#设计：&quot; class
+      &lt;h4 id=&quot;设计：&quot;&gt;&lt;a href=&quot;#设计：&quot; class=&quot;headerlink&quot; title=&quot;设计：&quot;&gt;&lt;/a&gt;设计：&lt;/h4&gt;&lt;p&gt;GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。&lt;br&gt;一个任务可以是一
     
     </summary>
     
+      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+    
+    
+      <category term="iOS" scheme="http://www.jeyblogs.com/tags/iOS/"/>
     
   </entry>
   
