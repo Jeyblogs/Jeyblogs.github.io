@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="xcode," />
+  <meta name="keywords" content="iOS编码规范," />
 
 
 
@@ -86,16 +86,40 @@
 
 
 
-<meta name="description" content="隐藏xcode command+h退出xcode command+q关闭窗口 command+w关闭所有窗口 command+option+w关闭当前项目 command+control+w关闭当前文件 command+shift+w保存文件 command+s保存所有文件 command+option+s还原到保存时状态 command+u项目中查找 command+shift+F查找下一个 c">
+<meta name="description" content="任意函数长度不得超过50行。
+
+每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后就会在代码80个字符处有一条竖线。
+
+方法的“+”，“-”与括号之间留空格
+
+在方法和方法之间留空一行。
+
+功能相近的方法要放在一起，并推荐使用#pragma mark -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode常用快捷键，网上找的总结一下，特别是格式化代码">
-<meta property="og:url" content="http://www.jeyblogs.com/2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/index.html">
+<meta property="og:title" content="Object-C——iOS开发编码规范">
+<meta property="og:url" content="http://www.jeyblogs.com/2013/10/18/Object-C——iOS开发编码规范/index.html">
 <meta property="og:site_name" content="Jey">
-<meta property="og:description" content="隐藏xcode command+h退出xcode command+q关闭窗口 command+w关闭所有窗口 command+option+w关闭当前项目 command+control+w关闭当前文件 command+shift+w保存文件 command+s保存所有文件 command+option+s还原到保存时状态 command+u项目中查找 command+shift+F查找下一个 c">
-<meta property="og:updated_time" content="2016-08-15T07:32:48.000Z">
+<meta property="og:description" content="任意函数长度不得超过50行。
+
+每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后就会在代码80个字符处有一条竖线。
+
+方法的“+”，“-”与括号之间留空格
+
+在方法和方法之间留空一行。
+
+功能相近的方法要放在一起，并推荐使用#pragma mark -">
+<meta property="og:updated_time" content="2016-08-17T03:43:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode常用快捷键，网上找的总结一下，特别是格式化代码">
-<meta name="twitter:description" content="隐藏xcode command+h退出xcode command+q关闭窗口 command+w关闭所有窗口 command+option+w关闭当前项目 command+control+w关闭当前文件 command+shift+w保存文件 command+s保存所有文件 command+option+s还原到保存时状态 command+u项目中查找 command+shift+F查找下一个 c">
+<meta name="twitter:title" content="Object-C——iOS开发编码规范">
+<meta name="twitter:description" content="任意函数长度不得超过50行。
+
+每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后就会在代码80个字符处有一条竖线。
+
+方法的“+”，“-”与括号之间留空格
+
+在方法和方法之间留空一行。
+
+功能相近的方法要放在一起，并推荐使用#pragma mark -">
 
 
 
@@ -113,7 +137,7 @@
   };
 </script>
 
-  <title> Xcode常用快捷键，网上找的总结一下，特别是格式化代码 | Jey </title>
+  <title> Object-C——iOS开发编码规范 | Jey </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +295,7 @@
             
             
               
-                Xcode常用快捷键，网上找的总结一下，特别是格式化代码
+                Object-C——iOS开发编码规范
               
             
           </h1>
@@ -283,8 +307,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-08-12T16:06:36+08:00" content="2013-08-12">
-              2013-08-12
+            <time itemprop="dateCreated" datetime="2013-10-18T11:41:32+08:00" content="2013-10-18">
+              2013-10-18
             </time>
           </span>
 
@@ -297,8 +321,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/xcode/" itemprop="url" rel="index">
-                    <span itemprop="name">xcode</span>
+                  <a href="/categories/Developer/" itemprop="url" rel="index">
+                    <span itemprop="name">Developer</span>
                   </a>
                 </span>
 
@@ -313,8 +337,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/" itemprop="commentsCount"></span>
+                <a href="/2013/10/18/Object-C——iOS开发编码规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/10/18/Object-C——iOS开发编码规范/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,8 +361,91 @@
       
 
       
-        <p>隐藏xcode command+h<br>退出xcode command+q<br>关闭窗口 command+w<br>关闭所有窗口 command+option+w<br>关闭当前项目 command+control+w<br>关闭当前文件 command+shift+w<br>保存文件 command+s<br>保存所有文件 command+option+s<br>还原到保存时状态 command+u<br>项目中查找 command+shift+F<br>查找下一个 command+g<br>查找上一个 command+shift+g<br>浏览源文件 command+Double Click<br>打开头文件 command+shift+d<br>切换头/源文件 command+option+上箭头</p>
-<p>撤销 command+z<br>重复 command+shift+z<br>剪切 command+x<br>复制 command+c<br>粘贴 command+v<br>粘贴并匹配格式 command+option+shift+v<br>全选 command+a<br>注释 command+/<br>文件首行 command+上箭头<br>文件末 command+下箭头<br>行首 command+左箭头<br>行末 command+右箭头<br>上一单词 option+左箭头<br>下一单词 option+右箭头<br>上一拆分单词 control+左箭头<br>下一拆分单词 control+右箭头<br>Tab ：接受代码提示<br>Esc ：显示代码提示菜单<br>下个Build警告或错误 command+=<br>前个Build警告或错误 command+shift+=<br>以调试方式运行程序 command+y<br>继续（在调试中）command+option+p<br>编译运行 command+r</p>
+        <ol>
+<li><p>任意函数长度不得超过50行。</p>
+</li>
+<li><p>每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后就会在代码80个字符处有一条竖线。</p>
+</li>
+<li><p>方法的“+”，“-”与括号之间留空格</p>
+</li>
+<li><p>在方法和方法之间留空一行。</p>
+</li>
+<li><p>功能相近的方法要放在一起，并推荐使用#pragma mark - <strong> </strong>来标注，在代码导航栏可以快速查找</p>
+</li>
+<li><p>二元运算符和参数之间要有一个空格，如赋值号 = 左右各留一个空格。<br>self.myString = @”235423rew523452345”;</p>
+</li>
+<li><p>一元运算符和参数之间不放置空格，比如！非运算符，&amp;按位与，|按位或。<br>BOOL isOpen = true;<br>BOOL isClose = !isOpen;</p>
+</li>
+<li><p>强制类型转换和参数之间不放置空格。<br>NSString <em>str3 = (NSString</em>)self.myString;</p>
+</li>
+<li><p>长的变量值应该拆分为多行。尤其体现在使用数组或者字典。以下也分别是快速声明数组@[]和字典@{}的方法。<br>NSArray *array = @[@”111”,</p>
+<pre><code>@&quot;2222222222&quot;,
+@&quot;3333333&quot;,
+@&quot;wwwwwwwwwwww&quot;
+];
+</code></pre><p>NSDictionary *dict = @{@”name”:@”jack”,</p>
+<pre><code>@&quot;age&quot;:@&quot;20&quot;,
+@&quot;gender&quot;:@&quot;female&quot;,
+@&quot;isMarried&quot;:@&quot;false&quot;
+};
+</code></pre></li>
+<li><p>使用有意义的名字命名，拒绝使用i,j等无意义字符命名。类的命名首字母大写，其他变量的命名首字符小写，并使用驼峰式分割单词。</p>
+</li>
+<li><p>尽量减少在代码中直接使用数字常量，而使用宏定义等方式。如：MAX_NUMBER_PHONE替代8等等。</p>
+</li>
+<li><p>尽量减少代码中的重复计算，比如代码中多处要使用屏幕宽度，然后计算：[[UIScreenmainScreen] bounds].size.width ,很多次，闲得很繁琐，代码也冗长。不如直接宏定义：<br>#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)<br>宏定义全部字母大写</p>
+</li>
+<li><p>合理使用约定俗成的缩略词：</p>
+<pre><code>alloc:分配；
+alt：轮流，交替；
+app:应用程序；
+calc：计算；
+dealloc：销毁、析构；
+func：函数、方法；
+horiz：水平的；
+info：信息；
+init：初始化；
+max：最大的；
+min：最小的；
+msg：消息；
+nib：Interface Builder；
+rect：矩形；
+temp：暂时的；
+vert：垂直的；
+</code></pre></li>
+<li><p>合理范围内使用链式编程:<br>NSString *myName = [[NSString alloc] init];<br>但是嵌套不宜超过3层，超过3层需进行重构。</p>
+</li>
+<li><p>函数调用时所有参数在同一行。如果参数过多，则可以每行一个参数，每个参数以冒号对齐。</p>
+</li>
+<li><p>对传入参数的保护或者说是否为空的判断，尽量不要使用if(!obj),而使用NSAssert断言来处理。NSAssert是系统定义的宏。<br>NSAssert(myName != nil, @”myName参数为空”);</p>
+<pre><code>如果条件判断为真，则程序继续执行；
+如果判断条件为假，则抛出异常，异常内容为后面定义的字符串；
+</code></pre></li>
+<li><p>if-else超过四层的时候，就要考虑重构，多层的if-else结构很难维护。</p>
+</li>
+<li><p>当需要一定条件才执行某项操作时，最左边的应该是最重要的代码，不要将最重要的代码内嵌到if中。<br>如良好的风格是：</p>
+</li>
+</ol>
+<ul>
+<li>(void) someMethod {if(![someOther boolValue]) {   return;<br>}//最重要的代码写在这里；}<br>  反面教材:</li>
+<li>(void) someMethod {if([someOther boolValue]) {<br>  //重要代码；<br>}<br>}</li>
+</ul>
+<ol>
+<li><p>所有的逻辑块都使用{}花括号包围，就算只是一行代码。</p>
+</li>
+<li><p>明确指定构造函数，并且加上注释的注释，加上注释，加上注释！</p>
+</li>
+<li><p>UIView的子类初始化的时候，不要进行任何的布局操作。布局操作应该在layoutSubviews里面做；需要重新布局的时候调用setNeedsLayout，而不要直接调用layoutSubviews。</p>
+</li>
+<li><p>保持公共API简单，也就是保持.h文件简单。放在.h中声明的函数都是会被公开的，如果根本就没必要对其他类公开，再不要在.h中声明。OC中的方法都是公有方法，没有私有方法一说。</p>
+</li>
+<li><p>一个文件只实现一个类。同一个文件中不要有多个类。</p>
+</li>
+<li><p>Protocol单独用一个文件来创建，尽量不要与相关类混在一个文件中。</p>
+</li>
+<li><p>布局时尽量使用相对布局，比如使用子View在父View中的相对位置。</p>
+</li>
+</ol>
 
       
     </div>
@@ -381,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/xcode/" rel="tag">#xcode</a>
+            <a href="/tags/iOS编码规范/" rel="tag">#iOS编码规范</a>
           
         </div>
       
@@ -390,12 +497,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2013/09/11/超全面！常用的 iOS 第三方资源/" rel="next" title="超全面！常用的 iOS 第三方资源">
+                <i class="fa fa-chevron-left"></i> 超全面！常用的 iOS 第三方资源
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2013/09/11/超全面！常用的 iOS 第三方资源/" rel="prev" title="超全面！常用的 iOS 第三方资源">
-                超全面！常用的 iOS 第三方资源 <i class="fa fa-chevron-right"></i>
+              <a href="/2013/10/23/iOS常用宏定义/" rel="prev" title=" iOS常用宏定义">
+                 iOS常用宏定义 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -411,10 +522,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/"
-     data-title="Xcode常用快捷键，网上找的总结一下，特别是格式化代码"
+        <div class="ds-share flat" data-thread-key="2013/10/18/Object-C——iOS开发编码规范/"
+     data-title="Object-C——iOS开发编码规范"
      data-content=""
-     data-url="http://www.jeyblogs.com/2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/">
+     data-url="http://www.jeyblogs.com/2013/10/18/Object-C——iOS开发编码规范/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -441,8 +552,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/"
-           data-title="Xcode常用快捷键，网上找的总结一下，特别是格式化代码" data-url="http://www.jeyblogs.com/2013/08/12/Xcode常用快捷键，网上找的总结一下，特别是格式化代码/">
+      <div class="ds-thread" data-thread-key="2013/10/18/Object-C——iOS开发编码规范/"
+           data-title="Object-C——iOS开发编码规范" data-url="http://www.jeyblogs.com/2013/10/18/Object-C——iOS开发编码规范/">
       </div>
     
   </div>

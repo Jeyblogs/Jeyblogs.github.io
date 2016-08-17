@@ -300,6 +300,116 @@
   </entry>
   
   <entry>
+    <title>Object-C——iOS开发编码规范</title>
+    <link href="http://www.jeyblogs.com/2013/10/18/Object-C%E2%80%94%E2%80%94iOS%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    <id>http://www.jeyblogs.com/2013/10/18/Object-C——iOS开发编码规范/</id>
+    <published>2013-10-18T03:41:32.000Z</published>
+    <updated>2016-08-17T03:43:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li><p>任意函数长度不得超过50行。</p>
+</li>
+<li><p>每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后就会在代码80个字符处有一条竖线。</p>
+</li>
+<li><p>方法的“+”，“-”与括号之间留空格</p>
+</li>
+<li><p>在方法和方法之间留空一行。</p>
+</li>
+<li><p>功能相近的方法要放在一起，并推荐使用#pragma mark - <strong> </strong>来标注，在代码导航栏可以快速查找</p>
+</li>
+<li><p>二元运算符和参数之间要有一个空格，如赋值号 = 左右各留一个空格。<br>self.myString = @”235423rew523452345”;</p>
+</li>
+<li><p>一元运算符和参数之间不放置空格，比如！非运算符，&amp;按位与，|按位或。<br>BOOL isOpen = true;<br>BOOL isClose = !isOpen;</p>
+</li>
+<li><p>强制类型转换和参数之间不放置空格。<br>NSString <em>str3 = (NSString</em>)self.myString;</p>
+</li>
+<li><p>长的变量值应该拆分为多行。尤其体现在使用数组或者字典。以下也分别是快速声明数组@[]和字典@{}的方法。<br>NSArray *array = @[@”111”,</p>
+<pre><code>@&quot;2222222222&quot;,
+@&quot;3333333&quot;,
+@&quot;wwwwwwwwwwww&quot;
+];
+</code></pre><p>NSDictionary *dict = @{@”name”:@”jack”,</p>
+<pre><code>@&quot;age&quot;:@&quot;20&quot;,
+@&quot;gender&quot;:@&quot;female&quot;,
+@&quot;isMarried&quot;:@&quot;false&quot;
+};
+</code></pre></li>
+<li><p>使用有意义的名字命名，拒绝使用i,j等无意义字符命名。类的命名首字母大写，其他变量的命名首字符小写，并使用驼峰式分割单词。</p>
+</li>
+<li><p>尽量减少在代码中直接使用数字常量，而使用宏定义等方式。如：MAX_NUMBER_PHONE替代8等等。</p>
+</li>
+<li><p>尽量减少代码中的重复计算，比如代码中多处要使用屏幕宽度，然后计算：[[UIScreenmainScreen] bounds].size.width ,很多次，闲得很繁琐，代码也冗长。不如直接宏定义：<br>#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)<br>宏定义全部字母大写</p>
+</li>
+<li><p>合理使用约定俗成的缩略词：</p>
+<pre><code>alloc:分配；
+alt：轮流，交替；
+app:应用程序；
+calc：计算；
+dealloc：销毁、析构；
+func：函数、方法；
+horiz：水平的；
+info：信息；
+init：初始化；
+max：最大的；
+min：最小的；
+msg：消息；
+nib：Interface Builder；
+rect：矩形；
+temp：暂时的；
+vert：垂直的；
+</code></pre></li>
+<li><p>合理范围内使用链式编程:<br>NSString *myName = [[NSString alloc] init];<br>但是嵌套不宜超过3层，超过3层需进行重构。</p>
+</li>
+<li><p>函数调用时所有参数在同一行。如果参数过多，则可以每行一个参数，每个参数以冒号对齐。</p>
+</li>
+<li><p>对传入参数的保护或者说是否为空的判断，尽量不要使用if(!obj),而使用NSAssert断言来处理。NSAssert是系统定义的宏。<br>NSAssert(myName != nil, @”myName参数为空”);</p>
+<pre><code>如果条件判断为真，则程序继续执行；
+如果判断条件为假，则抛出异常，异常内容为后面定义的字符串；
+</code></pre></li>
+<li><p>if-else超过四层的时候，就要考虑重构，多层的if-else结构很难维护。</p>
+</li>
+<li><p>当需要一定条件才执行某项操作时，最左边的应该是最重要的代码，不要将最重要的代码内嵌到if中。<br>如良好的风格是：</p>
+</li>
+</ol>
+<ul>
+<li>(void) someMethod {if(![someOther boolValue]) {   return;<br>}//最重要的代码写在这里；}<br>  反面教材:</li>
+<li>(void) someMethod {if([someOther boolValue]) {<br>  //重要代码；<br>}<br>}</li>
+</ul>
+<ol>
+<li><p>所有的逻辑块都使用{}花括号包围，就算只是一行代码。</p>
+</li>
+<li><p>明确指定构造函数，并且加上注释的注释，加上注释，加上注释！</p>
+</li>
+<li><p>UIView的子类初始化的时候，不要进行任何的布局操作。布局操作应该在layoutSubviews里面做；需要重新布局的时候调用setNeedsLayout，而不要直接调用layoutSubviews。</p>
+</li>
+<li><p>保持公共API简单，也就是保持.h文件简单。放在.h中声明的函数都是会被公开的，如果根本就没必要对其他类公开，再不要在.h中声明。OC中的方法都是公有方法，没有私有方法一说。</p>
+</li>
+<li><p>一个文件只实现一个类。同一个文件中不要有多个类。</p>
+</li>
+<li><p>Protocol单独用一个文件来创建，尽量不要与相关类混在一个文件中。</p>
+</li>
+<li><p>布局时尽量使用相对布局，比如使用子View在父View中的相对位置。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;任意函数长度不得超过50行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后
+    
+    </summary>
+    
+      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+    
+    
+      <category term="iOS编码规范" scheme="http://www.jeyblogs.com/tags/iOS%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>超全面！常用的 iOS 第三方资源</title>
     <link href="http://www.jeyblogs.com/2013/09/11/%E8%B6%85%E5%85%A8%E9%9D%A2%EF%BC%81%E5%B8%B8%E7%94%A8%E7%9A%84%20iOS%20%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
     <id>http://www.jeyblogs.com/2013/09/11/超全面！常用的 iOS 第三方资源/</id>
