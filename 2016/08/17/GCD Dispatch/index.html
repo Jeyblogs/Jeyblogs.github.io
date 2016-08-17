@@ -1,0 +1,773 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT, jeyblogs, iOS" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jey" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="GCD Dispatch设计：GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行dispatch queue分为下面三">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jey">
+<meta property="og:url" content="http://www.jeyblogs.com/2016/08/17/GCD Dispatch/index.html">
+<meta property="og:site_name" content="Jey">
+<meta property="og:description" content="GCD Dispatch设计：GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行dispatch queue分为下面三">
+<meta property="og:updated_time" content="2016-08-17T09:38:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jey">
+<meta name="twitter:description" content="GCD Dispatch设计：GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行dispatch queue分为下面三">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Jey'
+    }
+  };
+</script>
+
+  <title>  | Jey </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ebd5b380279df550acd042285e42423b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jey</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Keep Calm and Carry On</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-17T17:38:28+08:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/17/GCD Dispatch/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/GCD Dispatch/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="GCD-Dispatch"><a href="#GCD-Dispatch" class="headerlink" title="GCD Dispatch"></a>GCD Dispatch</h3><h4 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h4><p>GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。<br>一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。<br>GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行<br>dispatch queue分为下面三种：</p>
+<h4 id="Serial"><a href="#Serial" class="headerlink" title="Serial"></a>Serial</h4><p>又称为private dispatch queues，同时只执行一个任务。Serial queue通常用于同步访问特定的资源或数据。当你创建多个Serial queue时，虽然它们各自是同步执行的，但Serial queue与Serial queue之间是并发执行的。</p>
+<h4 id="Concurrent"><a href="#Concurrent" class="headerlink" title="Concurrent"></a>Concurrent</h4><p>又称为global dispatch queue，可以并发地执行多个任务，但是执行完成的顺序是随机的。</p>
+<h4 id="Main-dispatch-queue"><a href="#Main-dispatch-queue" class="headerlink" title="Main dispatch queue"></a>Main dispatch queue</h4><p>它是全局可用的serial queue，它是在应用程序主线程上执行任务的。</p>
+<p>1、dispatch_group_async的使用<br>dispatch_group_async可以实现监听一组任务是否完成，完成后得到通知执行其他的操作。这个方法很有用，比如你执行三个下载任务，当三个任务都下载完成后你才通知界面说完成的了。下面是一段例子代码：</p>
+<p>1    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br>2    dispatch_group_t group = dispatch_group_create();<br>3    dispatch_group_async(group, queue, ^<br>4        <a href="#">NSThread sleepForTimeInterval:1</a>;<br>5        NSLog(@”group1”);<br>6    });<br>7    dispatch_group_async(group, queue, ^<br>8        <a href="#">NSThread sleepForTimeInterval:2</a>;<br>9        NSLog(@”group2”);<br>10    });<br>11    dispatch_group_async(group, queue, ^<br>12        <a href="#">NSThread sleepForTimeInterval:3</a>;<br>13        NSLog(@”group3”);<br>14    });<br>15    dispatch_group_notify(group, dispatch_get_main_queue(), ^<br>16        NSLog(@”updateUi”);<br>17    });<br>18    dispatch_release(group);<br>dispatch_group_async是异步的方法，运行后可以看到打印结果：</p>
+<p>2012-09-25 16:04:16.737 gcdTest<a href="#">43328:11303</a> group1<br>2012-09-25 16:04:17.738 gcdTest<a href="#">43328:12a1b</a> group2<br>2012-09-25 16:04:18.738 gcdTest<a href="#">43328:13003</a> group3<br>2012-09-25 16:04:18.739 gcdTest<a href="#">43328:f803</a> updateUi<br>每个一秒打印一个，当第三个任务执行后，upadteUi被打印。</p>
+<p>2、dispatch_barrier_async的使用<br>dispatch_barrier_async是在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行<br>例子代码如下：</p>
+<p>1    dispatch_queue_t queue = dispatch_queue_create(“gcdtest.rongfzh.yc”, DISPATCH_QUEUE_CONCURRENT);<br>2    dispatch_async(queue, ^<br>3        <a href="#">NSThread sleepForTimeInterval:2</a>;<br>4        NSLog(@”dispatch_async1”);<br>5    });<br>6    dispatch_async(queue, ^<br>7        <a href="#">NSThread sleepForTimeInterval:4</a>;<br>8        NSLog(@”dispatch_async2”);<br>9    });<br>10    dispatch_barrier_async(queue, ^<br>11        NSLog(@”dispatch_barrier_async”);<br>12        <a href="#">NSThread sleepForTimeInterval:4</a>;<br>13<br>14    });<br>15    dispatch_async(queue, ^<br>16        <a href="#">NSThread sleepForTimeInterval:1</a>;<br>17        NSLog(@”dispatch_async3”);<br>18    });  </p>
+<p>打印结果：</p>
+<p>2012-09-25 16:20:33.967 gcdTest<a href="#">45547:11203</a> dispatch_async1<br>2012-09-25 16:20:35.967 gcdTest<a href="#">45547:11303</a> dispatch_async2<br>2012-09-25 16:20:35.967 gcdTest<a href="#">45547:11303</a> dispatch_barrier_async<br>2012-09-25 16:20:40.970 gcdTest<a href="#">45547:11303</a> dispatch_async3<br>请注意执行的时间，可以看到执行的顺序如上所述。<br>3、dispatch_apply<br>执行某个代码片段N次。<br>dispatch_apply(5, globalQ, ^(size_t index)<br>    // 执行5次<br>});</p>
+<h5 id="这段代码逐步演示了如何修正错误，其中用到的既是串行队列"><a href="#这段代码逐步演示了如何修正错误，其中用到的既是串行队列" class="headerlink" title="这段代码逐步演示了如何修正错误，其中用到的既是串行队列"></a>这段代码逐步演示了如何修正错误，其中用到的既是串行队列</h5><p>1。这个是原始代码<br>view plain</p>
+<ul>
+<li>(void)viewWillAppear:(BOOL)animated  </li>
+</ul>
+<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL](#);  
+UIImage *image = [UIImage imageWithData:imageData](#);  
+self.imageView.image = image;  
+self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
+self.scrollView.contentSize = image.size;  
+</code></pre><p>}  </p>
+<p>2。这个是采用gcdd的代码，里面有错误3处<br>view plain</p>
+<ul>
+<li><p>(void)viewWillAppear:(BOOL)animated  </p>
+<p>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
+<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL](#);  
+UIImage *image = [UIImage imageWithData:imageData](#);  
+self.imageView.image = image;  
+self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
+self.scrollView.contentSize = image.size;  
+</code></pre><p>  });<br>}  </p>
+</li>
+</ul>
+<p>3。第一个错误，UI更新只能在主线程中 Problem! UIKit calls can only happen in the main thread!<br>改正后如下：<br>view plain</p>
+<ul>
+<li><p>(void)viewWillAppear:(BOOL)animated  </p>
+<p>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
+<pre><code> NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:photo.URL](#);  
+dispatch_async(dispatch_get_main_queue(), ^
+     UIImage *image = [UIImage imageWithData:imageData](#);  
+     self.imageView.image = image;  
+     self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
+     self.scrollView.contentSize = image.size;  
+ });  
+</code></pre><p>}); }  </p>
+</li>
+</ul>
+<p>4。第二个错误，NSManagedObjectContext并不是线程安全的，gcd中访问成员变量有危险<br>Problem! NSManagedObjectContext is not thread safe,<br>so we can’t call photo.URL in downloadQueue’s t<br>改正后如下：<br>view plain</p>
+<ul>
+<li><p>(void)viewWillAppear:(BOOL)animated  </p>
+<p>NSString *url = photo.URL;<br>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
+<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:url](#); 
+dispatch_async(dispatch_get_main_queue(), ^  
+    UIImage *image = [UIImage imageWithData:imageData](#);  
+    self.imageView.image = image;  
+    self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
+    self.scrollView.contentSize = image.size;  
+</code></pre><p>});<br>});<br>}<br>5。第三个错误，队列创建后没有释放，内存泄露<br>view plain</p>
+</li>
+<li><p>(void)viewWillAppear:(BOOL)animated  </p>
+<p>  NSString *url = photo.URL;<br>  dispatch_queue_t downloadQueue = dispatch_queue_create(“Flickr downloader”, NULL);<br>  dispatch_async(downloadQueue, ^  </p>
+<pre><code>NSData *imageData = [FlickrFetcher imageDataForPhotoWithURLString:url](#);  
+dispatch_async(dispatch_get_main_queue(), ^  
+    UIImage *image = [UIImage imageWithData:imageData](#);  
+    self.imageView.image = image;  
+    self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);  
+    self.scrollView.contentSize = image.size;  
+</code></pre><p>});<br>});  </p>
+</li>
+</ul>
+<p>dispatch_release(downloadQueue);<br> //won’t actually go away until queue is empty</p>
+<p>}</p>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><p>dispatch队列的生成可以有这几种方式：</p>
+<ol>
+<li>dispatch_queue_t queue = dispatch_queue_create(“com.dispatch.serial”, DISPATCH_QUEUE_SERIAL); //生成一个串行队列，队列中的block按照先进先出（FIFO）的顺序去执行，实际上为单线程执行。第一个参数是队列的名称，在调试程序时会非常有用，所有尽量不要重名了。</li>
+<li>dispatch_queue_t queue = dispatch_queue_create(“com.dispatch.concurrent”, DISPATCH_QUEUE_CONCURRENT); //生成一个并发执行队列，block被分发到多个线程去执行</li>
+<li>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); //获得程序进程缺省产生的并发队列，可设定优先级来选择高、中、低三个优先级队列。由于是系统默认生成的，所以无法调用dispatch_resume()和dispatch_suspend()来控制执行继续或中断。需要注意的是，三个队列不代表三个线程，可能会有更多的线程。并发队列可以根据实际情况来自动产生合理的线程数，也可理解为dispatch队列实现了一个线程池的管理，对于程序逻辑是透明的。<br>官网文档解释说共有三个并发队列，但实际还有一个更低优先级的队列，设置优先级为DISPATCH_QUEUE_PRIORITY_BACKGROUND。Xcode调试时可以观察到正在使用的各个dispatch队列。</li>
+<li>dispatch_queue_t queue = dispatch_get_main_queue(); //获得主线程的dispatch队列，实际是一个串行队列。同样无法控制主线程dispatch队列的执行继续或中断。<br>接下来我们可以使用dispatch_async或dispatch_sync函数来加载需要运行的block。<br>dispatch_async(queue, ^<br>　　//block具体代码<br>}); //异步执行block，函数立即返回<br>dispatch_sync(queue, ^<br>　　//block具体代码<br>}); //同步执行block，函数不返回，一直等到block执行完毕。编译器会根据实际情况优化代码，所以有时候你会发现block其实还在当前线程上执行，并没用产生新线程。<br>实际编程经验告诉我们，尽可能避免使用dispatch_sync，嵌套使用时还容易引起程序死锁。<br>如果queue1是一个串行队列的话，这段代码立即产生死锁：<br>dispatch_sync(queue1, ^<br>   dispatch_sync(queue1, ^<br>　　　　……<br>　　});<br>　　……<br>　});<br>不妨思考下，为什么下面代码也肯定死锁：<br>dispatch_sync(dispatch_get_main_queue(), ^<br>　　……<br>});<br>原因：1主线程通过dispatch_sync把block交给主队列后，会等待block里的任务结束再往下走自身的任务，<br>　　2.而队列是先进先出的，block里的任务也在等待主队列当中排在它之前的任务都执行完了再走自己。<br>　　这种循环等待就形成了死锁。所以在主线程当中使用dispatch<em>sync将任务加到主队列是不可取的。</em><br>那实际运用中，一般可以用dispatch这样来写，常见的网络请求数据多线程执行模型：<br>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^<br>　　//子线程中开始网络请求数据<br>　　//更新数据模型<br>　　dispatch_sync(dispatch_get_main_queue(), ^<br>　　　　//在主线程中更新UI代码<br>　　});<br>});<br>程序的后台运行和UI更新代码紧凑，代码逻辑一目了然。</li>
+</ol>
+<p>dispatch队列是线程安全的，可以利用串行队列实现锁的功能。比如多线程写同一数据库，需要保持写入的顺序和每次写入的完整性，简单地利用串行队列即可实现：<br>dispatch_queue_t queue1 = dispatch_queue_create(“com.dispatch.writedb”, DISPATCH_QUEUE_SERIAL);</p>
+<ul>
+<li>(void)writeDB:(NSData *)data</li>
+</ul>
+<p>　　dispatch_async(queue1, ^<br>　　　　//write database<br>　　});<br>}<br>下一次调用writeDB:必须等到上次调用完成后才能进行，保证writeDB:方法是线程安全的。 </p>
+<p>dispatch队列还实现其它一些常用函数，包括：<br>void dispatch_apply(size_t iterations, dispatch_queue_t queue, void (^block)(size_t)); //重复执行block，需要注意的是这个方法是同步返回，也就是说等到所有block执行完毕才返回，如需异步返回则嵌套在dispatch_async中来使用。多个block的运行是否并发或串行执行也依赖queue的是否并发或串行。<br>void dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block); //这个函数可以设置同步执行的block，它会等到在它加入队列之前的block执行完毕后，才开始执行。在它之后加入队列的block，则等到这个block执行完毕后才开始执行。<br>void dispatch_barrier_sync(dispatch_queue_t queue, dispatch_block_t block); //同上，除了它是同步返回函数<br>void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block); //延迟执行block<br>最后再来看看dispatch队列的一个很有特色的函数：<br>void dispatch_set_target_queue(dispatch_object_t object, dispatch_queue_t queue);<br>它会把需要执行的任务对象指定到不同的队列中去处理，这个任务对象可以是dispatch队列，也可以是dispatch源（以后博文会介绍）。而且这个过程可以是动态的，可以实现队列的动态调度管理等等。比如说有两个队列dispatchA和dispatchB，这时把dispatchA指派到dispatchB：<br>dispatch_set_target_queue(dispatchA, dispatchB);<br>那么dispatchA上还未运行的block会在dispatchB上运行。这时如果暂停dispatchA运行：<br>dispatch_suspend(dispatchA);<br>则只会暂停dispatchA上原来的block的执行，dispatchB的block则不受影响。而如果暂停dispatchB的运行，则会暂停dispatchA的运行。<br>这里只简单举个例子，说明dispatch队列运行的灵活性，在实际应用中你会逐步发掘出它的潜力。<br>dispatch队列不支持cancel（取消），没有实现dispatch_cancel()函数，不像NSOperationQueue，不得不说这是个小小的缺憾。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？求鼓励，求支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/payWeChat.jpg" alt="Jey.yuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/Alipay.jpg" alt="Jey.yuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/06/12/使用Alcatraz来管理Xcode插件/" rel="next" title="使用Alcatraz来管理Xcode插件">
+                <i class="fa fa-chevron-left"></i> 使用Alcatraz来管理Xcode插件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/17/GCD Dispatch/"
+     data-title=""
+     data-content=""
+     data-url="http://www.jeyblogs.com/2016/08/17/GCD Dispatch/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/17/GCD Dispatch/"
+           data-title="" data-url="http://www.jeyblogs.com/2016/08/17/GCD Dispatch/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xsdar.com1.z0.glb.clouddn.com/headIcon.JPG"
+               alt="Jey.yuan" />
+          <p class="site-author-name" itemprop="name">Jey.yuan</p>
+          <p class="site-description motion-element" itemprop="description">Keep Calm and Carry On</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GCD-Dispatch"><span class="nav-number">1.</span> <span class="nav-text">GCD Dispatch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设计："><span class="nav-number">1.1.</span> <span class="nav-text">设计：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Serial"><span class="nav-number">1.2.</span> <span class="nav-text">Serial</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Concurrent"><span class="nav-number">1.3.</span> <span class="nav-text">Concurrent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-dispatch-queue"><span class="nav-number">1.4.</span> <span class="nav-text">Main dispatch queue</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#这段代码逐步演示了如何修正错误，其中用到的既是串行队列"><span class="nav-number">1.4.1.</span> <span class="nav-text">这段代码逐步演示了如何修正错误，其中用到的既是串行队列</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充："><span class="nav-number">1.5.</span> <span class="nav-text">补充：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jey.yuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jeyblogs"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
