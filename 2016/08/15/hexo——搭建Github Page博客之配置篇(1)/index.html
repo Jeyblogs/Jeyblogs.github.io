@@ -88,13 +88,13 @@
 
 <meta name="description" content="hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。Hexo环境配置先屡一下思路1.首先hexo是基于nodejs的，所以必须安装nodejs2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo——搭建Github Page博客之配置篇">
+<meta property="og:title" content="hexo——搭建Github Page博客之配置篇(1)">
 <meta property="og:url" content="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客之配置篇(1)/index.html">
 <meta property="og:site_name" content="Jey">
 <meta property="og:description" content="hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。Hexo环境配置先屡一下思路1.首先hexo是基于nodejs的，所以必须安装nodejs2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的">
-<meta property="og:updated_time" content="2016-08-17T15:25:56.000Z">
+<meta property="og:updated_time" content="2016-08-17T15:29:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo——搭建Github Page博客之配置篇">
+<meta name="twitter:title" content="hexo——搭建Github Page博客之配置篇(1)">
 <meta name="twitter:description" content="hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。Hexo环境配置先屡一下思路1.首先hexo是基于nodejs的，所以必须安装nodejs2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的">
 
 
@@ -113,7 +113,7 @@
   };
 </script>
 
-  <title> hexo——搭建Github Page博客之配置篇 | Jey </title>
+  <title> hexo——搭建Github Page博客之配置篇(1) | Jey </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +271,7 @@
             
             
               
-                hexo——搭建Github Page博客之配置篇
+                hexo——搭建Github Page博客之配置篇(1)
               
             
           </h1>
@@ -356,7 +356,7 @@ cp ~/nodejs/bin/node /usr/sbin/node
 </code></pre><h6 id="5-2-备份已有的key，（如果有的话）"><a href="#5-2-备份已有的key，（如果有的话）" class="headerlink" title="5.2 备份已有的key，（如果有的话）"></a>5.2 备份已有的key，（如果有的话）</h6><pre><code>mkdir key_backup
 mv id_rsa* key_backup
 </code></pre><h6 id="5-3-生成SSH-key"><a href="#5-3-生成SSH-key" class="headerlink" title="5.3 生成SSH key"></a>5.3 生成SSH key</h6><pre><code>ssh-keygen -t rsa -C &quot;xxx@xxx.com”
-</code></pre><h6 id="5-4-将SSH-key添加到Github"><a href="#5-4-将SSH-key添加到Github" class="headerlink" title="5.4 将SSH key添加到Github"></a>5.4 将SSH key添加到Github</h6><p>登录到GitHub页面，Account Settings->SSH Public Keys->Add another key将生成的key(id_rsa.pub文件）内容copy到输入框中，save。_</p>
+</code></pre><h6 id="5-4-将SSH-key添加到Github"><a href="#5-4-将SSH-key添加到Github" class="headerlink" title="5.4 将SSH key添加到Github"></a>5.4 将SSH key添加到Github</h6><p>登录到GitHub页面，Account Settings->deploy Keys->Add another key将生成的key(id_rsa.pub文件）内容copy到输入框中，save。_</p>
 <h6 id="5-5-测试连接"><a href="#5-5-测试连接" class="headerlink" title="5.5 测试连接"></a>5.5 测试连接</h6><pre><code>ssh git@github.com
 </code></pre><h6 id="5-6-设置个人信息"><a href="#5-6-设置个人信息" class="headerlink" title="5.6 设置个人信息"></a>5.6 设置个人信息</h6><pre><code>git config --global user.name &quot;xxx”
 git config --global user.email xxx@xxx.com
@@ -433,7 +433,7 @@ git config --global user.email xxx@xxx.com
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/08/15/hexo——搭建Github Page博客之配置篇(1)/"
-     data-title="hexo——搭建Github Page博客之配置篇"
+     data-title="hexo——搭建Github Page博客之配置篇(1)"
      data-content=""
      data-url="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客之配置篇(1)/">
   <div class="ds-share-inline">
@@ -463,7 +463,7 @@ git config --global user.email xxx@xxx.com
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/08/15/hexo——搭建Github Page博客之配置篇(1)/"
-           data-title="hexo——搭建Github Page博客之配置篇" data-url="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客之配置篇(1)/">
+           data-title="hexo——搭建Github Page博客之配置篇(1)" data-url="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客之配置篇(1)/">
       </div>
     
   </div>
