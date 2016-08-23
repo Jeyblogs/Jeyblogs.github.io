@@ -61,6 +61,38 @@ git config --global user.email xxx@xxx.com
   </entry>
   
   <entry>
+    <title>CocoaPods安装和使用</title>
+    <link href="http://www.jeyblogs.com/2015/10/23/CocoaPods%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.jeyblogs.com/2015/10/23/CocoaPods安装和使用/</id>
+    <published>2015-10-23T06:57:35.000Z</published>
+    <updated>2016-08-23T07:02:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>CocoaPods是iOS最常用的第三方类库管理工具，绝大部分有名的开源类库都支持CocoaPods。</p>
+<h5 id="CocoaPods安装"><a href="#CocoaPods安装" class="headerlink" title="CocoaPods安装"></a>CocoaPods安装</h5><p>步骤参考：<a href="http://www.cnblogs.com/wayne23/p/3912882.html" target="_blank" rel="external">http://www.cnblogs.com/wayne23/p/3912882.html</a></p>
+<h5 id="CocoaPods使用"><a href="#CocoaPods使用" class="headerlink" title="CocoaPods使用"></a>CocoaPods使用</h5><ol>
+<li>安装完成后cd 项目路径 </li>
+<li>pod init生成podfile文件，在项目路径下</li>
+<li>编辑pod init</li>
+<li>寻找第三方类库的方法，pod search 类库名字，然后复制到podfile</li>
+<li>最后在项目目录下pod update</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CocoaPods是iOS最常用的第三方类库管理工具，绝大部分有名的开源类库都支持CocoaPods。&lt;/p&gt;
+&lt;h5 id=&quot;CocoaPods安装&quot;&gt;&lt;a href=&quot;#CocoaPods安装&quot; class=&quot;headerlink&quot; title=&quot;CocoaPods安装
+    
+    </summary>
+    
+      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+    
+    
+      <category term="CocoaPods" scheme="http://www.jeyblogs.com/tags/CocoaPods/"/>
+    
+  </entry>
+  
+  <entry>
     <title>GCD Dispatch</title>
     <link href="http://www.jeyblogs.com/2014/11/15/GCD%20Dispatch/"/>
     <id>http://www.jeyblogs.com/2014/11/15/GCD Dispatch/</id>
