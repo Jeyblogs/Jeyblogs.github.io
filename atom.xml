@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-08-17T15:37:19.000Z</updated>
+  <updated>2016-08-24T07:37:12.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jey的Github收藏</title>
+    <link href="http://www.jeyblogs.com/2016/08/24/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
+    <id>http://www.jeyblogs.com/2016/08/24/Jey的Github收藏/</id>
+    <published>2016-08-24T07:29:40.000Z</published>
+    <updated>2016-08-24T07:37:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li>ARAnimation(封装的动画库)</li>
+<li>自动布局Masonry：<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;ARAnimation(封装的动画库)&lt;/li&gt;
+&lt;li&gt;自动布局Masonry：&lt;a href=&quot;https://github.com/SnapKit/Masonry&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github
+    
+    </summary>
+    
+      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+    
+    
+      <category term="第三方资源" scheme="http://www.jeyblogs.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo——搭建Github Page博客之配置篇(1)</title>
