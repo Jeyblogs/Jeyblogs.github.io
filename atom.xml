@@ -97,7 +97,7 @@ git config --global user.email xxx@xxx.com
     <link href="http://www.jeyblogs.com/2015/03/20/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
     <id>http://www.jeyblogs.com/2015/03/20/Jey的Github收藏/</id>
     <published>2015-03-20T07:29:40.000Z</published>
-    <updated>2016-08-24T08:14:22.000Z</updated>
+    <updated>2016-08-24T10:10:58.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li>ARAnimation(封装的动画库):<a href="https://github.com/AugustRush/ARAnimation" target="_blank" rel="external">https://github.com/AugustRush/ARAnimation</a></li>
@@ -116,6 +116,49 @@ git config --global user.email xxx@xxx.com
 <li>WebViewJavascriptBridge: <a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="external">https://github.com/marcuswestin/WebViewJavascriptBridge</a><br>Obj-C和JavaScript通过UIWebViews/WebViews互通消息的一个iOS/OSX的桥梁</li>
 <li>XMLDictionary: <a href="https://github.com/nicklockwood/XMLDictionary" target="_blank" rel="external">https://github.com/nicklockwood/XMLDictionary</a><br>解析xml 将XML文件转换为NSDictionary</li>
 <li>AMWaveTransition:<a href="https://github.com/andreamazz/AMWaveTransition" target="_blank" rel="external">https://github.com/andreamazz/AMWaveTransition</a><br>实现了表格视图的自定义过渡效果。每一个单元格都实现了类似波形效果的动画切换</li>
+<li>ParallaxTableViewHeader：<a href="https://github.com/Vinodh-G/ParallaxTableViewHeader" target="_blank" rel="external">https://github.com/Vinodh-G/ParallaxTableViewHeader</a><br>当 tableView 滚动时的时候 UITableView 头部视图的视差滚动视图。</li>
+<li>PLPlayerKit：<a href="https://github.com/pili-engineering/PLPlayerKit" target="_blank" rel="external">https://github.com/pili-engineering/PLPlayerKit</a><br>是一个适用于 iOS 的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放，并且支持常见音视频文件例如 MP4/M4A 的播放。</li>
+<li>MJParallaxCollectionView：<a href="https://github.com/mayuur/MJParallaxCollectionView" target="_blank" rel="external">https://github.com/mayuur/MJParallaxCollectionView</a><br>TableView的cell视觉差效果</li>
+<li>YYKit：<a href="https://github.com/ibireme/YYKit" target="_blank" rel="external">https://github.com/ibireme/YYKit</a><br>是一组庞大、功能丰富的 iOS 组件。<br>•    YYModel — 高性能的 iOS JSON 模型框架。<br>•    YYCache — 高性能的 iOS 缓存框架。<br>•    YYImage — 功能强大的 iOS 图像框架。<br>•    YYWebImage — 高性能的 iOS 异步图像加载框架。<br>•    YYText — 功能强大的 iOS 富文本框架。<br>•    YYKeyboardManager — iOS 键盘监听管理工具。<br>•    YYDispatchQueuePool — iOS 全局并发队列管理工具。<br>•    YYAsyncLayer — iOS 异步绘制与显示的工具。<br>•    YYCategories — 功能丰富的 Category 类型工具库。</li>
+<li>FancyTabBar：<a href="https://github.com/marvelapp/FancyTabBar" target="_blank" rel="external">https://github.com/marvelapp/FancyTabBar</a><br>类似新浪微博那种弹出动画效果的TabBar</li>
+<li>SDAutoLayout：<a href="https://github.com/gsdios/SDAutoLayout" target="_blank" rel="external">https://github.com/gsdios/SDAutoLayout</a><br>一行代码搞定自动布局！支持Cell和Tableview高度自适应，Label和ScrollView内容自适应，致力于做最简单易用的AutoLayout库。</li>
+<li>SDCycleScrollView：<a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="external">https://github.com/gsdios/SDCycleScrollView</a><br>Autoscroll Banner. 无限循环图片、文字轮播器。</li>
+<li>ZipArchive：<a href="https://github.com/ZipArchive/ZipArchive" target="_blank" rel="external">https://github.com/ZipArchive/ZipArchive</a><br>解压Zip包，解压文件</li>
+<li>WZLBadge：<a href="https://github.com/weng1250/WZLBadge" target="_blank" rel="external">https://github.com/weng1250/WZLBadge</a><br>一行代码实现Badge效果，小红点</li>
+<li>AGEmojiKeyboard：<a href="https://github.com/ayushgoel/AGEmojiKeyboard" target="_blank" rel="external">https://github.com/ayushgoel/AGEmojiKeyboard</a><br>iOS 上一个实现了对 emoji 表情支持的键盘控件</li>
+<li>LBXScan：<a href="https://github.com/MxABC/LBXScan" target="_blank" rel="external">https://github.com/MxABC/LBXScan</a><br>二维码、扫码、扫一扫、ZXing和ios系统自带扫码封装，扫码界面效果封装</li>
+<li>iOS-Oncenote：<a href="https://github.com/chenyufeng1991/iOS-Oncenote" target="_blank" rel="external">https://github.com/chenyufeng1991/iOS-Oncenote</a><br>一款类似于印象笔记Evernote的生活类iOS应用——朝夕笔记 Oncenote。</li>
+<li>YTKNetwork：<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="external">https://github.com/yuantiku/YTKNetwork</a><br>猿题库 iOS 研发团队基于 AFNetworking 封装的 iOS 网络库，其实现了一套 High Level 的 API，提供了更高层次的网络访问抽象</li>
+<li>uiimage-from-animated-gif：<a href="https://github.com/mayoff/uiimage-from-animated-gif" target="_blank" rel="external">https://github.com/mayoff/uiimage-from-animated-gif</a></li>
+<li>GiFHUD：<a href="https://github.com/cemolcay/GiFHUD" target="_blank" rel="external">https://github.com/cemolcay/GiFHUD</a><br>progress hud for displaying only animated gif images. no labels (for now)</li>
+<li>JSPatch：<a href="https://github.com/bang590/JSPatch" target="_blank" rel="external">https://github.com/bang590/JSPatch</a><br>热补丁</li>
+<li>iosStudyResource：<a href="https://github.com/whytimber/iosStudyResource" target="_blank" rel="external">https://github.com/whytimber/iosStudyResource</a><br>牛人博客地址blogs</li>
+<li>APNGKit：<a href="https://github.com/onevcat/APNGKit" target="_blank" rel="external">https://github.com/onevcat/APNGKit</a><br>一个高性能的框架用于在iOS中加载和展示APNG图片。</li>
+<li>JBChartView：<a href="https://github.com/Jawbone/JBChartView" target="_blank" rel="external">https://github.com/Jawbone/JBChartView</a><br>实现效果非常不错的折线统计图和柱状统计图。可以动态绘制图表。手指在图表上滑动，会显示对应的数值。</li>
+<li>JSQMessagesViewController：<a href="https://github.com/jessesquires/JSQMessagesViewController" target="_blank" rel="external">https://github.com/jessesquires/JSQMessagesViewController</a><br>是一个优雅的iOS消息类UI库。聊天界面封装</li>
+<li>TLYShyNavBar: <a href="https://github.com/telly/TLYShyNavBar" target="_blank" rel="external">https://github.com/telly/TLYShyNavBar</a><br>自动滚动的导航条。</li>
+<li>NVActivityIndicatorView:<a href="https://github.com/ninjaprox/NVActivityIndicatorView" target="_blank" rel="external">https://github.com/ninjaprox/NVActivityIndicatorView</a></li>
+<li>CWStatusBarNotification:<a href="https://github.com/cezarywojcik/CWStatusBarNotification" target="_blank" rel="external">https://github.com/cezarywojcik/CWStatusBarNotification</a><br>一个在状态栏提醒信息的控件。可实现延迟自动消失</li>
+<li>ResearchKit:<a href="https://github.com/ResearchKit/ResearchKit" target="_blank" rel="external">https://github.com/ResearchKit/ResearchKit</a><br>是苹果专为医学研究者打造的一款软件基础架构，用于帮助人们诊断各种疾病。</li>
+<li>RDVTabBarController:<a href="https://github.com/robbdimitrov/RDVTabBarController" target="_blank" rel="external">https://github.com/robbdimitrov/RDVTabBarController</a><br>封装的TabBar</li>
+<li>BButton ：<a href="https://github.com/mattlawer/BButton" target="_blank" rel="external">https://github.com/mattlawer/BButton</a></li>
+<li>JDStatusBarNotification：<a href="https://github.com/jaydee3/JDStatusBarNotification" target="_blank" rel="external">https://github.com/jaydee3/JDStatusBarNotification</a><br>状态栏提醒信息的控件。</li>
+<li>UITableView-FDTemplateLayoutCell：<a href="https://github.com/forkingdog/UITableView-FDTemplateLayoutCell" target="_blank" rel="external">https://github.com/forkingdog/UITableView-FDTemplateLayoutCell</a><br>TableView自动布局，自动高度</li>
+<li>PNChart：<a href="https://github.com/kevinzhow/PNChart" target="_blank" rel="external">https://github.com/kevinzhow/PNChart</a><br>折线统计图和柱状统计图，图表统计 </li>
+<li>appirater：<a href="https://github.com/arashpayan/appirater" target="_blank" rel="external">https://github.com/arashpayan/appirater</a><br>一个可以直接使用到任何iPhone应用（iOS4.0及以上）中的开源类，用于提醒用户在打开App时，对应用进行评论或打分。AppStore评分</li>
+<li>SearchHistory:<a href="https://github.com/zhiwupei/SearchHistory" target="_blank" rel="external">https://github.com/zhiwupei/SearchHistory</a><br>搜索历史标签</li>
+<li>EAIntroView: <a href="https://github.com/ealeksandrov/EAIntroView" target="_blank" rel="external">https://github.com/ealeksandrov/EAIntroView</a><br>一个用来实现软件启动时介绍的控件，支持多个视图进行滑动显示。</li>
+<li>SKTagView：<a href="https://github.com/zsk425/SKTagView" target="_blank" rel="external">https://github.com/zsk425/SKTagView</a><br>一款支持自动布局的标签tag.</li>
+<li>iOS-Slide-Menu：<a href="https://github.com/aryaxt/iOS-Slide-Menu" target="_blank" rel="external">https://github.com/aryaxt/iOS-Slide-Menu</a><br>左侧菜单栏</li>
+<li>JKCategories：<a href="https://github.com/shaojiankui/JKCategories" target="_blank" rel="external">https://github.com/shaojiankui/JKCategories</a><br>category，控件类别</li>
+<li>NetworkEye：<a href="https://github.com/coderyi/NetworkEye" target="_blank" rel="external">https://github.com/coderyi/NetworkEye</a><br>网络调试库，可以监控App内HTTP请求并显示请求相关的详细信息，方便App开发的网络调试。</li>
+<li>MDRadialProgress：<a href="https://github.com/mdinacci/MDRadialProgress" target="_blank" rel="external">https://github.com/mdinacci/MDRadialProgress</a><br>自定义显示进度状态视图</li>
+<li>terminal-notifier:<a href="https://github.com/julienXX/terminal-notifier" target="_blank" rel="external">https://github.com/julienXX/terminal-notifier</a><br>一个用来给 Mac OS X 用户发送通知的命令行工具</li>
+<li>TTTAttributedLabel：<a href="https://github.com/TTTAttributedLabel/TTTAttributedLabel" target="_blank" rel="external">https://github.com/TTTAttributedLabel/TTTAttributedLabel</a><br>是 UILable 的改进，支持 NSAttributedStrings，据说用起来比较方便，但是需要增加很多代码，但比较灵活</li>
+<li>CocoaLumberjack：<a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="external">https://github.com/CocoaLumberjack/CocoaLumberjack</a><br>Mac和iOS上一个集快捷、简单、强大和灵活于一身的日志框架。</li>
+<li>realm-cocoa：<a href="https://github.com/realm/realm-cocoa" target="_blank" rel="external">https://github.com/realm/realm-cocoa</a><br>是一个跨平台的移动数据库引擎，于 2014 年 7 月发布，准确来说，它是专门为移动应用所设计的数据持久化解决方案之一。</li>
+<li>MobileProject：<a href="https://github.com/wujunyang/MobileProject" target="_blank" rel="external">https://github.com/wujunyang/MobileProject</a><br>开发框架</li>
+<li>MagicalRecord：<a href="https://github.com/magicalpanda/MagicalRecord" target="_blank" rel="external">https://github.com/magicalpanda/MagicalRecord</a><br>第三方库实现的数据库</li>
 </ol>
 ]]></content>
     
