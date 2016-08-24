@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-08-24T07:37:12.000Z</updated>
+  <updated>2016-08-17T15:37:19.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -14,34 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Jey的Github收藏</title>
-    <link href="http://www.jeyblogs.com/2016/08/24/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
-    <id>http://www.jeyblogs.com/2016/08/24/Jey的Github收藏/</id>
-    <published>2016-08-24T07:29:40.000Z</published>
-    <updated>2016-08-24T07:37:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li>ARAnimation(封装的动画库)</li>
-<li>自动布局Masonry：<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;ARAnimation(封装的动画库)&lt;/li&gt;
-&lt;li&gt;自动布局Masonry：&lt;a href=&quot;https://github.com/SnapKit/Masonry&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github
-    
-    </summary>
-    
-      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
-    
-    
-      <category term="第三方资源" scheme="http://www.jeyblogs.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
   
   <entry>
     <title>hexo——搭建Github Page博客之配置篇(1)</title>
@@ -117,6 +89,47 @@ git config --global user.email xxx@xxx.com
     
     
       <category term="CocoaPods" scheme="http://www.jeyblogs.com/tags/CocoaPods/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jey的Github收藏</title>
+    <link href="http://www.jeyblogs.com/2015/03/20/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
+    <id>http://www.jeyblogs.com/2015/03/20/Jey的Github收藏/</id>
+    <published>2015-03-20T07:29:40.000Z</published>
+    <updated>2016-08-24T08:14:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li>ARAnimation(封装的动画库):<a href="https://github.com/AugustRush/ARAnimation" target="_blank" rel="external">https://github.com/AugustRush/ARAnimation</a></li>
+<li>Masonry自动布局约束：<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a></li>
+<li>ALSystemUtilities：<a href="https://github.com/andrealufino/ALSystemUtilities" target="_blank" rel="external">https://github.com/andrealufino/ALSystemUtilities</a><br> 提供相当完整的 iOS 设备状态查询，包括电池、记忆体用量、网路状态、执行序数目或是越狱情况等等</li>
+<li>YYText: <a href="https://github.com/ibireme/YYText" target="_blank" rel="external">https://github.com/ibireme/YYText</a><br> 显示和编辑富文本的文本框架。</li>
+<li>AFNetworking: <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br> 网络请求封装，不用多说</li>
+<li>SDWebImage：<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a><br> 对图片缓存库</li>
+<li>MJRefresh：<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">https://github.com/CoderMJLee/MJRefresh</a><br> 上下拉刷新ScrollView</li>
+<li>MJExtension：<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">https://github.com/CoderMJLee/MJExtension</a><br> 是一套字典和模型Model之间互相转换的超轻量级框架</li>
+<li>RTLabel：<a href="https://github.com/honcheng/RTLabel" target="_blank" rel="external">https://github.com/honcheng/RTLabel</a><br> 基于UILabel类的拓展,能够支持Html标记的富文本显示，它是基于Core Text,因此也支持Core Text上的一些东西。</li>
+<li>TYSlidePageScrollView：<a href="https://github.com/12207480/TYSlidePageScrollView" target="_blank" rel="external">https://github.com/12207480/TYSlidePageScrollView</a><br>带header,footer,滑动菜单的，分页上下左右滑动的TYSlidePageScrollView</li>
+<li>JZDragView：<a href="https://github.com/zys456465111/JZDragView" target="_blank" rel="external">https://github.com/zys456465111/JZDragView</a><br>能够往上或往下拖拉图片展现出更换图片时候的视差效果</li>
+<li>LTInfiniteScrollView：<a href="https://github.com/ltebean/LTInfiniteScrollView" target="_blank" rel="external">https://github.com/ltebean/LTInfiniteScrollView</a><br>包含两种效果，一种是常见的横向无限滚动，一种是带有弹动效果的横向无限滚动</li>
+<li>UzysAnimatedGifPullToRefresh：<a href="https://github.com/uzysjung/UzysAnimatedGifPullToRefresh" target="_blank" rel="external">https://github.com/uzysjung/UzysAnimatedGifPullToRefresh</a><br>只需要一些简单的代码就可以使用动态的 GIF 添加 PullToRefresh 效果到任意的 scrollView 中，上下拉刷新。</li>
+<li>WebViewJavascriptBridge: <a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="external">https://github.com/marcuswestin/WebViewJavascriptBridge</a><br>Obj-C和JavaScript通过UIWebViews/WebViews互通消息的一个iOS/OSX的桥梁</li>
+<li>XMLDictionary: <a href="https://github.com/nicklockwood/XMLDictionary" target="_blank" rel="external">https://github.com/nicklockwood/XMLDictionary</a><br>解析xml 将XML文件转换为NSDictionary</li>
+<li>AMWaveTransition:<a href="https://github.com/andreamazz/AMWaveTransition" target="_blank" rel="external">https://github.com/andreamazz/AMWaveTransition</a><br>实现了表格视图的自定义过渡效果。每一个单元格都实现了类似波形效果的动画切换</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;ARAnimation(封装的动画库):&lt;a href=&quot;https://github.com/AugustRush/ARAnimation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/AugustRus
+    
+    </summary>
+    
+      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+    
+    
+      <category term="第三方资源" scheme="http://www.jeyblogs.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
     
   </entry>
   
