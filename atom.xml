@@ -97,7 +97,7 @@ git config --global user.email xxx@xxx.com
     <link href="http://www.jeyblogs.com/2015/03/20/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
     <id>http://www.jeyblogs.com/2015/03/20/Jey的Github收藏/</id>
     <published>2015-03-20T07:29:40.000Z</published>
-    <updated>2016-08-26T08:49:24.000Z</updated>
+    <updated>2016-08-27T04:04:07.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li>ARAnimation(封装的动画库):  <a href="https://github.com/AugustRush/ARAnimation" target="_blank" rel="external">https://github.com/AugustRush/ARAnimation</a></li>
@@ -187,6 +187,30 @@ git config --global user.email xxx@xxx.com
 <li>DTCoreText：<a href="https://github.com/Cocoanetics/DTCoreText" target="_blank" rel="external">https://github.com/Cocoanetics/DTCoreText</a><br>iOS/OSX里的文字渲染引擎，在iOS/OSX上看到的所有文字在底层都是由CoreText去渲染。</li>
 <li>DACircularProgress：<a href="https://github.com/danielamitay/DACircularProgress" target="_blank" rel="external">https://github.com/danielamitay/DACircularProgress</a><br>圆环的进度指示栏。圆形进度条</li>
 <li>KRVideoPlayer：<a href="https://github.com/36Kr-Mobile/KRVideoPlayer" target="_blank" rel="external">https://github.com/36Kr-Mobile/KRVideoPlayer</a><br>类似Weico的播放器，支持竖屏模式下全屏播放</li>
+<li>DAAppsViewController：<a href="https://github.com/danielamitay/DAAppsViewController" target="_blank" rel="external">https://github.com/danielamitay/DAAppsViewController</a><br>可以按多种方式查看App Store上的App，比如按照开发者的ID查看所有该开发者发布的App，或者按照App ID查看对应的某个App，或者按照App Bundle，也可以搜索某个关键字显示所有搜索结果。</li>
+<li>SAMKeychain：<a href="https://github.com/soffes/SAMKeychain" target="_blank" rel="external">https://github.com/soffes/SAMKeychain</a><br>在应用间利用KeyChain共享数据</li>
+<li>PINRemoteImage：<a href="https://github.com/pinterest/PINRemoteImage" target="_blank" rel="external">https://github.com/pinterest/PINRemoteImage</a><br>一个线程安全的，高性能，功能丰富的图像下载iOS库</li>
+<li>FFmpeg：<a href="https://github.com/FFmpeg/FFmpeg" target="_blank" rel="external">https://github.com/FFmpeg/FFmpeg</a><br>FFmpeg发送流媒体的命令</li>
+<li>XHImageViewer：<a href="https://github.com/JackTeam/XHImageViewer" target="_blank" rel="external">https://github.com/JackTeam/XHImageViewer</a><br>实现图片浏览功能，点击图片，开启图片全屏浏览模式。支持下载和显示网络图片</li>
+<li>XXBRippleView：<a href="https://github.com/sixTiger/XXBRippleView" target="_blank" rel="external">https://github.com/sixTiger/XXBRippleView</a><br>水波纹效果</li>
+<li>BTSimpleRippleButton：<a href="https://github.com/balram3429/BTSimpleRippleButton" target="_blank" rel="external">https://github.com/balram3429/BTSimpleRippleButton</a><br>水波纹效果按钮</li>
+<li>DownloadButton：<a href="https://github.com/PavelKatunin/DownloadButton" target="_blank" rel="external">https://github.com/PavelKatunin/DownloadButton</a><br>自定义的 App Store 风格的下载按钮。可自定义设计组件，用 IB 进行编辑。</li>
+<li>sdkdemoapp3.0：<a href="https://github.com/easemob/sdkdemoapp3.0_ios" target="_blank" rel="external">https://github.com/easemob/sdkdemoapp3.0_ios</a><br>环信</li>
+<li>iOSKeyPointExploration：<a href="https://github.com/huang303513/iOSKeyPointExploration" target="_blank" rel="external">https://github.com/huang303513/iOSKeyPointExploration</a><br>GCD系列、Operation、KVC、KVO、Notification、响应链、模型解析、图片本地缓存、</li>
+<li>TMCache：<a href="https://github.com/tumblr/TMCache" target="_blank" rel="external">https://github.com/tumblr/TMCache</a><br>缓存</li>
+<li>FBAnnotationClustering：<a href="https://github.com/infinum/FBAnnotationClustering" target="_blank" rel="external">https://github.com/infinum/FBAnnotationClustering</a><br>地图适分法</li>
+<li>MiaowShow：<a href="https://github.com/SunLiner/MiaowShow" target="_blank" rel="external">https://github.com/SunLiner/MiaowShow</a><br>iOS视频直播项目</li>
+<li>BabyBluetooth：<a href="https://github.com/coolnameismy/BabyBluetooth" target="_blank" rel="external">https://github.com/coolnameismy/BabyBluetooth</a><br>蓝牙</li>
+<li>BeaconOSX：<a href="https://github.com/mttrb/BeaconOSX" target="_blank" rel="external">https://github.com/mttrb/BeaconOSX</a></li>
+<li><a href="https://github.com/coolnameismy/demo" target="_blank" rel="external">https://github.com/coolnameismy/demo</a><br>基础实用东西</li>
+<li>hexo-theme-next：<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a><br>next主题</li>
+<li>PodsRepertory：<a href="https://github.com/heyuan110/PodsRepertory" target="_blank" rel="external">https://github.com/heyuan110/PodsRepertory</a></li>
+<li>study：<a href="https://github.com/ming1016/study" target="_blank" rel="external">https://github.com/ming1016/study</a><br>学习资料</li>
+<li>popping：<a href="https://github.com/schneiderandre/popping" target="_blank" rel="external">https://github.com/schneiderandre/popping</a><br>封装的动画库</li>
+<li>AYBubbleView：<a href="https://github.com/AYJk/AYBubbleView" target="_blank" rel="external">https://github.com/AYJk/AYBubbleView</a><br>QQ / 仿qq的可拖拽未读气泡</li>
+<li>TagView：<a href="https://github.com/xhzengAIB/TagView" target="_blank" rel="external">https://github.com/xhzengAIB/TagView</a><br>图片标签</li>
+<li>FunctionGuideController：<a href="https://github.com/wbxiaowangzi/FunctionGuideController" target="_blank" rel="external">https://github.com/wbxiaowangzi/FunctionGuideController</a><br>新功能引导控制器，传入两个数组就能使用，由于添加了自定义字体，和图片资源，所以比较大，代码本身并不大</li>
+<li>KVOController：<a href="https://github.com/facebook/KVOController" target="_blank" rel="external">https://github.com/facebook/KVOController</a><br>FBKVOControlloer是FaceBook开源的一个 在 iOS，maxOS上使用 kvo的 开源库；<br>提供了block和@selector(SEL) 的回调操作，很方便实用</li>
 </ol>
 ]]></content>
     
