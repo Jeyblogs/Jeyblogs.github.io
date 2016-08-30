@@ -1,0 +1,741 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AppStore," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jey" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Terms and conditions（法律与条款）1.1As a developer of applications for the App Store you are bound by the terms of the Program License Agreement (PLA), Human Interface Guidelines (HIG), and any other licen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="App被拒的各种原因">
+<meta property="og:url" content="http://www.jeyblogs.com/2014/10/18/App被拒的各种原因/index.html">
+<meta property="og:site_name" content="Jey">
+<meta property="og:description" content="Terms and conditions（法律与条款）1.1As a developer of applications for the App Store you are bound by the terms of the Program License Agreement (PLA), Human Interface Guidelines (HIG), and any other licen">
+<meta property="og:updated_time" content="2016-08-30T10:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="App被拒的各种原因">
+<meta name="twitter:description" content="Terms and conditions（法律与条款）1.1As a developer of applications for the App Store you are bound by the terms of the Program License Agreement (PLA), Human Interface Guidelines (HIG), and any other licen">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Jey'
+    }
+  };
+</script>
+
+  <title> App被拒的各种原因 | Jey </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ebd5b380279df550acd042285e42423b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jey</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Keep Calm and Carry On</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                App被拒的各种原因
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-10-18T11:52:06+08:00" content="2014-10-18">
+              2014-10-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Developer/" itemprop="url" rel="index">
+                    <span itemprop="name">Developer</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/10/18/App被拒的各种原因/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/18/App被拒的各种原因/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>Terms and conditions（法律与条款）<br>1.1<br>As a developer of applications for the App Store you are bound by the terms of the Program License Agreement (PLA), Human Interface Guidelines (HIG), and any other licenses or contracts between you and Apple. The following rules and examples are intended to assist you in gaining acceptance for your App in the App Store, not to amend or remove provisions from any other agreement.（作为App Store的应用开发者，你必须接受如下条款：Program License Agreement (PLA)，Human Interface Guidelines (HIG)，以及任何你与apple签订的许可和合同。以下规则和示例是为了协助你的应用更快通过审核上架，而不是修正或取代之前的条款。）</li>
+<li>Functionality（功能）<br>2.1<br>Apps that crash will be rejected（存在Crash（崩溃，死机）的应用会被拒。）<br>2.2<br>Apps that exhibit bugs will be rejected（存在明显bug的应用会被拒。）<br>2.3<br>Apps that do not perform as advertised by the developer will be rejected（不符合开发者描述的应用会被拒。）<br>2.4<br>Apps that include undocumented or hidden features inconsistent with the description of the App will be rejected（有未说明或隐藏特性或有悖描述的应用会被拒。）<br>2.5<br>Apps that use non-public APIs will be rejected（使用非公开API的应用会被拒。）<br>2.6<br>Apps that read or write data outside its designated container area will be rejected（试图读写非允许范围内的数据的应用会被拒。）<br>2.7<br>Apps that download code in any way or form will be rejected（试图以任何方式方法下载代码的应用会被拒。）<br>2.8<br>Apps that install or launch other executable code will be rejected（安装或运行其他可执行代码的应用会被拒。）<br>2.9<br>Apps that are “beta”, “demo”, “trial”, or “test” versions will be rejected（任何“beta”，“演示（demo）”，“试用（trial）”或“测试（test）”版本的应用会被拒。）<br>2.10<br>iPhone Apps must also run on iPad without modification, at iPhone resolution, and at 2X iPhone 3GS resolution（iPhone应用必须可以无条件运行在iPad上，支持普通iPhone分辨率和2倍iPhone 3GS分辨率。）<br>2.11<br>Apps that duplicate Apps already in the App Store may be rejected, particularly if there are many of them, such as fart, burp, flashlight, and Kama Sutra Apps.（任何与App Store中上架应用重复的应用会被拒，尤其是已经有了很多的：如放屁，打嗝，手电照明和爱经。）<br>2.12<br>Apps that are not very useful, unique, are simply web sites bundled as Apps, or do not provide any lasting entertainment value may be rejected（没有用处的应用，web页面简单组合的应用，或任何哗众取宠，不能提供娱乐价值的应用会被拒。）<br>2.13<br>Apps that are primarily marketing materials or advertisements will be rejected（纯粹用于市场推广或广告的应用会被拒。）<br>2.14<br>Apps that are intended to provide trick or fake functionality that are not clearly marked as such will be rejected（有意提供隐蔽或虚假功能，却又不能明显标示的应用会被拒。）<br>2.15<br>Apps larger than 50MB in size will not download over cellular networks (this is automatically prohibited by the App Store)（大于20MB的应用无法通过蜂窝网络下载安装（App Store自动处理）。）<br>2.16<br>Multitasking Apps may only use background services for their intended purposes: VoIP, audio playback, location, task completion, local notifications, etc.（多任务应用只允许在后台运行如下相应的服务：VoIP，音频播放，地理位置，任务记录，本地提醒等。）<br>2.17<br>Apps that browse the web must use the iOS WebKit framework and WebKit Javascript（应用只允许通过iOS WebKit框架和WebKit Javascript访问web页面。）<br>2.18<br>Apps that encourage excessive consumption of alcohol or illegal substances, or encourage minors to consume alcohol or smoke cigarettes, will be rejected（鼓励酗酒，使用违法药物，或诱导未成年人饮酒，吸烟的应用会被拒。）<br>2.19<br>Apps that provide incorrect diagnostic or other inaccurate device data will be rejected（提供错误的系统信息或设备数据的应用会被拒。）<br>2.20<br>Developers “spamming” the App Store with many versions of similar Apps will be removed from the iOS Developer Program（通过许多版本的类似应用对App Store造成干扰的开发者会被取消IDP身份。）<br>2.21<br>Apps that are simply a song or movie should be submitted to the iTunes store. Apps that are simply a book should be submitted to the iBookstore.（歌曲和电影应该提交到iTunes store。书籍应该提交到iBookstore。）<br>2.22<br>Apps that arbitrarily restrict which users may use the App, such as by location or carrier, may be rejected（随意通过位置或运营商来限制用户使用的应用会被拒。）<br>2.23<br>Apps must follow the iOS Data Storage Guidelines or they will be rejected（加入iCloud支持后，应用必须遵守iOS数据存储指南（ iOS Data Storage Guidelines）否则将被拒。）<br>2.24<br>Apps that are offered in Newsstand must comply with schedules 1, 2 and 3 of the Developer Program License Agreement or they will be rejected（在Newsstand里提交的应用必须遵守Developer Program License Agreement的第1,2和3条，否则将被拒。）<br>2.25<br>Apps that display Apps other than your own for purchase or promotion in a manner similar to or confusing with the App Store will be rejected（与App Store类似的推荐或为其他应用做广告的应用将无法通过App Store审核。）</li>
+<li>Metadata (name, descriptions, ratings, rankings, etc)（描述数据（名称，描述，评级，分类等））<br>3.1<br>Apps or metadata that mentions the name of any other mobile platform will be rejected（应用或者元数据中提到其他任意移动平台会被拒。）<br>3.2<br>Apps with placeholder text will be rejected（描述数据有未填写项，存留占位符文本会被拒。）<br>3.3<br>Apps with descriptions not relevant to the application content and functionality will be rejected（描述中提到与应用内容和功能无关信息会被拒。）<br>3.4<br>App names in iTunes Connect and as displayed on a device should be similar, so as not to cause confusion（应用在iTunes Connect与设备上显示的名称应该类似，否则会造成混淆。）<br>3.5<br>Small and large App icons should be similar, so as to not to cause confusion（不同尺寸的icon要一致，否则会造成混淆。）<br>3.6<br>Apps with App icons and screenshots that do not adhere to the 4+ age rating will be rejected（图标与截屏不符合4+年龄评级的应用会被拒。）<br>3.7<br>Apps with Category and Genre selections that are not appropriate for the App content will be rejected（应用的内容与所选分类和风格不符会被拒。）<br>3.8<br>Developers are responsible for assigning appropriate ratings to their Apps. Inappropriate ratings may be changed/deleted by Apple（开发者有责任把应用放到恰当的分级（Rating）。不恰当的评级可能会被Apple修改，甚至删除。）<br>3.9<br>Developers are responsible for assigning appropriate keywords for their Apps. Inappropriate keywords may be changed/deleted by Apple（开发者有责任给应用撰写恰当的关键词。不恰当的关键词可能会被Apple修改，甚至删除。）<br>3.10<br>Developers who attempt to manipulate or cheat the user reviews or chart ranking in the App Store with fake or paid reviews, or any other inappropriate methods will be removed from the iOS Developer Program（通过伪造，付费评价或其他非正规手段，获取App Store中较好的评价与星级的开发者会被取消IDP身份。）<br>3.11<br>Apps which recommend that users restart their iOS device prior to installation or launch may be rejected（任何提示需要用户重启iOS设备来安装或运行的应用会被拒。）<br>3.12<br>Apps should have all included URLs fully functional when you submit it for review, such as support and privacy policy URLs（应用在提交审核过程中，所有涉及到的URL都要处于正常运行状态，例如保密协议，相关支持页面等。）</li>
+<li>Location（位置）<br>4.1<br>Apps that do not notify and obtain user consent before collecting, transmitting, or using location data will be rejected（未提示用户且获得用户允许之前收集，传输或使用位置数据的应用会被拒。）<br>4.2<br>Apps that use location-based APIs for automatic or autonomous control of vehicles, aircraft, or other devices will be rejected（使用location-based API来自动控制车辆，飞行器或其他设备的应用会被拒。）<br>4.3<br>Apps that use location-based APIs for dispatch, fleet management, or emergency services will be rejected（使用location-based API进行调度，队伍管理或应急服务的而应用会被拒。）<br>4.4<br>Location data can only be used when directly relevant to the features and services provided by the App to the user or to support approved advertising uses（位置数据只能用于应用提供的直接相关功能或服务，或者有授权的广告。）</li>
+<li>Push notifications（提醒推送）<br>5.1<br>Apps that provide Push Notifications without using the Apple Push Notification (APN) API will be rejected（不使用Apple Push Notification（APN） API提供消息推送的应用会被拒。）<br>5.2<br>Apps that use the APN service without obtaining a Push Application ID from Apple will be rejected（使用APN服务却没从Apple获取一个Push Application ID的应用会被拒。）<br>5.3<br>Apps that send Push Notifications without first obtaining user consent will be rejected（在首次推送消息之前未取得的用户允许的应用会被拒。）<br>5.4<br>Apps that send sensitive personal or confidential information using Push Notifications will be rejected（使用提醒推送服务推送敏感的个人或机密信息的应用会被拒。）<br>5.5<br>Apps that use Push Notifications to send unsolicited messages, or for the purpose of phishing or spamming will be rejected（使用提醒推送发送主动消息，欺骗或干扰信息的应用会被拒。）<br>5.6<br>Apps cannot use Push Notifications to send advertising, promotions, or direct marketing of any kind（应用不可以使用提醒推送发送广告，活动或任何形式的直接推广信息。）<br>5.7<br>Apps cannot charge users for use of Push Notifications（应用不可以提供收费的提醒推送服务。）<br>5.8<br>Apps that excessively use the network capacity or bandwidth of the APN service or unduly burden a device with Push Notifications will be rejected（使用APN服务过度占用网络带宽或容量或通过提醒推送大量占用系统资源的应用会被拒。）<br>5.9<br>Apps that transmit viruses, files, computer code, or programs that may harm or disrupt the normal opera tion of the APN service will be rejected（传输病毒，文件，代码或程序，导致破坏或扰乱正常的APN服务操作的应用会被拒。）</li>
+<li>Game Center（游戏中心）<br>6.1<br>Apps that display any Player ID to end users or any third party will be rejected（向终端用户或第三方展示Player ID的应用会被拒。）<br>6.2<br>Apps that use Player IDs for any use other than as approved by the Game Center terms will be rejected（Player ID被用于Game Center条款款意外的用途的应用会被拒。）<br>6.3<br>Developers that attempt to reverse lookup, trace, relate, associate, mine, harvest, or otherwise exploit Player IDs, alias, or other information obtained through the Game Center will be removed from the iOS Developer Program（试图通过Game Center反查，跟踪，描述，关联，发掘，收割，或利用Player ID，别名或其他信息的开发者会被取消IDP身份。）<br>6.4<br>Game Center information, such as Leaderboard scores, may only be used in Apps approved for use with the Game Center（Game Center信息，例如Leaderboard得分，只能通过Game Center用于应用中。）<br>6.5<br>Apps that use Game Center service to send unsolicited messages, or for the purpose of phishing or spamming will be rejected（使用Game Center发送主动消息，欺骗或干扰信息的应用会被拒。）<br>6.6<br>Apps that excessively use the network capacity or bandwidth of the Game Center will be rejected（使用Game Center过度占用网络带宽或容量的应用会被拒。）<br>6.7<br>Apps that transmit viruses, files, computer code, or programs that may harm or disrupt the normal operation of the Game Center service will be rejected（传输病毒，文件，代码或程序，导致破坏或扰乱正常的Game Center操作的应用会被拒。）</li>
+<li>Advertising（广告）<br>7.1<br>Apps that artificially increase the number of impressions or click-throughs of ads will be rejected（人工刷广告浏览或点击率的应用会被拒。）<br>7.2<br>Apps that contain empty iAd banners will be rejected（带有空iAd banner广告的应用会被拒。）<br>7.3<br>Apps that are designed predominantly for the display of ads will be rejected（设计主要用来展示广告的应用会被拒。）</li>
+<li>Trademarks and trade dress（商标权与商标外观）<br>8.1<br>Apps must comply with all terms and conditions explained in the Guidelines for Using Apple Trademarks and Copyrights and the Apple Trademark List（应用必须遵守Guidelines for Using Apple Trademarks and Copyrights 和Apple Trademark List中描述的所有条款和条件。）<br>8.2<br>Apps that suggest or infer that Apple is a source or supplier of the App, or that Apple endorses any particular representation regarding quality or functionality will be rejected（任何误导或暗示Apple为该应用来源或提供商，或Apple以任何形式认可其质量或功能的应用会被拒。）<br>8.3<br>Apps which appear confusingly similar to an existing Apple product or advertising theme will be rejected（外观与现有Apple产品或广告主题类似或混淆的应用会被拒）<br>8.4<br>Apps that misspell Apple product names in their App name (i.e., GPS for Iphone, iTunz) will be rejected（应用名称中出现错误的Apple产品拼写（如，GPS for IPhone， iTunz）的应用会被拒。）<br>8.5<br>Apps may not use protected third party material such as trademarks, copyrights, patents or violate 3rd party terms of use. Authorization to use such material must be provided upon request.（使用受保护的第三方资源（商标，版权，商业机密，以及其他私有内容），如果要求请提供一份文本形式的使用授权。）</li>
+<li>Media content（媒体内容）<br>9.1<br>Apps that do not use the MediaPlayer framework to access media in the Music Library will be rejected（使用MediaPlayer框架以外的方法访问Music Library中媒体数据的应用会被拒。）<br>9.2<br>App user interfaces that mimic any iPod interface will be rejected（用户界面模仿任何iPod界面的应用会被拒。）<br>9.3<br>Audio streaming content over a cellular network may not use more than 5MB over 5 minutes（通过蜂窝网络传输的流媒体音频内容不得超过5MB或多余5分钟。）<br>9.4<br>Video streaming content over a cellular network longer than 10 minutes must use HTTP Live Streaming and include a baseline 64 kbps audio-only HTTP Live stream（通过蜂窝网络传输超过10分钟流媒体视频内容，必须使用HTTP Live Streaming，并包含一条基线64kbps的音频HTTP Live流。）</li>
+<li>User interface（用户界面）<br>10.1<br>Apps must comply with all terms and conditions explained in the Apple iOS Human Interface Guidelines（应用必须遵守Apple iOS Human Interface Guidelines中的所有条款和条件。）<br>10.2<br>Apps that look similar to Apps bundled on the iPhone, including the App Store, iTunes Store, and iBookstore, will be rejected（ 外观与iPhone自带应用（如：App Store，iTunes Store和iBookstore）相似的应用会被拒。）<br>10.3<br>Apps that do not use system provided items, such as buttons and icons, correctly and as described in the Apple iOS Human Interface Guidelines may be rejected（不按照Apple iOS Human Interface Guidelines中的描述正确使用系统控件比如按钮，图标等的应用会被拒。）<br>10.4<br>Apps that create alternate desktop/home screen environments or simulate multi-App widget experiences will be rejected（试图创建多桌面/主屏环境或模拟多Widget应用工具的应用会被拒。）<br>10.5<br>Apps that alter the functions of standard switches, such as the Volume Up/Down and Ring/Silent switches, will be rejected（ 修改标准开关标准功能例如：音量增加／减少，响铃／震动的应用会被拒。）<br>10.6<br>Apple and our customers place a high value on simple, refined, creative, well thought through interfaces. They take more work but are worth it. Apple sets a high bar. If your user interface is complex or less than very good, it may be rejected（Apple和我们的用户都界面报以很高期望，希望他设计的超级简洁，精致，充满创造力，深思熟虑。做到这些确实会消耗很多精力，但是值得。Apple在这方面要求非常高。如果你的用户界面过于复杂，甚至仅仅是不够好，都可能被拒。）</li>
+<li>Purchasing and currencies（购买与流通货币）<br>11.1<br>Apps that unlock or enable additional features or functionality with mechanisms other than the App Store will be rejected（通过App Store以外的渠道解锁或开启附加属性或功能的应用会被拒。）<br>11.2<br>Apps utilizing a system other than the In-App Purchase API (IAP) to purchase content, functionality, or services in an App will be rejected（ 使用In App Purchase API (IAP)以外的系统提供购买内容，功能或服务的应用会被拒。）<br>11.3<br>Apps using IAP to purchase physical goods or goods and services used outside of the application will be rejected（使用IAP为与应用无关的实体商品或商品服务收费的应用会被拒。）<br>11.4<br>Apps that use IAP to purchase credits or other currencies must consume those credits within the application（应用使用IAP购买积分（Credit）或其他货币，必须在应用中消费。）<br>11.5<br>Apps that use IAP to purchase credits or other currencies that expire will be rejected（使用IAP购买的积分（Credit）或货币会过期的应用会被拒）<br>11.6<br>Content subscriptions using IAP must last a minimum of 7 days and be available to the user from all of their iOS devices（ 使用IAP收费订阅的内容至少要在7天内有效，而且允许在所有iOS设备间共享。）<br>11.7<br>Apps that use IAP to purchase items must assign the correct Purchasability type（用到IAP收费项目的应用必须分派到正确的收费类目中。）<br>11.8<br>Apps that use IAP to purchase access to built-in capabilities provided by iOS, such as the camera or the gyroscope, will be rejected（ 使用IAP向用户收费以获取iOS内建功能（如摄像头，陀螺仪）的应用会被拒。）<br>11.9<br>Apps containing “rental” content or services that expire after a limited time will be rejected（ 包含“出租”内容或服务的应用，在一段时间实效的会被拒。）<br>11.10<br>Insurance applications must be free, in legal-compliance in the regions distributed, and cannot use IAP（保险类应用必须免费，遵守发布地区的法律，并且不允许使用IAP。）<br>11.11<br>In general, the more expensive your App, the more thoroughly we will review it（一般来说，越贵的应用审核就越仔细彻底。）<br>11.12<br>Apps offering subscriptions must do so using IAP, Apple will share the same 70/30 revenue split with developers for these purchases, as set forth in the Developer Program License Agreement.（提供收费订阅的应用必须使用IAP，Apple将会按照Developer Program License Agreement中约定的70/30的比例与开发者分账。）<br>11.13<br>Apps that link to external mechanisms for purchases or subscriptions to be used in the App, such as a “buy” button that goes to a web site to purchase a digital book, will be rejected（应用中如果提供了IAP以外的收费或订阅机制，如：“buy”按钮，跳转到一个购买电子书的web页面，会被拒。）<br>11.14<br>Apps can read or play approved content (specifically magazines, newspapers, books, audio, music, and video) that is subscribed to or purchased outside of the App, as long as there is no button or external link in the App to purchase the approved content. Apple will not receive any portion of the revenues for approved content that is subscribed to or purchased outside of the App（ 应用可以阅读或播放任何在应用以外取得授权的内容（包括指定的杂志，报纸，书籍，音频，音乐和视频），只要在应用中不允许出现获取授权的收费链接或按钮。Apple不会对在应用外订阅或购买授权项目收取任何费用。）<br>11.15<br>Apps may only use auto renewing subscriptions for periodicals (newspapers, magazines), business Apps (enterprise, productivity, professional creative, cloud storage) and media Apps (video, audio, voice), or the App will be rejected.（应用只能自动更新订阅的期刊（报纸、杂志），自动更新商业应用（企业、生产力、专业创意、云存储）和媒体应用（视频、音频，声音）将被拒绝。）</li>
+<li>Scraping and aggregation（抓去与整合）<br>12.1<br>Applications that scrape any information from Apple sites (for example from apple.com, iTunes Store, App Store, iTunes Connect, Apple Developer Programs, etc) or create rankings using content from Apple sites and services will be rejected（从Apple的页面（如：apple.com, iTunes Store, App Store, iTunes Connect, Apple Developer Programs, 等）抓取内容，或利用Apple页面和服务中的内容进行排名的应用会被拒。）<br>12.2<br>Applications may use approved Apple RSS feeds such as the iTunes Store RSS feed（ 应用可以使用授权的Apple RSS，例如iTunes Store RSS。）<br>12.3<br>Apps that are simply web clippings, content aggregators, or a collection of links, may be rejected（简单的web页面裁剪，内容整合或链接收集应用会被拒。）</li>
+<li>Damage to device（损害设备）<br>13.1<br>Apps that encourage users to use an Apple Device in a way that may cause damage to the device will be rejected（任何怂恿用户做出可能损坏Apple设备的行为的应用会被拒。）<br>13.2<br>Apps that rapidly drain the device’s battery or generate excessive heat will be rejected（快速耗光设备电量或产生大量热量的应用会被拒。）</li>
+<li>Personal attacks（人身攻击）<br>14.1<br>Any App that is defamatory, offensive, mean-spirited, or likely to place the targeted individual or group in harms way will be rejected（ 任何涉嫌诽谤，侮辱，狭隘内容或打击个人或团体的应用会被拒。）<br>14.2<br>Professional political satirists and humorists are exempt from the ban on offensive or mean-spirited commentary（职业政治讽刺家和幽默作家不受该诽谤和狭隘条款约束。）</li>
+<li>Violence（暴力）<br>15.1<br>Apps portraying realistic images of people or animals being killed or maimed, shot, stabbed, tortured or injured will be rejected（展示人或动物被杀戮，致残，枪击，针刺或其他伤害的真实图片的应用会被拒）<br>15.2<br>Apps that depict violence or abuse of children will be rejected（描述暴力或虐待儿童的应用会被拒。）<br>15.3<br>“Enemies” within the context of a game cannot solely target a specific race, culture, a real government or corporation, or any other real entity（游戏中的“敌人”不能单独的设定为某特定比赛，文化，真实的政府或组织，或者任何现实事物。）<br>15.4<br>Apps involving realistic depictions of weapons in such a way as to encourage illegal or reckless use of such weapons will be rejected（含有以鼓励非法或鲁莽使用的方式描述真实武器的应用会被拒。）<br>15.5<br>Apps that include games of Russian roulette will be rejected（ 带有俄罗斯轮盘游戏的应用会被拒。）</li>
+<li>Objectionable content（负面内容）<br>16.1<br>Apps that present excessively objectionable or crude content will be rejected（介绍过度三俗和粗鲁内容的应用会被拒。）<br>16.2<br>Apps that are primarily designed to upset or disgust users will be rejected（设计来惹怒或恶心用户的应用会被拒。）</li>
+<li>Privacy（隐私）<br>17.1<br>Apps cannot transmit data about a user without obtaining the user’s prior permission and providing the user with access to information about how and where the data will be used（在未获得用户事先允许，或未告知用户信息将被如何，在哪里使用的情况下，应用不可以传输用户数据。）<br>17.2<br>Apps that require users to share personal information, such as email address and date of birth, in order to function will be rejected（要求用户提供个人信息，如邮箱地址，生日等，才能使用其功能的应用会被拒。）<br>17.3<br>Apps that target minors for data collection will be rejected（专门收集未成年人数据的应用会被拒。）</li>
+<li>Pornography（色情）<br>18.1<br>Apps containing pornographic material, defined by Webster’s Dictionary as “explicit descriptions or displays of sexual organs or activities intended to stimulate erotic rather than aesthetic or emotional feelings”, will be rejected（含有韦氏词典中定义的色情素材（explicit descriptions or displays of sexual organs or activities intended to stimulate erotic rather than aesthetic or emotional feelings）的应用会被拒。）<br>18.2<br>Apps that contain user generated content that is frequently pornographic (ex “Chat Roulette” Apps) will be rejected（经常有用户提供色情内容（例如：Chat Roulette <a href="http://en.wikipedia.org/wiki/Chatroulette" target="_blank" rel="external">http://en.wikipedia.org/wiki/Chatroulette</a> ）的应用会被拒。）</li>
+<li>Religion, culture, and ethnicity（信仰，文化和种族）<br>19.1<br>Apps containing references or commentary about a religious, cultural or ethnic group that are defamatory, offensive, mean-spirited or likely to expose the targeted group to harm or violence will be rejected（带有对一种信仰，文化或种族进行诽谤，侮辱，狭隘，或以他们为目标的暴力或伤害内容的应用会被拒。）<br>19.2<br>Apps may contain or quote religious text provided the quotes or translations are accurate and not misleading. Commentary should be educational or informative rather than inflammatory（ 应用若带有或应用对一种信仰的文字描述，那么这个引用或翻译必须是精确，无歧义的。注释内容可以具有教育性，信息性，但不可以为煽动性。）</li>
+<li>Contests, sweepstakes, lotteries, and raffles（竞赛，赌博，彩票和抽奖）<br>20.1<br>Sweepstakes and contests must be sponsored by the developer/company of the App（赌博和竞赛必须是由应用开发者或所有公司发起资助的。）<br>20.2<br>Official rules for sweepstakes and contests, must be presented in the App and make it clear that Apple is not a sponsor or involved in the activity in any manner（ 应用中必须展示赌博和竞赛的官方条款，并声明Apple不是资助者，并且在任何情况下与此事无关。）<br>20.3<br>It must be permissible by law for the developer to run a lottery App, and a lottery App must have all of the following characteristics: consideration, chance, and a prize（开发者必须经过法律允许才能上线一款抽奖应用，而且抽奖应用必须具备以下要素：报酬，机会，和奖金。)<br>20.4<br>Apps that allow a user to directly purchase a lottery or raffle ticket in the App will be rejected（直接允许用户在应用中购买彩票或抽奖的应用会被拒。）</li>
+<li>Charities and contributions（慈善与捐助）<br>21.1<br>Apps that include the ability to make donations to recognized charitable organizations must be free（含有向已认证的慈善机构捐助功能的应用必须是免费的。）<br>21.2<br>The collection of donations must be done via a web site in Safari or an SMS（慈善募捐必须通过短信息或通过Safari访问web页面完成。）</li>
+<li>Legal requirements（法律要求）<br>22.1<br>Apps must comply with all legal requirements in any location where they are made available to users. It is the developer’s obligation to understand and conform to all local laws（应用必须遵守所有发布地区当地法律。开发者有义务了解和遵守各地的法律。）<br>22.2<br>Apps that contain false, fraudulent or misleading representations or use names or icons similar to other Apps will be rejected（ 任何带有虚假，欺诈和带有歧义的内容的应用会被拒。）<br>22.3<br>Apps that solicit, promote, or encourage criminal or clearly reckless behavior will be rejected（ 任何召集，推销和股东犯罪和鲁莽行为的应用会被拒。）<br>22.4<br>Apps that enable illegal file sharing will be rejected（非法文件共享应用会被拒。）<br>22.5<br>Apps that are designed for use as illegal gambling aids, including card counters, will be rejected（任何设计用来非法赌博工具，包括算牌的应用会被拒。）<br>22.6<br>Apps that enable anonymous or prank phone calls or SMS/MMS messaging will be rejected（ 提供知识拨打电话或知识发送短消息/彩信功能的应用会被拒。）<br>22.7<br>Developers who create Apps that surreptitiously attempt to discover user passwords or other private user data will be removed from the iOS Developer Program（任何开发暗中获取用户密码和私有数据的开发者会被取消IDP身份。）<br>22.8<br>Apps which contain DUI checkpoints that are not published by law enforcement agencies, or encourage and enable drunk driving, will be rejected（任何非法律执行部门发布的带有DUI检查点信息，或鼓励且协助酒后驾车的应用会被拒。）</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？求鼓励，求支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/payWeChat.jpg" alt="Jey.yuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/Alipay.jpg" alt="Jey.yuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AppStore/" rel="tag">#AppStore</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/06/12/使用Alcatraz来管理Xcode插件/" rel="next" title="使用Alcatraz来管理Xcode插件">
+                <i class="fa fa-chevron-left"></i> 使用Alcatraz来管理Xcode插件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/11/15/GCD Dispatch/" rel="prev" title="GCD Dispatch">
+                GCD Dispatch <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2014/10/18/App被拒的各种原因/"
+     data-title="App被拒的各种原因"
+     data-content=""
+     data-url="http://www.jeyblogs.com/2014/10/18/App被拒的各种原因/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/10/18/App被拒的各种原因/"
+           data-title="App被拒的各种原因" data-url="http://www.jeyblogs.com/2014/10/18/App被拒的各种原因/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xsdar.com1.z0.glb.clouddn.com/headIcon.JPG"
+               alt="Jey.yuan" />
+          <p class="site-author-name" itemprop="name">Jey.yuan</p>
+          <p class="site-description motion-element" itemprop="description">Keep Calm and Carry On</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jey.yuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jeyblogs"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
