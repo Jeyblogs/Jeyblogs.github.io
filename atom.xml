@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-08-30T09:44:50.000Z</updated>
+  <updated>2016-08-17T15:37:19.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -14,29 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>苹果联系邮箱大全</title>
-    <link href="http://www.jeyblogs.com/2016/08/30/%E8%8B%B9%E6%9E%9C%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1%E5%A4%A7%E5%85%A8/"/>
-    <id>http://www.jeyblogs.com/2016/08/30/苹果联系邮箱大全/</id>
-    <published>2016-08-30T09:41:41.000Z</published>
-    <updated>2016-08-30T09:44:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>苹果开发者热线: 4006701855<br>申请邓氏编码出问题了可以拨打客服热线: 4008202669<br>AppReview@apple.com<br>应用在提交后（处于“审核中”），应用和应用内购的状态<br>状态更新通知——与开发者遭拒和影响审核时间相关的信息<br>应用遭拒通知咨询-快速审核请求<br>iTSPayments@apple.com<br>支付状态查询<br>与苹果向开发者支付费用相关的问题<br>咨询财务报表<br>AppStoreNotices@apple.com<br>App Store内应用侵权问题，比如我们可以投诉“摩根书院”的关键字侵权<br>DevPrograms@apple.com<br>iDP或ADC查询；<br>程序信息、收益、账户信息；<br>修改邮箱地址、公司联系地址、团队代理人（代理人才有权生成发布证书）<br>ADC产品、硬件等退费<br>ADC网站查询：合作伙请求<br>iDP-DTS@apple.com<br>代码级别的提问<br>API使用-代码崩溃/如何使用和查看Crash logs<br>X-code使用问题, 证书问题<br>修改代码可能会引发iTC上传错误或应用遭拒的情况<br>注意区别于上边这个地址，99$的iDP每年有2次技术支持的机会，申请地址如下：<a href="https://developer.apple.com/membercenter/index.action#techSupport" target="_blank" rel="external">https://developer.apple.com/membercenter/index.action#techSupport</a><br>iTunesConnect@apple.com<br>iTC遇到的任何错误<br>应用/应用内购买设置和管理<br>应用在商店里/用户评论投诉等相关的事宜<br>推广码查询<br>编辑应用信息（名称、评分、关键词、定价、本地化等）<br>iTC 用户以及应用内购买测试用户设置<br>关键词/商店搜索查询<br>iTC登陆事宜<br>崩溃日志<br>对Contact Us的疑问等<br>iAD激活和获取iAd模板<br>iTSBanking@apple.com<br>更新银行账户信息<br>与银行账户信息相关的事宜<br>协助填写银行信息表格<br>所有的开发者可通过iTC Contact Us 模块来修改银行账户信息，将表格发至这个邮箱<br>iTSTax@apple.com<br>与收入和销售税有关的问题-协助填写报税表格<br>处理报税表格<br>iTunesAppReporting@apple.com<br>销售/销售趋势报告理解的问题<br>报告丢失问题<br>– 销售/销售趋势报告与财务报告之差异</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;苹果开发者热线: 4006701855&lt;br&gt;申请邓氏编码出问题了可以拨打客服热线: 4008202669&lt;br&gt;AppReview@apple.com&lt;br&gt;应用在提交后（处于“审核中”），应用和应用内购的状态&lt;br&gt;状态更新通知——与开发者遭拒和影响审核时间相关的信息&lt;
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://www.jeyblogs.com/categories/Mac/"/>
-    
-    
-      <category term="苹果邮箱" scheme="http://www.jeyblogs.com/tags/%E8%8B%B9%E6%9E%9C%E9%82%AE%E7%AE%B1/"/>
-    
-  </entry>
   
   <entry>
     <title>hexo——搭建Github Page博客之配置篇(1)</title>
@@ -117,11 +94,34 @@ git config --global user.email xxx@xxx.com
   </entry>
   
   <entry>
+    <title>苹果联系邮箱大全</title>
+    <link href="http://www.jeyblogs.com/2015/05/30/%E8%8B%B9%E6%9E%9C%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1%E5%A4%A7%E5%85%A8/"/>
+    <id>http://www.jeyblogs.com/2015/05/30/苹果联系邮箱大全/</id>
+    <published>2015-05-30T01:41:41.000Z</published>
+    <updated>2016-08-30T09:52:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>苹果开发者热线: 4006701855<br>申请邓氏编码出问题了可以拨打客服热线: 4008202669<br>AppReview@apple.com<br>应用在提交后（处于“审核中”），应用和应用内购的状态<br>状态更新通知——与开发者遭拒和影响审核时间相关的信息<br>应用遭拒通知咨询-快速审核请求<br>iTSPayments@apple.com<br>支付状态查询<br>与苹果向开发者支付费用相关的问题<br>咨询财务报表<br>AppStoreNotices@apple.com<br>App Store内应用侵权问题，比如我们可以投诉“摩根书院”的关键字侵权<br>DevPrograms@apple.com<br>iDP或ADC查询；<br>程序信息、收益、账户信息；<br>修改邮箱地址、公司联系地址、团队代理人（代理人才有权生成发布证书）<br>ADC产品、硬件等退费<br>ADC网站查询：合作伙请求<br>iDP-DTS@apple.com<br>代码级别的提问<br>API使用-代码崩溃/如何使用和查看Crash logs<br>X-code使用问题, 证书问题<br>修改代码可能会引发iTC上传错误或应用遭拒的情况<br>注意区别于上边这个地址，99$的iDP每年有2次技术支持的机会，申请地址如下：<a href="https://developer.apple.com/membercenter/index.action#techSupport" target="_blank" rel="external">https://developer.apple.com/membercenter/index.action#techSupport</a><br>iTunesConnect@apple.com<br>iTC遇到的任何错误<br>应用/应用内购买设置和管理<br>应用在商店里/用户评论投诉等相关的事宜<br>推广码查询<br>编辑应用信息（名称、评分、关键词、定价、本地化等）<br>iTC 用户以及应用内购买测试用户设置<br>关键词/商店搜索查询<br>iTC登陆事宜<br>崩溃日志<br>对Contact Us的疑问等<br>iAD激活和获取iAd模板<br>iTSBanking@apple.com<br>更新银行账户信息<br>与银行账户信息相关的事宜<br>协助填写银行信息表格<br>所有的开发者可通过iTC Contact Us 模块来修改银行账户信息，将表格发至这个邮箱<br>iTSTax@apple.com<br>与收入和销售税有关的问题-协助填写报税表格<br>处理报税表格<br>iTunesAppReporting@apple.com<br>销售/销售趋势报告理解的问题<br>报告丢失问题<br>– 销售/销售趋势报告与财务报告之差异</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;苹果开发者热线: 4006701855&lt;br&gt;申请邓氏编码出问题了可以拨打客服热线: 4008202669&lt;br&gt;AppReview@apple.com&lt;br&gt;应用在提交后（处于“审核中”），应用和应用内购的状态&lt;br&gt;状态更新通知——与开发者遭拒和影响审核时间相关的信息&lt;
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://www.jeyblogs.com/categories/Mac/"/>
+    
+    
+      <category term="苹果邮箱" scheme="http://www.jeyblogs.com/tags/%E8%8B%B9%E6%9E%9C%E9%82%AE%E7%AE%B1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Jey的Github收藏</title>
     <link href="http://www.jeyblogs.com/2015/03/20/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
     <id>http://www.jeyblogs.com/2015/03/20/Jey的Github收藏/</id>
     <published>2015-03-20T07:29:40.000Z</published>
-    <updated>2016-08-30T02:40:35.000Z</updated>
+    <updated>2016-08-30T09:52:10.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li>ARAnimation(封装的动画库):  <a href="https://github.com/AugustRush/ARAnimation" target="_blank" rel="external">https://github.com/AugustRush/ARAnimation</a></li>
@@ -249,6 +249,29 @@ git config --global user.email xxx@xxx.com
     
     
       <category term="第三方资源" scheme="http://www.jeyblogs.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bash快捷键</title>
+    <link href="http://www.jeyblogs.com/2014/11/27/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://www.jeyblogs.com/2014/11/27/bash快捷键/</id>
+    <published>2014-11-27T09:49:22.000Z</published>
+    <updated>2016-08-30T09:51:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>ctrl键组合<br>ctrl+a:光标移到行首。<br>ctrl+b:光标左移一个字母<br>ctrl+c:杀死当前进程。<br>ctrl+d:退出当前 Shell。<br>ctrl+e:光标移到行尾。<br>ctrl+h:删除光标前一个字符，同 backspace 键相同。<br>ctrl+k:清除光标后至行尾的内容。<br>ctrl+l:清屏，相当于clear。<br>ctrl+r:搜索之前打过的命令。会有一个提示，根据你输入的关键字进行搜索bash的history<br>ctrl+u: 清除光标前至行首间的所有内容。<br>ctrl+w: 移除光标前的一个单词<br>ctrl+t: 交换光标位置前的两个字符<br>ctrl+y: 粘贴或者恢复上次的删除<br>ctrl+d: 删除光标所在字母;注意和backspace以及ctrl+h的区别，这2个是删除光标前的字符<br>ctrl+f: 光标右移<br>ctrl+z : 把当前进程转到后台运行，使用’ fg ‘命令恢复。比如top -d1 然后ctrl+z，到后台，然后fg,重新恢复<br>esc组合<br>esc+d: 删除光标后的一个词<br>esc+f: 往右跳一个词<br>esc+b: 往左跳一个词<br>esc+t: 交换光标位置前的两个单词。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ctrl键组合&lt;br&gt;ctrl+a:光标移到行首。&lt;br&gt;ctrl+b:光标左移一个字母&lt;br&gt;ctrl+c:杀死当前进程。&lt;br&gt;ctrl+d:退出当前 Shell。&lt;br&gt;ctrl+e:光标移到行尾。&lt;br&gt;ctrl+h:删除光标前一个字符，同 backspace 键相
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://www.jeyblogs.com/categories/Mac/"/>
+    
+    
+      <category term="bash" scheme="http://www.jeyblogs.com/tags/bash/"/>
     
   </entry>
   
