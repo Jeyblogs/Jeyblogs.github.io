@@ -94,6 +94,32 @@ git config --global user.email xxx@xxx.com
   </entry>
   
   <entry>
+    <title>Mac测试模拟慢网速</title>
+    <link href="http://www.jeyblogs.com/2015/09/21/Mac%E6%B5%8B%E8%AF%95%E6%A8%A1%E6%8B%9F%E6%85%A2%E7%BD%91%E9%80%9F/"/>
+    <id>http://www.jeyblogs.com/2015/09/21/Mac测试模拟慢网速/</id>
+    <published>2015-09-21T07:08:16.000Z</published>
+    <updated>2016-08-30T10:15:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>先普及一下Kb,KB,Kbps,Mb,Mbps等一些列概念　<br>    1Byte = 8bit<br>    1KB (Kilobyte 千字节)=1024Byte<br>    1MB (Megabyte，兆字节，简称“兆”)=1024KB　　<br>    1GB (Gigabyte，吉字节，又称“千兆”)=1024MB<br>    1TB (Terabyte，太字节，或百万兆字节)=1024GB<br>    1KB=1024B<br>    1MB=1024KB<br>    1GB=1024MB 　<br>    1TB=1024GB</p>
+<p>1    Kb和KB的区别：计算机中的信息都是二进制的0和1来表示，其中每一个0或1被称作一个位，用小写b表示，即bit（位）；大写B表示byte,即字节，一个字节＝八个位，即1B＝8b；前面的大写K表示千的意思，即千个位（Kb)或千个字节(KB)。表示文件的大小单位，一般都使用字节（KB）来表示文件的大小。<br>2    Kb和Kbps的区别：首先要了解的是，ps指的是/s，即每秒。Kbps指的是网络速度，也就是每秒钟传送多少个千位的信息（K表示千位，Kb表示的是多少千个位），为了在直观上显得网络的传输速度较快，一般公司都使用kb（千位）来表示，如果是KBps，则表示每秒传送多少千字节。1KBps＝8Kbps。ADSL上网时的网速是512Kbps,如果转换成字节，就是512/8＝64KBps(即64千字节每秒）。 1389.25 Kbps =173.65625KB／S .另外比如你家1M宽带，理论上下载速度最高能达到1M/8=1024k/8=128KB</p>
+<p>3    Mbps,MB/s了解了面的2这个应该好理解了，直接举例,例如:560Mbps即560兆bit每秒，p就是“每”的意思，同”/“是一样的，但是如果你要用“MB”来计量的话，就要除以8（1Byte=8bit）了，也就是560Mbps/8=70MBps    </p>
+<p>Mac下模拟慢网速其实apple已经提供工具了Network Link Conditioner，这个包含在Hardware IO Tools for Xcode工具包中，Xcode——Open Developer Tool——More Developer Tools<br>搜索hardware，找到对应版本的Hardware IO Tools for Xcode下载下来（不到30M吧），Network Link<br>看到下面的选择Network Link Conditioner.prefPane双击，打开系统偏好设置</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先普及一下Kb,KB,Kbps,Mb,Mbps等一些列概念　&lt;br&gt;    1Byte = 8bit&lt;br&gt;    1KB (Kilobyte 千字节)=1024Byte&lt;br&gt;    1MB (Megabyte，兆字节，简称“兆”)=1024KB　　&lt;br&gt;    1GB
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://www.jeyblogs.com/categories/Mac/"/>
+    
+    
+      <category term="模拟网速" scheme="http://www.jeyblogs.com/tags/%E6%A8%A1%E6%8B%9F%E7%BD%91%E9%80%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>苹果联系邮箱大全</title>
     <link href="http://www.jeyblogs.com/2015/05/30/%E8%8B%B9%E6%9E%9C%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1%E5%A4%A7%E5%85%A8/"/>
     <id>http://www.jeyblogs.com/2015/05/30/苹果联系邮箱大全/</id>
