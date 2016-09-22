@@ -489,7 +489,7 @@ dispatch\_async(dispatch\_get\_main\_queue(), ^
     <link href="http://www.jeyblogs.com/2014/06/12/%E4%BD%BF%E7%94%A8Alcatraz%E6%9D%A5%E7%AE%A1%E7%90%86Xcode%E6%8F%92%E4%BB%B6/"/>
     <id>http://www.jeyblogs.com/2014/06/12/使用Alcatraz来管理Xcode插件/</id>
     <published>2014-06-12T08:06:36.000Z</published>
-    <updated>2016-09-22T06:12:15.000Z</updated>
+    <updated>2016-09-22T06:12:25.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz.png" alt="" title="img"></p>
 <h5 id="￼简介"><a href="#￼简介" class="headerlink" title="￼简介"></a>￼简介</h5><p>Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。</p>
