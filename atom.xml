@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-09-22T08:30:40.000Z</updated>
+  <updated>2016-08-17T15:37:19.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Xcode插件</title>
-    <link href="http://www.jeyblogs.com/2016/09/22/Xcode%E6%8F%92%E4%BB%B6/"/>
-    <id>http://www.jeyblogs.com/2016/09/22/Xcode插件/</id>
-    <published>2016-09-22T08:30:40.000Z</published>
-    <updated>2016-09-22T08:30:40.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>hexo——搭建Github Page博客之配置篇(1)</title>
@@ -248,7 +234,7 @@ dispatch\_async(dispatch\_get\_main\_queue(), ^
     <link href="http://www.jeyblogs.com/2015/10/12/%E4%BD%BF%E7%94%A8Alcatraz%E6%9D%A5%E7%AE%A1%E7%90%86Xcode%E6%8F%92%E4%BB%B6/"/>
     <id>http://www.jeyblogs.com/2015/10/12/使用Alcatraz来管理Xcode插件/</id>
     <published>2015-10-12T08:06:36.000Z</published>
-    <updated>2016-09-22T08:36:04.000Z</updated>
+    <updated>2016-09-22T08:39:49.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz.png" alt="" title="img"></p>
 <h5 id="￼简介"><a href="#￼简介" class="headerlink" title="￼简介"></a>￼简介</h5><p>Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。</p>
@@ -262,7 +248,10 @@ sudo xcode-select --reset
 <pre><code>curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
 </code></pre><h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>安装成功后重启 Xcode，选择load bundle,就可以在 Xcode 的顶部菜单中找到 Alcatraz，如下所示：<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-1.png" alt=""><br>￼<br>点击 “Package Manager”，即可启动插件列表页面，如下所示：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-2.png" alt=""><br>之后你可以在右上角搜索插件，对于想安装的插件，点击其左边的图标，即可下载安装，如下所示，我正在安装KImageNamed插件：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-3.png" alt=""><br>安装完成后，再次点击插件左边的图标，可以将该插件删除。</p>
 <h5 id="插件路径"><a href="#插件路径" class="headerlink" title="插件路径"></a>插件路径</h5><p>Xcode 所有的插件都安装在目录/Library/Application Support/Developer/Shared/Xcode/Plug-ins/下，你也可以手工切换到这个目录来删除插件。</p>
-<h5 id="推荐的插件"><a href="#推荐的插件" class="headerlink" title="推荐的插件"></a>推荐的插件</h5><p>几乎所有开发者都知道Alcatraz是一个开源的包管理工具，可以让我们更轻松地管理各种插件。接下来就介绍下我的最推荐的10个插件：<br>10.HOStringSense<br>在编辑字符串的时候，它会在代码上方生成一个字数统计的提示框。当你需要编辑多行文本时，可以在弹出的文本框中编辑字符串内容，插件会自动进行字符转义的工作，并实时在代码中更新。<br>￼<br>图片由Dirk Holtwick提供<br>9.OMColorSense<br>一个简洁的可视化颜色插件。在你编辑颜色的RGB值的时候，会在代码上方出现一个小的色块，显示对应的颜色。点击色块还会弹出一个颜色编辑器，在编辑器中得到的色值会自动填入colorWithRed:green:blue:alpha:方法中，贴心！<br>￼<br>8.Derived Data Exterminator<br>当你在编译项目的时候，是否曾为Xcode爆出的某个奇怪的错误绞尽脑汁？我想答案是肯定的，并且我们都明白，其中的一种错误的解决办法就是—删除DerivedData!尽管我们有很多种方法解决这个问题，但Derived Data Exterminator无疑是最便捷的那种。在我们将它集成到Xcode后，就可以一键清理Derived Data。<br>￼<br>7.QuickLocalization<br>你是否已经厌倦了反复写NSLocalizedString？如果是，那么QuickLocalization插件可以助你一臂之力。当你在编辑字符串的时候，只需要按下option+shift+d，就可以将@“Any String”转换成NSLocalizedString(@”Any String”, nil)。而且还可以通过修改配置来定义要出现在comment字段中的内容。我已经离不开它了！<br>6.KSImageNamed<br>过去，我不得不频繁查看资源文件夹以查找合适的图片的名称。使用KSImageNamed插件后，会自动弹出图片名称的列表以供选择，而且还有缩略图，十分便捷。<br>图片由Kent Sutherland提供<br>5.ShowInGithub<br>代码审查是Netguru大神们生活方式的一部分。尽管大部分bug会在此阶段被检查出来，但我们仍然会在使用他人代码的时候发现问题。这个时候，ShowInGithub大显身手的时候到了，只需要按下ctrl+C或ctrl+G，就可以立即打开commit或file页面，同时支持Github和BitBucket，非常棒！<br>￼<br>4.SCXcodeSwitchExpander<br>Switch语句相当繁琐。虽然它清楚地列出了在每种情况下应该处理的方式，但一个个填入枚举值那真是浪费时间。SCXcodeSwitchExpander插件可以帮我们完成这个工作，它可以自动获得所有的枚举值填入相应的位置，而我们只需在每个枚举值下面填入对应的逻辑即可，方便极了！<br>￼<br>3.VVDocumenter-Xcode<br>尽管给所有的文件都做上注释的感觉很棒，但是你是否想过这得花多少时间？事实上，感谢VVDocumenter-Xcode，真不需要多少时间。它可以自动解析方法的参数及返回值，并形成Javadoc风格的注释。我们写的所有开源代码都使用了这个插件。<br>￼<br>2.FuzzyAutocomplete<br>这个插件可以在编码的时候自动补全代码。它的强大之处在于，使用了与”Open Quickly”功能相同的算法，如，当你想使用“tableView:cellForRowAtIndexPath:”方法，原来需要输入冗长的“- (void)tableView:(UITableView *)tableViewce”才能匹配出方法，而现在只需要”- cellFor”就行，省事多了。<br>￼<br>1.XcodeBoost<br>这是我最喜欢的插件，我完全想象不了如果编码的时候没有它怎么办。通过配置，我们可以使用光标或者不精确的选择就可以剪切或者拷贝代码行，可以在粘贴代码的时候不触发代码格式化，还可以通过在.m文件中拷贝方法，粘贴进.h文件的时候就可以得到自动格式成的方法声明，还有好些功能都可以实现。XcodeBoost，值得你拥有！<br>￼<br>推荐应用<br>大部分时候，我使用Xcode进行编码，但同时我也会频繁使用其他的一些应用。<br>7.Status Barred<br>根据iTunesConnect Guidelines的要求，屏幕截图不应当包含状态栏，这个工具可以帮助我们平滑地去除状态栏，同时支持iPhone和iPad的屏幕截图。这个小应用虽然只做一件事，但是做得很好。<br>￼<br>6.MacDown<br>你是否已经厌倦了在没有预览的情况下写markdown文件？又或者你使用的编辑器需要按下按钮才能显示预览效果？MacDown是一款方便的的markdown编辑器，它可以在markdown代码右边实时显示预览效果。<br>￼<br>5.SimPholders<br>SimPholders是一个简单便捷的小应用，它会在Mac的工具栏上设置一个快捷按钮，开发者通过它就可以快速打开模拟器或是最近使用的应用。特别是当你需要处理应用文件夹内容的时候，你再也不需要一次次地点进模拟器和应用的文件夹了，用SimPholders就够了。<br>￼<br>4.NetworkLink Conditioner<br>这是一个来自苹果官方的工具，它可以模拟任何网络环境，如3G，Edge等等，也可以重新定义当前的网络环境，如网络延迟、带宽或丢包率。NetworkLink Conditioner也可以应用于真机，但是使用的时候需要小心，使用这个工具不仅仅对使用者起作用，还会影响整个网络。<br>3.RestConsole<br>Rest Console是一个基于Google Chrome的插件，它提供了一个简单易用的REST可视化界面，使得调试API的工作变得更加有趣。RestConsole可以将返回结果格式化，使之便于阅读。同时它也支持oAuth。<br>￼<br>2.Chisel<br>使用LLDB可以显著减少开发者的调试时间。Facebook开发了一套用于LLDB的命令十分有效，特别是当出现了一些难以复现的问题的时候。虽然熟悉它需要一定的时间，但是绝对值得。</p>
+<h5 id="推荐的插件"><a href="#推荐的插件" class="headerlink" title="推荐的插件"></a>推荐的插件</h5><p>几乎所有开发者都知道Alcatraz是一个开源的包管理工具，可以让我们更轻松地管理各种插件。接下来就介绍下我的最推荐的10个插件：<br>10.HOStringSense<br>在编辑字符串的时候，它会在代码上方生成一个字数统计的提示框。当你需要编辑多行文本时，可以在弹出的文本框中编辑字符串内容，插件会自动进行字符转义的工作，并实时在代码中更新。<br>￼<br>10.Peckham<br>可以在任何位置快速的import，快捷键为control+command+P  .这样写import语句就非常的方便。</p>
+<p>9.OMColorSense<br>一个简洁的可视化颜色插件。在你编辑颜色的RGB值的时候，会在代码上方出现一个小的色块，显示对应的颜色。点击色块还会弹出一个颜色编辑器，在编辑器中得到的色值会自动填入colorWithRed:green:blue:alpha:方法中，贴心！<br>￼<br>8.Derived Data Exterminator<br>当你在编译项目的时候，是否曾为Xcode爆出的某个奇怪的错误绞尽脑汁？我想答案是肯定的，并且我们都明白，其中的一种错误的解决办法就是—删除DerivedData!尽管我们有很多种方法解决这个问题，但Derived Data Exterminator无疑是最便捷的那种。在我们将它集成到Xcode后，就可以一键清理Derived Data。<br>￼<br>7.QuickLocalization<br>你是否已经厌倦了反复写NSLocalizedString？如果是，那么QuickLocalization插件可以助你一臂之力。当你在编辑字符串的时候，只需要按下option+shift+d，就可以将@“Any String”转换成NSLocalizedString(@”Any String”, nil)。而且还可以通过修改配置来定义要出现在comment字段中的内容。我已经离不开它了！<br>6.KSImageNamed<br>过去，我不得不频繁查看资源文件夹以查找合适的图片的名称。使用KSImageNamed插件后，会自动弹出图片名称的列表以供选择，而且还有缩略图，十分便捷。<br>图片由Kent Sutherland提供<br>5.ShowInGithub<br>代码审查是Netguru大神们生活方式的一部分。尽管大部分bug会在此阶段被检查出来，但我们仍然会在使用他人代码的时候发现问题。这个时候，ShowInGithub大显身手的时候到了，只需要按下ctrl+C或ctrl+G，就可以立即打开commit或file页面，同时支持Github和BitBucket，非常棒！<br>￼<br>4.SCXcodeSwitchExpander<br>Switch语句相当繁琐。虽然它清楚地列出了在每种情况下应该处理的方式，但一个个填入枚举值那真是浪费时间。SCXcodeSwitchExpander插件可以帮我们完成这个工作，它可以自动获得所有的枚举值填入相应的位置，而我们只需在每个枚举值下面填入对应的逻辑即可，方便极了！<br>￼<br>3.VVDocumenter-Xcode<br>尽管给所有的文件都做上注释的感觉很棒，但是你是否想过这得花多少时间？事实上，感谢VVDocumenter-Xcode，真不需要多少时间。它可以自动解析方法的参数及返回值，并形成Javadoc风格的注释。我们写的所有开源代码都使用了这个插件。<br>￼<br>2.FuzzyAutocomplete<br>这个插件可以在编码的时候自动补全代码。它的强大之处在于，使用了与”Open Quickly”功能相同的算法，如，当你想使用“tableView:cellForRowAtIndexPath:”方法，原来需要输入冗长的“- (void)tableView:(UITableView *)tableViewce”才能匹配出方法，而现在只需要”- cellFor”就行，省事多了。<br>￼<br>1.XcodeBoost<br>这是我最喜欢的插件，我完全想象不了如果编码的时候没有它怎么办。通过配置，我们可以使用光标或者不精确的选择就可以剪切或者拷贝代码行，可以在粘贴代码的时候不触发代码格式化，还可以通过在.m文件中拷贝方法，粘贴进.h文件的时候就可以得到自动格式成的方法声明，还有好些功能都可以实现。XcodeBoost，值得你拥有！<br>￼<br>推荐应用<br>大部分时候，我使用Xcode进行编码，但同时我也会频繁使用其他的一些应用。<br>7.Status Barred<br>根据iTunesConnect Guidelines的要求，屏幕截图不应当包含状态栏，这个工具可以帮助我们平滑地去除状态栏，同时支持iPhone和iPad的屏幕截图。这个小应用虽然只做一件事，但是做得很好。<br>￼<br>6.MacDown<br>你是否已经厌倦了在没有预览的情况下写markdown文件？又或者你使用的编辑器需要按下按钮才能显示预览效果？MacDown是一款方便的的markdown编辑器，它可以在markdown代码右边实时显示预览效果。<br>￼<br>5.SimPholders<br>SimPholders是一个简单便捷的小应用，它会在Mac的工具栏上设置一个快捷按钮，开发者通过它就可以快速打开模拟器或是最近使用的应用。特别是当你需要处理应用文件夹内容的时候，你再也不需要一次次地点进模拟器和应用的文件夹了，用SimPholders就够了。<br>￼<br>4.NetworkLink Conditioner<br>这是一个来自苹果官方的工具，它可以模拟任何网络环境，如3G，Edge等等，也可以重新定义当前的网络环境，如网络延迟、带宽或丢包率。NetworkLink Conditioner也可以应用于真机，但是使用的时候需要小心，使用这个工具不仅仅对使用者起作用，还会影响整个网络。</p>
+<p>3.RestConsole<br>Rest Console是一个基于Google Chrome的插件，它提供了一个简单易用的REST可视化界面，使得调试API的工作变得更加有趣。RestConsole可以将返回结果格式化，使之便于阅读。同时它也支持oAuth。</p>
+<p>2.Chisel<br>使用LLDB可以显著减少开发者的调试时间。Facebook开发了一套用于LLDB的命令十分有效，特别是当出现了一些难以复现的问题的时候。虽然熟悉它需要一定的时间，但是绝对值得。</p>
 <p>1.SQLiteManager<br>SQLiteManager是一个Firefox上的管理SQLite的小插件。在用到CoreData的时候配合使用很方便。我常常觉得Xcode应该集成这方面的功能。它很简洁，我很喜欢这一点。</p>
 ]]></content>
     
@@ -462,6 +451,155 @@ sudo xcode-select --reset
     
     
       <category term="第三方资源" scheme="http://www.jeyblogs.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Xcode插件</title>
+    <link href="http://www.jeyblogs.com/2014/12/26/iOS%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
+    <id>http://www.jeyblogs.com/2014/12/26/iOS开发调试技巧/</id>
+    <published>2014-12-26T03:30:40.000Z</published>
+    <updated>2016-09-22T09:22:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。首先说明下，Xcode已经为我们调试项目提供了极大的方便。<br>【1.普通断点】<br>断点(Breakpoint)绝对是调试程序的第一大选择，也是掌握的基础技能。顾名思义，当程序运行到断点处时会暂停运行。比如断点打在11行，那么程序就会停在11行（注意：程序只运行到了前10行，第11行其实还没有被执行！！！）。只要在代码行旁边点击，就能添加一个断点，再次点击，就能让断点不可用（disable了，仍然存在，只是不起作用了）。在某一行创建断点的快捷键是：command+\<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A71.png" alt=""><br><img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A72.png" alt=""><br>并能在调试过程中在下方看到参数的值：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A73.png" alt=""></p>
+<p>【2.条件断点】<br>以上的断点只是最普通的，我们还能对断点的属性进行配置，设置条件，使断点更加智能化，右键断点进入编辑对话框：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A74.png" alt=""></p>
+<p>我以一个循环作为测试代码：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A75.png" alt=""><br>循环中的代码每次都要单步执行，可能这并不是我想要的。我想要在i为3的时候中断程序，进行调试，编写条件如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A76.png" alt=""><br>设置i==3的条件后，程序就会在该条件时中断，而不会每次到达该位置都中断。中断时输出如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A77.png" alt=""></p>
+<p>同时也可以设置Ignore参数，会忽略前面n次的断点运行，会在第n+1次中断。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A78.png" alt=""><br>调试输出如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A79.png" alt=""></p>
+<p>同时，还可以查看某个函数被调用的次数，设置Action参数如下，注意要选中Automatically continue after evaluating actions.<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A710.png" alt=""></p>
+<p>输出结果如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A711.png" alt=""></p>
+<p>【3.异常断点】<br>断点的功能不限于上面所述。开发iOS知道，如果我们因为异常然后程序crash了，代码就直接跑到main.m的main函数中去了。为什么就不能跑到出现异常的代码中呢？？？异常断点就为我们解决该问题，程序就会在异常出现的那行代码终止。创建异常断点图例如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A712.png" alt=""></p>
+<p>如下所示就创建完成了。如果碰到异常crash时，尝试使用异常断点吧。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A713.png" alt=""></p>
+<p>【4.符号断点Symbolic Breakpoint】<br>符号断点的创建也同异常断点。一般符号断点可以在你指定的<a href="">类名 方法名</a>时中断执行。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A714.png" alt=""></p>
+<p>配置符号断点如下：可以当执行到ViewController类的viewDidLoad方法时中断执行。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A715.png" alt=""></p>
+<p>如果你的Symbol只写了一个函数名，那么就会在出现该函数名的地方就中断执行。如下，就会在运行到doAnimation的时候中断。是不是很强大呢？<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A716.png" alt=""></p>
+<p>【5.Analyze分析器】<br>Analyze分析器是一种静态的工具，可以对我们的程序进行分析，找出我们未使用的变量，或一些死存储。执行Analyze如下：Product–>Analyze. 如下蓝色的标记就是静态分析的结果。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A717.png" alt=""></p>
+<p>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A718.png" alt=""></p>
+<p>当然，我们可以设置在编译程序的时候同时Analyze，把下列选项设为Yes即可。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A719.png" alt=""></p>
+<p>【6.Profile检查器】<br>这个工具实在是太NB了，三言两语说不完，贴张图，大家感受一下，我会在以后的博客中慢慢讲解该工具的使用。同样在Product–>Profile中打开。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A720.png" alt=""></p>
+<p>【7.僵尸对象】<br>iOS中把那些已经release但还没完全消失的对象叫做僵尸对象，对已经release的对象再次释放，就会发生异常。虽然自从使用ARC后，由于对象释放产生的异常已经大大变少，但偶尔还会出现。开启僵尸对象模式后，就能快速定位到异常位置。开启方式如下：Product–>Scheme–>Edit Scheme. 勾选Enable Zombie Objects即可。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A721.png" alt=""></p>
+<p>【8.lldb命令】<br>Xcode中使用llvm编译器，公认为最好的C、C++、OC、Swift编译器。而lldb是llvm中的调试器，我们可以使用一些简单的命令进行调试，我还是把上面的循环代码作为测试代码。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A722.png" alt=""></p>
+<p>断点调试中，使用po命令、print命令在Console控制台打印出变量信息：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A723.png" alt=""></p>
+<p>【9.NSLog打印】<br>应该说NSLog打印信息是初学者最喜欢的调试手法，也是最简单的调试，通过打印出的信息查看程序运行的路径。但是打印出的信息较少，本身NSLog效率较低，有人使用宏做了部分优化，代码如下：能够打印出所在类名、所在方法名、详细时间、行号。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #import &quot;ViewController.h&quot;  
+2      
+3    #define NSLog(format, ...) do { \  
+4    fprintf(stderr, &quot;&lt;%s : %d&gt; %s\n&quot;, \  
+5    [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], \  
+6    __LINE__, __func__); \  
+7    (NSLog)((format), ##__VA_ARGS__); \  
+8    fprintf(stderr, &quot;-------\n&quot;); \  
+9    } while (0)  
+10      
+11    @interface ViewController ()  
+12      
+13    @end  
+14      
+15    @implementation ViewController  
+16      
+17    - (void)viewDidLoad {  
+18      
+19        [super viewDidLoad];  
+20        for (int i = 0; i &lt; 5; i++) {  
+21            NSLog(@&quot;我的值：%d&quot;,i);  
+22        }  
+23    }  
+24      
+25    @end  
+</code></pre><p>【10.生命周期方法init,dealloc】<br>对于ViewController来说，有两个生命周期函数我们可以进行重写，也就是init和dealloc方法。对于某些对象的状态，我们可以在这两个方法中查看。尤其是在dealloc中可以看到当ViewController退出的时候某个对象是否release。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    - (instancetype)init  
+2    {  
+3        self = [super init];  
+4        if (self) {  
+5            //初始化语句；  
+6        }  
+7        return self;  
+8    }  
+9      
+10    - (void)dealloc  
+11    {  
+12        //释放后调用；  
+13    }  
+</code></pre><p>【11.查看代码运行时间】<br>有时候我们想要准确的知道某段代码、某个循环执行的时间，然后分析效率等问题，这个时候就需要执行时间是多少。正好看到网上已经有人做了这个工作，我就直接摘下来了。正好也用了宏的方式计算时间，我们只要在需要计算时间的代码块前后写上TICK,TOCK宏即可。当然，原理也是非常的简单，也就是使用NSDate计算差值。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #import &quot;ViewController.h&quot;  
+2      
+3    #define TICK   NSDate *startTime = [NSDate date]  
+4    #define TOCK   NSLog(@&quot;Time: %f&quot;, -[startTime timeIntervalSinceNow])  
+5      
+6    @interface ViewController ()  
+7      
+8    @end  
+9      
+10    @implementation ViewController  
+11      
+12    - (void)viewDidLoad {  
+13      
+14        [super viewDidLoad];  
+15      
+16        TICK;  
+17        for (int i = 0; i &lt; 5; i++) {  
+18            NSLog(@&quot;我的值：%d&quot;,i);  
+19        }  
+20        TOCK;  
+21    }  
+22      
+23    @end  
+</code></pre><p>打印结果如下：<br><img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A724.png" alt=""></p>
+<p>【12.手机截屏】<br>手机截屏也算调试？哈哈。其实也算是开发中的一个小技巧哈。其实大家都会在iPhone上同时按电源键+Home键截屏，然后使用各种通讯软件发给其他人，这个略显不方便。我们来使用Xcode中的方式截屏。当手机接上电脑后，注意要把调试设备选为自己的手机：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A725.png" alt=""><br>然后选择Debug–>View Debugging–>Take Screenshot…   .然后可以看到手机屏幕已经在你的电脑桌面了。是不是比直接在手机上操作方便多了呢？这样就可以快速的发给其他开发者、PM等人了。</p>
+<p>【13.viewDidLoad不建议写太多代码】<br>       个人建议不要在viewDidLoad方法中写入太多代码。尤其是涉及该界面中的动画的时候，因为执行viewDidLoad方法的时候，界面可能还没完全加载出来，如果此时把动画放在viewDidLoad中，可能会造成动画无法显示。当然也不建议把耗时的网络请求和动画效果都放在viewDidLoad中，界面的阻塞也会造成动画无法显示。可以尝试把动画放在viewDidAppear,viewWillAppear方法中。对于这类涉及UI的问题，调试也是比较麻烦的。。。</p>
+<p>【14.视图调试】<br>       如今iOS开发的UI设计有很多种方式，比如storyboard，xib，代码实现。对于stoayboard,xib可视化实现是比较简单的，但是对于一些“iOS老程序员”而言，都喜欢使用代码实现UI，并且可能UI层次还比较复杂。这样就给我们新接手项目的开发者带来很多困扰。如何快速查看一个复杂UI的界面层次和布局，最快的方法就是用到视图调试。<br>       当项目运行到某一个界面（可以是模拟器或真机）时，开启视图调试，点击按钮如图：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A726.png" alt=""></p>
+<p>这样就会进入试图调试，你可以很方便的查看这个界面。这里可以看到控件之间的层次关系。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A727.png" alt=""></p>
+<p>左侧的树形层次图可以在查看线程、队列和UI之间切换：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A728.png" alt=""></p>
+<p>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A729.png" alt=""></p>
+<p>【15】常用的编译宏定义：可以让代码在不同的编译情况下执行。<br>（1）<strong>OPTIMIZE</strong>  :用于release和debug的判断，当选择了<strong>OPTIMIZE</strong>  时，可以让代码在release时执行，在debug时不执行。示例如下：</p>
+<p><a href="">cpp</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifndef <strong>OPTIMIZE</strong><br>2        //这里执行的是debug模式下<br>3    else<br>4        //这里执行的是release模式下<br>5    #endif  </p>
+<p>（2）<strong>i386</strong> 与 <strong>x86_64</strong>   ：用于模拟器环境和真机环境的判断。满足该条件的代码只在模拟器下执行。示例代码如下：</p>
+<p><a href="">cpp</a> view plain copy</p>
+<p>print?￼￼<br>1    #if defined (<strong>i386</strong>) || defined (<strong>x86_64</strong>)<br>2<br>3        //模拟器下执行<br>4    #else<br>5<br>6        //真机下执行<br>7    #endif  </p>
+<p>（3）<strong>IPHONE_OS_VERSION_MAX_ALLOWED  :当前编译的SDK版本，可以与</strong>IPHONE_9_0等宏定义进行比较，进行不同版本下代码的执行。示例如下：</p>
+<p><a href="">cpp</a> view plain copy</p>
+<p>print?￼￼<br>1    if (<strong>IPHONE_OS_VERSION_MAX_ALLOWED == </strong>IPHONE_9_0) {<br>2            //如果当前SDK版本为9.0是执行这里的代码<br>3        }else{<br>4            //否则执行这里<br>5        }  </p>
+<p>【16】预编译宏在开发调试中非常有用，我们来仔细实践一下：<br>（1）if的预编译命令，根据后面的条件判断是否执行，因为这里条件为1，始终为真，所以在#if…#endif中的代码一定会执行。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #if 1<br>2        //这里的代码一定会执行<br>3<br>4    #endif  </p>
+<p>（2）这里的条件为0，为假，所以#if…#endif里面的代码一定不会执行。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #if 0<br>2        //这里的代码一定不会执行<br>3<br>4    #endif  </p>
+<p>（3）预编译命令还能根据是否宏定义某个标志，来选择是否执行。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。<br>3<br>4    #endif  </p>
+<p>（4）预编译命令还可以进行嵌套，就像普通的条件判断一样。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。<br>3<br>4        #if 1<br>5          //根据条件判断是否执行<br>6        #endif<br>7<br>8        #ifdef MY_TOP2<br>9        //嵌套判断<br>10        #endif<br>11<br>12    #endif  </p>
+<p>（5）既然有#ifdef…#endif,相反的，也有#ifndef…#endif,#ifndef的作用正好和#ifdef相反，如果宏定义没有被声明，那么将会执行执行；如果宏定义被声明了，就不会执行下面的代码。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifndef YOU_TOP<br>2        //如果 YOU_TOP 没有被声明，就会执行里面的代码，否则不会执行。<br>3<br>4    #endif  </p>
+<p>（6）既然是类似条件判断，那么就不得不说#else，在条件编译中，同样有#if…#else的判断，执行逻辑和普通的条件判断一样。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么这里的代码会执行，否则不会执行。<br>3<br>4        #else<br>5        //要么执行else外面的，要么执行else里面的。<br>6          #if 1<br>7          //根据条件判断是否执行<br>8          #endif<br>9<br>10    #endif  </p>
+<p>（7）每出现一次if,就一定要有#endif去包裹，否则预编译器会提示你错误。如果有多层的嵌套，不同层次需要有适当的缩进。<br>（8）对于项目暂时不执行的代码，不建议使用注释代码去禁用。推荐使用预编译命令去打开关闭一段代码。</p>
+<p>【17】#warning的使用<br>有时候在代码中出现大量黄色的警告是非常烦人的事情，大量的警告不利于代码的维护与调试。但是有时候我们需要手动去打一些警告，让我们记住这里应该要注意些什么重要的事情。在code review中，别人也会打一些#warning,提示你应该要注意什么问题，方便我们去查找问题和修改。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用
+    
+    </summary>
+    
+      <category term="Xcode" scheme="http://www.jeyblogs.com/categories/Xcode/"/>
+    
+    
+      <category term="调试" scheme="http://www.jeyblogs.com/tags/%E8%B0%83%E8%AF%95/"/>
     
   </entry>
   

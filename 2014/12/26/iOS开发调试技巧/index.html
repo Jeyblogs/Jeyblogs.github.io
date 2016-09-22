@@ -1,0 +1,874 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="调试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jey" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。首先说明下，Xcode已经为我们调试项目提供了极大的方便。【1.普通断点】断点(Brea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode插件">
+<meta property="og:url" content="http://www.jeyblogs.com/2014/12/26/iOS开发调试技巧/index.html">
+<meta property="og:site_name" content="Jey">
+<meta property="og:description" content="对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。首先说明下，Xcode已经为我们调试项目提供了极大的方便。【1.普通断点】断点(Brea">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A71.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A72.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A73.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A74.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A75.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A76.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A77.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A78.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A79.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A710.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A711.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A712.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A713.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A714.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A715.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A716.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A717.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A718.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A719.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A720.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A721.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A722.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A723.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A724.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A725.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A726.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A727.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A728.png">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A729.png">
+<meta property="og:updated_time" content="2016-09-22T09:22:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode插件">
+<meta name="twitter:description" content="对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。首先说明下，Xcode已经为我们调试项目提供了极大的方便。【1.普通断点】断点(Brea">
+<meta name="twitter:image" content="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A71.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Jey'
+    }
+  };
+</script>
+
+  <title> Xcode插件 | Jey </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ebd5b380279df550acd042285e42423b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jey</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Keep Calm and Carry On</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Xcode插件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-12-26T11:30:40+08:00" content="2014-12-26">
+              2014-12-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Xcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Xcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/12/26/iOS开发调试技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/26/iOS开发调试技巧/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。首先说明下，Xcode已经为我们调试项目提供了极大的方便。<br>【1.普通断点】<br>断点(Breakpoint)绝对是调试程序的第一大选择，也是掌握的基础技能。顾名思义，当程序运行到断点处时会暂停运行。比如断点打在11行，那么程序就会停在11行（注意：程序只运行到了前10行，第11行其实还没有被执行！！！）。只要在代码行旁边点击，就能添加一个断点，再次点击，就能让断点不可用（disable了，仍然存在，只是不起作用了）。在某一行创建断点的快捷键是：command+\<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A71.png" alt=""><br><img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A72.png" alt=""><br>并能在调试过程中在下方看到参数的值：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A73.png" alt=""></p>
+<p>【2.条件断点】<br>以上的断点只是最普通的，我们还能对断点的属性进行配置，设置条件，使断点更加智能化，右键断点进入编辑对话框：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A74.png" alt=""></p>
+<p>我以一个循环作为测试代码：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A75.png" alt=""><br>循环中的代码每次都要单步执行，可能这并不是我想要的。我想要在i为3的时候中断程序，进行调试，编写条件如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A76.png" alt=""><br>设置i==3的条件后，程序就会在该条件时中断，而不会每次到达该位置都中断。中断时输出如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A77.png" alt=""></p>
+<p>同时也可以设置Ignore参数，会忽略前面n次的断点运行，会在第n+1次中断。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A78.png" alt=""><br>调试输出如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A79.png" alt=""></p>
+<p>同时，还可以查看某个函数被调用的次数，设置Action参数如下，注意要选中Automatically continue after evaluating actions.<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A710.png" alt=""></p>
+<p>输出结果如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A711.png" alt=""></p>
+<p>【3.异常断点】<br>断点的功能不限于上面所述。开发iOS知道，如果我们因为异常然后程序crash了，代码就直接跑到main.m的main函数中去了。为什么就不能跑到出现异常的代码中呢？？？异常断点就为我们解决该问题，程序就会在异常出现的那行代码终止。创建异常断点图例如下：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A712.png" alt=""></p>
+<p>如下所示就创建完成了。如果碰到异常crash时，尝试使用异常断点吧。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A713.png" alt=""></p>
+<p>【4.符号断点Symbolic Breakpoint】<br>符号断点的创建也同异常断点。一般符号断点可以在你指定的<a href="">类名 方法名</a>时中断执行。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A714.png" alt=""></p>
+<p>配置符号断点如下：可以当执行到ViewController类的viewDidLoad方法时中断执行。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A715.png" alt=""></p>
+<p>如果你的Symbol只写了一个函数名，那么就会在出现该函数名的地方就中断执行。如下，就会在运行到doAnimation的时候中断。是不是很强大呢？<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A716.png" alt=""></p>
+<p>【5.Analyze分析器】<br>Analyze分析器是一种静态的工具，可以对我们的程序进行分析，找出我们未使用的变量，或一些死存储。执行Analyze如下：Product–>Analyze. 如下蓝色的标记就是静态分析的结果。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A717.png" alt=""></p>
+<p>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A718.png" alt=""></p>
+<p>当然，我们可以设置在编译程序的时候同时Analyze，把下列选项设为Yes即可。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A719.png" alt=""></p>
+<p>【6.Profile检查器】<br>这个工具实在是太NB了，三言两语说不完，贴张图，大家感受一下，我会在以后的博客中慢慢讲解该工具的使用。同样在Product–>Profile中打开。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A720.png" alt=""></p>
+<p>【7.僵尸对象】<br>iOS中把那些已经release但还没完全消失的对象叫做僵尸对象，对已经release的对象再次释放，就会发生异常。虽然自从使用ARC后，由于对象释放产生的异常已经大大变少，但偶尔还会出现。开启僵尸对象模式后，就能快速定位到异常位置。开启方式如下：Product–>Scheme–>Edit Scheme. 勾选Enable Zombie Objects即可。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A721.png" alt=""></p>
+<p>【8.lldb命令】<br>Xcode中使用llvm编译器，公认为最好的C、C++、OC、Swift编译器。而lldb是llvm中的调试器，我们可以使用一些简单的命令进行调试，我还是把上面的循环代码作为测试代码。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A722.png" alt=""></p>
+<p>断点调试中，使用po命令、print命令在Console控制台打印出变量信息：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A723.png" alt=""></p>
+<p>【9.NSLog打印】<br>应该说NSLog打印信息是初学者最喜欢的调试手法，也是最简单的调试，通过打印出的信息查看程序运行的路径。但是打印出的信息较少，本身NSLog效率较低，有人使用宏做了部分优化，代码如下：能够打印出所在类名、所在方法名、详细时间、行号。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #import &quot;ViewController.h&quot;  
+2      
+3    #define NSLog(format, ...) do { \  
+4    fprintf(stderr, &quot;&lt;%s : %d&gt; %s\n&quot;, \  
+5    [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], \  
+6    __LINE__, __func__); \  
+7    (NSLog)((format), ##__VA_ARGS__); \  
+8    fprintf(stderr, &quot;-------\n&quot;); \  
+9    } while (0)  
+10      
+11    @interface ViewController ()  
+12      
+13    @end  
+14      
+15    @implementation ViewController  
+16      
+17    - (void)viewDidLoad {  
+18      
+19        [super viewDidLoad];  
+20        for (int i = 0; i &lt; 5; i++) {  
+21            NSLog(@&quot;我的值：%d&quot;,i);  
+22        }  
+23    }  
+24      
+25    @end  
+</code></pre><p>【10.生命周期方法init,dealloc】<br>对于ViewController来说，有两个生命周期函数我们可以进行重写，也就是init和dealloc方法。对于某些对象的状态，我们可以在这两个方法中查看。尤其是在dealloc中可以看到当ViewController退出的时候某个对象是否release。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    - (instancetype)init  
+2    {  
+3        self = [super init];  
+4        if (self) {  
+5            //初始化语句；  
+6        }  
+7        return self;  
+8    }  
+9      
+10    - (void)dealloc  
+11    {  
+12        //释放后调用；  
+13    }  
+</code></pre><p>【11.查看代码运行时间】<br>有时候我们想要准确的知道某段代码、某个循环执行的时间，然后分析效率等问题，这个时候就需要执行时间是多少。正好看到网上已经有人做了这个工作，我就直接摘下来了。正好也用了宏的方式计算时间，我们只要在需要计算时间的代码块前后写上TICK,TOCK宏即可。当然，原理也是非常的简单，也就是使用NSDate计算差值。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #import &quot;ViewController.h&quot;  
+2      
+3    #define TICK   NSDate *startTime = [NSDate date]  
+4    #define TOCK   NSLog(@&quot;Time: %f&quot;, -[startTime timeIntervalSinceNow])  
+5      
+6    @interface ViewController ()  
+7      
+8    @end  
+9      
+10    @implementation ViewController  
+11      
+12    - (void)viewDidLoad {  
+13      
+14        [super viewDidLoad];  
+15      
+16        TICK;  
+17        for (int i = 0; i &lt; 5; i++) {  
+18            NSLog(@&quot;我的值：%d&quot;,i);  
+19        }  
+20        TOCK;  
+21    }  
+22      
+23    @end  
+</code></pre><p>打印结果如下：<br><img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A724.png" alt=""></p>
+<p>【12.手机截屏】<br>手机截屏也算调试？哈哈。其实也算是开发中的一个小技巧哈。其实大家都会在iPhone上同时按电源键+Home键截屏，然后使用各种通讯软件发给其他人，这个略显不方便。我们来使用Xcode中的方式截屏。当手机接上电脑后，注意要把调试设备选为自己的手机：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A725.png" alt=""><br>然后选择Debug–>View Debugging–>Take Screenshot…   .然后可以看到手机屏幕已经在你的电脑桌面了。是不是比直接在手机上操作方便多了呢？这样就可以快速的发给其他开发者、PM等人了。</p>
+<p>【13.viewDidLoad不建议写太多代码】<br>       个人建议不要在viewDidLoad方法中写入太多代码。尤其是涉及该界面中的动画的时候，因为执行viewDidLoad方法的时候，界面可能还没完全加载出来，如果此时把动画放在viewDidLoad中，可能会造成动画无法显示。当然也不建议把耗时的网络请求和动画效果都放在viewDidLoad中，界面的阻塞也会造成动画无法显示。可以尝试把动画放在viewDidAppear,viewWillAppear方法中。对于这类涉及UI的问题，调试也是比较麻烦的。。。</p>
+<p>【14.视图调试】<br>       如今iOS开发的UI设计有很多种方式，比如storyboard，xib，代码实现。对于stoayboard,xib可视化实现是比较简单的，但是对于一些“iOS老程序员”而言，都喜欢使用代码实现UI，并且可能UI层次还比较复杂。这样就给我们新接手项目的开发者带来很多困扰。如何快速查看一个复杂UI的界面层次和布局，最快的方法就是用到视图调试。<br>       当项目运行到某一个界面（可以是模拟器或真机）时，开启视图调试，点击按钮如图：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A726.png" alt=""></p>
+<p>这样就会进入试图调试，你可以很方便的查看这个界面。这里可以看到控件之间的层次关系。<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A727.png" alt=""></p>
+<p>左侧的树形层次图可以在查看线程、队列和UI之间切换：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A728.png" alt=""></p>
+<p>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A729.png" alt=""></p>
+<p>【15】常用的编译宏定义：可以让代码在不同的编译情况下执行。<br>（1）<strong>OPTIMIZE</strong>  :用于release和debug的判断，当选择了<strong>OPTIMIZE</strong>  时，可以让代码在release时执行，在debug时不执行。示例如下：</p>
+<p><a href="">cpp</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifndef <strong>OPTIMIZE</strong><br>2        //这里执行的是debug模式下<br>3    else<br>4        //这里执行的是release模式下<br>5    #endif  </p>
+<p>（2）<strong>i386</strong> 与 <strong>x86_64</strong>   ：用于模拟器环境和真机环境的判断。满足该条件的代码只在模拟器下执行。示例代码如下：</p>
+<p><a href="">cpp</a> view plain copy</p>
+<p>print?￼￼<br>1    #if defined (<strong>i386</strong>) || defined (<strong>x86_64</strong>)<br>2<br>3        //模拟器下执行<br>4    #else<br>5<br>6        //真机下执行<br>7    #endif  </p>
+<p>（3）<strong>IPHONE_OS_VERSION_MAX_ALLOWED  :当前编译的SDK版本，可以与</strong>IPHONE_9_0等宏定义进行比较，进行不同版本下代码的执行。示例如下：</p>
+<p><a href="">cpp</a> view plain copy</p>
+<p>print?￼￼<br>1    if (<strong>IPHONE_OS_VERSION_MAX_ALLOWED == </strong>IPHONE_9_0) {<br>2            //如果当前SDK版本为9.0是执行这里的代码<br>3        }else{<br>4            //否则执行这里<br>5        }  </p>
+<p>【16】预编译宏在开发调试中非常有用，我们来仔细实践一下：<br>（1）if的预编译命令，根据后面的条件判断是否执行，因为这里条件为1，始终为真，所以在#if…#endif中的代码一定会执行。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #if 1<br>2        //这里的代码一定会执行<br>3<br>4    #endif  </p>
+<p>（2）这里的条件为0，为假，所以#if…#endif里面的代码一定不会执行。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #if 0<br>2        //这里的代码一定不会执行<br>3<br>4    #endif  </p>
+<p>（3）预编译命令还能根据是否宏定义某个标志，来选择是否执行。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。<br>3<br>4    #endif  </p>
+<p>（4）预编译命令还可以进行嵌套，就像普通的条件判断一样。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。<br>3<br>4        #if 1<br>5          //根据条件判断是否执行<br>6        #endif<br>7<br>8        #ifdef MY_TOP2<br>9        //嵌套判断<br>10        #endif<br>11<br>12    #endif  </p>
+<p>（5）既然有#ifdef…#endif,相反的，也有#ifndef…#endif,#ifndef的作用正好和#ifdef相反，如果宏定义没有被声明，那么将会执行执行；如果宏定义被声明了，就不会执行下面的代码。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifndef YOU_TOP<br>2        //如果 YOU_TOP 没有被声明，就会执行里面的代码，否则不会执行。<br>3<br>4    #endif  </p>
+<p>（6）既然是类似条件判断，那么就不得不说#else，在条件编译中，同样有#if…#else的判断，执行逻辑和普通的条件判断一样。</p>
+<p><a href="">objc</a> view plain copy</p>
+<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么这里的代码会执行，否则不会执行。<br>3<br>4        #else<br>5        //要么执行else外面的，要么执行else里面的。<br>6          #if 1<br>7          //根据条件判断是否执行<br>8          #endif<br>9<br>10    #endif  </p>
+<p>（7）每出现一次if,就一定要有#endif去包裹，否则预编译器会提示你错误。如果有多层的嵌套，不同层次需要有适当的缩进。<br>（8）对于项目暂时不执行的代码，不建议使用注释代码去禁用。推荐使用预编译命令去打开关闭一段代码。</p>
+<p>【17】#warning的使用<br>有时候在代码中出现大量黄色的警告是非常烦人的事情，大量的警告不利于代码的维护与调试。但是有时候我们需要手动去打一些警告，让我们记住这里应该要注意些什么重要的事情。在code review中，别人也会打一些#warning,提示你应该要注意什么问题，方便我们去查找问题和修改。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？求鼓励，求支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/payWeChat.jpg" alt="Jey.yuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xsdar.com1.z0.glb.clouddn.com/Alipay.jpg" alt="Jey.yuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/调试/" rel="tag">#调试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/11/27/bash快捷键/" rel="next" title="bash快捷键">
+                <i class="fa fa-chevron-left"></i> bash快捷键
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/20/Jey的Github收藏/" rel="prev" title="Jey的Github收藏">
+                Jey的Github收藏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2014/12/26/iOS开发调试技巧/"
+     data-title="Xcode插件"
+     data-content=""
+     data-url="http://www.jeyblogs.com/2014/12/26/iOS开发调试技巧/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/12/26/iOS开发调试技巧/"
+           data-title="Xcode插件" data-url="http://www.jeyblogs.com/2014/12/26/iOS开发调试技巧/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xsdar.com1.z0.glb.clouddn.com/headIcon.JPG"
+               alt="Jey.yuan" />
+          <p class="site-author-name" itemprop="name">Jey.yuan</p>
+          <p class="site-description motion-element" itemprop="description">Keep Calm and Carry On</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jey.yuan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jeyblogs"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
