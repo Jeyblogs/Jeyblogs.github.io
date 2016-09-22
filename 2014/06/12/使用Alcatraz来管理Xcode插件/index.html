@@ -87,25 +87,22 @@
 
 
 <meta name="description" content="￼简介Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。
-安装和删除使用如下的命令行来安装 Alcatraz：    mkdir -p ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins;
-curl -L">
+安装和删除第一步：关闭 Xcode。第二步：如果你之前安装过Alcatraz，卸载它。运行命令：    rm -rf /Library/Application\ Support/Developer/Shared/Xcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Alcatraz来管理Xcode插件">
 <meta property="og:url" content="http://www.jeyblogs.com/2014/06/12/使用Alcatraz来管理Xcode插件/index.html">
 <meta property="og:site_name" content="Jey">
 <meta property="og:description" content="￼简介Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。
-安装和删除使用如下的命令行来安装 Alcatraz：    mkdir -p ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins;
-curl -L">
+安装和删除第一步：关闭 Xcode。第二步：如果你之前安装过Alcatraz，卸载它。运行命令：    rm -rf /Library/Application\ Support/Developer/Shared/Xcode">
 <meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz.png">
 <meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-1.png">
 <meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-2.png">
 <meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-3.png">
-<meta property="og:updated_time" content="2016-08-30T09:59:20.000Z">
+<meta property="og:updated_time" content="2016-09-22T06:10:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Alcatraz来管理Xcode插件">
 <meta name="twitter:description" content="￼简介Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。
-安装和删除使用如下的命令行来安装 Alcatraz：    mkdir -p ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins;
-curl -L">
+安装和删除第一步：关闭 Xcode。第二步：如果你之前安装过Alcatraz，卸载它。运行命令：    rm -rf /Library/Application\ Support/Developer/Shared/Xcode">
 <meta name="twitter:image" content="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz.png">
 
 
@@ -350,11 +347,10 @@ curl -L">
       
         <p><img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz.png" alt="" title="img"></p>
 <h5 id="￼简介"><a href="#￼简介" class="headerlink" title="￼简介"></a>￼简介</h5><p>Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。</p>
-<h5 id="安装和删除"><a href="#安装和删除" class="headerlink" title="安装和删除"></a>安装和删除</h5><p>使用如下的命令行来安装 Alcatraz：<br>    mkdir -p ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins;</p>
-<pre><code>curl -L http://git.io/lOQWeA | tar xvz -C ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins
-</code></pre><p>如果你不想使用 Alcatraz 了，可以使用如下命令来删除：<br>    rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin</p>
-<pre><code>rm -rf ~/Library/Application\ Support/Alcatraz
-</code></pre><h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>安装成功后重启 Xcode，就可以在 Xcode 的顶部菜单中找到 Alcatraz，如下所示：<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-1.png" alt=""><br>￼<br>点击 “Package Manager”，即可启动插件列表页面，如下所示：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-2.png" alt=""><br>之后你可以在右上角搜索插件，对于想安装的插件，点击其左边的图标，即可下载安装，如下所示，我正在安装KImageNamed插件：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-3.png" alt=""><br>安装完成后，再次点击插件左边的图标，可以将该插件删除。</p>
+<h5 id="安装和删除"><a href="#安装和删除" class="headerlink" title="安装和删除"></a>安装和删除</h5><p>第一步：关闭 Xcode。<br>第二步：如果你之前安装过Alcatraz，卸载它。运行命令：<br>    rm -rf /Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin<br>第三步：最关键的一步，运行命令：<br>    find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID</p>
+<pre><code>sudo xcode-select --reset
+</code></pre><p>第四步：安装 Alcatraz。<br>    curl -fsSL <a href="https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh" target="_blank" rel="external">https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh</a> | sh</p>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>安装成功后重启 Xcode，选择load bundle,就可以在 Xcode 的顶部菜单中找到 Alcatraz，如下所示：<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-1.png" alt=""><br>￼<br>点击 “Package Manager”，即可启动插件列表页面，如下所示：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-2.png" alt=""><br>之后你可以在右上角搜索插件，对于想安装的插件，点击其左边的图标，即可下载安装，如下所示，我正在安装KImageNamed插件：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz-3.png" alt=""><br>安装完成后，再次点击插件左边的图标，可以将该插件删除。</p>
 <h5 id="插件路径"><a href="#插件路径" class="headerlink" title="插件路径"></a>插件路径</h5><p>Xcode 所有的插件都安装在目录/Library/Application Support/Developer/Shared/Xcode/Plug-ins/下，你也可以手工切换到这个目录来删除插件。</p>
 <h5 id="推荐的插件"><a href="#推荐的插件" class="headerlink" title="推荐的插件"></a>推荐的插件</h5>
       
