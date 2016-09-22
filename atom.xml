@@ -455,11 +455,11 @@ sudo xcode-select --reset
   </entry>
   
   <entry>
-    <title>Xcode插件</title>
+    <title>iOS 开发调试技巧</title>
     <link href="http://www.jeyblogs.com/2014/12/26/iOS%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
     <id>http://www.jeyblogs.com/2014/12/26/iOS开发调试技巧/</id>
     <published>2014-12-26T03:30:40.000Z</published>
-    <updated>2016-09-22T09:22:13.000Z</updated>
+    <updated>2016-09-22T09:30:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。首先说明下，Xcode已经为我们调试项目提供了极大的方便。<br>【1.普通断点】<br>断点(Breakpoint)绝对是调试程序的第一大选择，也是掌握的基础技能。顾名思义，当程序运行到断点处时会暂停运行。比如断点打在11行，那么程序就会停在11行（注意：程序只运行到了前10行，第11行其实还没有被执行！！！）。只要在代码行旁边点击，就能添加一个断点，再次点击，就能让断点不可用（disable了，仍然存在，只是不起作用了）。在某一行创建断点的快捷键是：command+\<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A71.png" alt=""><br><img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A72.png" alt=""><br>并能在调试过程中在下方看到参数的值：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A73.png" alt=""></p>
 <p>【2.条件断点】<br>以上的断点只是最普通的，我们还能对断点的属性进行配置，设置条件，使断点更加智能化，右键断点进入编辑对话框：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A74.png" alt=""></p>
@@ -560,33 +560,97 @@ print?￼￼
 <p>左侧的树形层次图可以在查看线程、队列和UI之间切换：<br>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A728.png" alt=""></p>
 <p>￼<img src="http://7xsdar.com1.z0.glb.clouddn.com/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A729.png" alt=""></p>
 <p>【15】常用的编译宏定义：可以让代码在不同的编译情况下执行。<br>（1）<strong>OPTIMIZE</strong>  :用于release和debug的判断，当选择了<strong>OPTIMIZE</strong>  时，可以让代码在release时执行，在debug时不执行。示例如下：</p>
-<p><a href="">cpp</a> view plain copy</p>
-<p>print?￼￼<br>1    #ifndef <strong>OPTIMIZE</strong><br>2        //这里执行的是debug模式下<br>3    else<br>4        //这里执行的是release模式下<br>5    #endif  </p>
-<p>（2）<strong>i386</strong> 与 <strong>x86_64</strong>   ：用于模拟器环境和真机环境的判断。满足该条件的代码只在模拟器下执行。示例代码如下：</p>
-<p><a href="">cpp</a> view plain copy</p>
-<p>print?￼￼<br>1    #if defined (<strong>i386</strong>) || defined (<strong>x86_64</strong>)<br>2<br>3        //模拟器下执行<br>4    #else<br>5<br>6        //真机下执行<br>7    #endif  </p>
-<p>（3）<strong>IPHONE_OS_VERSION_MAX_ALLOWED  :当前编译的SDK版本，可以与</strong>IPHONE_9_0等宏定义进行比较，进行不同版本下代码的执行。示例如下：</p>
-<p><a href="">cpp</a> view plain copy</p>
-<p>print?￼￼<br>1    if (<strong>IPHONE_OS_VERSION_MAX_ALLOWED == </strong>IPHONE_9_0) {<br>2            //如果当前SDK版本为9.0是执行这里的代码<br>3        }else{<br>4            //否则执行这里<br>5        }  </p>
-<p>【16】预编译宏在开发调试中非常有用，我们来仔细实践一下：<br>（1）if的预编译命令，根据后面的条件判断是否执行，因为这里条件为1，始终为真，所以在#if…#endif中的代码一定会执行。</p>
-<p><a href="">objc</a> view plain copy</p>
-<p>print?￼￼<br>1    #if 1<br>2        //这里的代码一定会执行<br>3<br>4    #endif  </p>
-<p>（2）这里的条件为0，为假，所以#if…#endif里面的代码一定不会执行。</p>
-<p><a href="">objc</a> view plain copy</p>
-<p>print?￼￼<br>1    #if 0<br>2        //这里的代码一定不会执行<br>3<br>4    #endif  </p>
-<p>（3）预编译命令还能根据是否宏定义某个标志，来选择是否执行。</p>
-<p><a href="">objc</a> view plain copy</p>
-<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。<br>3<br>4    #endif  </p>
-<p>（4）预编译命令还可以进行嵌套，就像普通的条件判断一样。</p>
-<p><a href="">objc</a> view plain copy</p>
-<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。<br>3<br>4        #if 1<br>5          //根据条件判断是否执行<br>6        #endif<br>7<br>8        #ifdef MY_TOP2<br>9        //嵌套判断<br>10        #endif<br>11<br>12    #endif  </p>
-<p>（5）既然有#ifdef…#endif,相反的，也有#ifndef…#endif,#ifndef的作用正好和#ifdef相反，如果宏定义没有被声明，那么将会执行执行；如果宏定义被声明了，就不会执行下面的代码。</p>
-<p><a href="">objc</a> view plain copy</p>
-<p>print?￼￼<br>1    #ifndef YOU_TOP<br>2        //如果 YOU_TOP 没有被声明，就会执行里面的代码，否则不会执行。<br>3<br>4    #endif  </p>
-<p>（6）既然是类似条件判断，那么就不得不说#else，在条件编译中，同样有#if…#else的判断，执行逻辑和普通的条件判断一样。</p>
-<p><a href="">objc</a> view plain copy</p>
-<p>print?￼￼<br>1    #ifdef MY_TOP<br>2        //如果 MY_TOP 被宏定义过，那么这里的代码会执行，否则不会执行。<br>3<br>4        #else<br>5        //要么执行else外面的，要么执行else里面的。<br>6          #if 1<br>7          //根据条件判断是否执行<br>8          #endif<br>9<br>10    #endif  </p>
-<p>（7）每出现一次if,就一定要有#endif去包裹，否则预编译器会提示你错误。如果有多层的嵌套，不同层次需要有适当的缩进。<br>（8）对于项目暂时不执行的代码，不建议使用注释代码去禁用。推荐使用预编译命令去打开关闭一段代码。</p>
+<pre><code>[cpp] view plain copy
+
+print?￼￼
+1    #ifndef __OPTIMIZE__  
+2        //这里执行的是debug模式下  
+3    else  
+4        //这里执行的是release模式下  
+5    #endif  
+</code></pre><p>（2）<strong>i386</strong> 与 <strong>x86_64</strong>   ：用于模拟器环境和真机环境的判断。满足该条件的代码只在模拟器下执行。示例代码如下：</p>
+<pre><code>[cpp] view plain copy
+
+print?￼￼
+1    #if defined (__i386__) || defined (__x86_64__)  
+2      
+3        //模拟器下执行  
+4    #else  
+5      
+6        //真机下执行  
+7    #endif  
+</code></pre><p>（3）<strong>IPHONE_OS_VERSION_MAX_ALLOWED  :当前编译的SDK版本，可以与</strong>IPHONE_9_0等宏定义进行比较，进行不同版本下代码的执行。示例如下：</p>
+<pre><code>[cpp] view plain copy
+
+print?￼￼
+1    if (__IPHONE_OS_VERSION_MAX_ALLOWED == __IPHONE_9_0) {  
+2            //如果当前SDK版本为9.0是执行这里的代码  
+3        }else{  
+4            //否则执行这里  
+5        }  
+</code></pre><p>【16】预编译宏在开发调试中非常有用，我们来仔细实践一下：<br>（1）if的预编译命令，根据后面的条件判断是否执行，因为这里条件为1，始终为真，所以在#if…#endif中的代码一定会执行。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #if 1  
+2        //这里的代码一定会执行  
+3      
+4    #endif  
+</code></pre><p>（2）这里的条件为0，为假，所以#if…#endif里面的代码一定不会执行。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #if 0  
+2        //这里的代码一定不会执行  
+3      
+4    #endif  
+</code></pre><p>（3）预编译命令还能根据是否宏定义某个标志，来选择是否执行。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #ifdef MY_TOP  
+2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。  
+3      
+4    #endif  
+</code></pre><p>（4）预编译命令还可以进行嵌套，就像普通的条件判断一样。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #ifdef MY_TOP  
+2        //如果 MY_TOP 被宏定义过，那么里面的代码会执行，否则不会执行。  
+3      
+4        #if 1  
+5          //根据条件判断是否执行  
+6        #endif  
+7      
+8        #ifdef MY_TOP2  
+9        //嵌套判断  
+10        #endif  
+11      
+12    #endif  
+</code></pre><p>（5）既然有#ifdef…#endif,相反的，也有#ifndef…#endif,#ifndef的作用正好和#ifdef相反，如果宏定义没有被声明，那么将会执行执行；如果宏定义被声明了，就不会执行下面的代码。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #ifndef YOU_TOP  
+2        //如果 YOU_TOP 没有被声明，就会执行里面的代码，否则不会执行。  
+3      
+4    #endif  
+</code></pre><p>（6）既然是类似条件判断，那么就不得不说#else，在条件编译中，同样有#if…#else的判断，执行逻辑和普通的条件判断一样。</p>
+<pre><code>[objc] view plain copy
+
+print?￼￼
+1    #ifdef MY_TOP  
+2        //如果 MY_TOP 被宏定义过，那么这里的代码会执行，否则不会执行。  
+3      
+4        #else  
+5        //要么执行else外面的，要么执行else里面的。  
+6          #if 1  
+7          //根据条件判断是否执行  
+8          #endif  
+9      
+10    #endif  
+</code></pre><p>（7）每出现一次if,就一定要有#endif去包裹，否则预编译器会提示你错误。如果有多层的嵌套，不同层次需要有适当的缩进。<br>（8）对于项目暂时不执行的代码，不建议使用注释代码去禁用。推荐使用预编译命令去打开关闭一段代码。</p>
 <p>【17】#warning的使用<br>有时候在代码中出现大量黄色的警告是非常烦人的事情，大量的警告不利于代码的维护与调试。但是有时候我们需要手动去打一些警告，让我们记住这里应该要注意些什么重要的事情。在code review中，别人也会打一些#warning,提示你应该要注意什么问题，方便我们去查找问题和修改。</p>
 ]]></content>
     
