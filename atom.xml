@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2016-09-23T02:22:52.000Z</updated>
+  <updated>2016-09-23T02:29:08.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://www.jeyblogs.com/2016/08/16/hexo%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BAGithub-Page%E5%8D%9A%E5%AE%A2(2)/"/>
     <id>http://www.jeyblogs.com/2016/08/16/hexo——搭建Github-Page博客(2)/</id>
     <published>2016-08-16T02:18:28.000Z</published>
-    <updated>2016-09-23T02:22:52.000Z</updated>
+    <updated>2016-09-23T02:29:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p><em><strong>GitHub Pages是什么？</strong></em><br>GitHub Pages本用于介绍托管在GitHub的项目， 他的空间免费稳定，用来做搭建一个博客再好不过，还可以根据自己的风格定制主题。<br><strong>1.github上建立仓库</strong><br>登录后系统，在github首页，点击页面右下角「New Repository<br><em>project name：jeyblogs.github.io</em><br><em>description： Writing 1000 Words a Day Changed My Life</em><br>注：Github Pages的Repository名字跟Github账号是一致的，比如我的Github账号是jeyblogs，Github Pages Repository名字就是jeyblogs.github.io。<br><strong>2.在setting的Github Pages模块激活</strong><br><strong>3.把Github Page站点下载到本地</strong><br><code>git clone [https://github.com/jeyblogs/jeyblogs.github.io.git]</code><br><strong>4.生成hero</strong><br>cd /本地仓库文件夹<br>hexo init<br><strong>5.申请独立域名，Godaddy注册并购买域名，我的jeyblogs.com，指向Github pages</strong><br><strong>6.在Github Pages站点目录下新建文件CNAME，里面文本是你的域名，jeyblogs.com</strong><br><strong>7.在github仓库中创建一个分支gh-pages</strong></p>
+    <content type="html"><![CDATA[<p><em><strong>GitHub Pages是什么？</strong></em><br>GitHub Pages本用于介绍托管在GitHub的项目， 他的空间免费稳定，用来做搭建一个博客再好不过，还可以根据自己的风格定制主题。<br><strong>1.github上建立仓库</strong><br>登录后系统，在github首页，点击页面右下角「New Repository<br><em>project name：jeyblogs.github.io</em><br><em>description： Writing 1000 Words a Day Changed My Life</em><br>注：Github Pages的Repository名字跟Github账号是一致的，比如我的Github账号是jeyblogs，Github Pages Repository名字就是jeyblogs.github.io。<br><strong>2.在setting的Github Pages模块激活</strong><br><strong>3.把Github Page站点下载到本地</strong><br><code>git clone [https://github.com/jeyblogs/jeyblogs.github.io.git]</code><br><strong>4.生成hero</strong><br>cd /站点本地仓库文件夹<br>hexo init<br><strong>5.申请独立域名，Godaddy注册并购买域名，我的jeyblogs.com，指向Github pages</strong><br><strong>6.在Github Pages站点目录下新建文件CNAME，里面文本是你的域名，jeyblogs.com</strong><br><strong>7.在github仓库中创建一个分支gh-pages</strong></p>
 <p><em>进阶篇：Hexo设置</em><br>网站搭建完成后，就可以根据自己爱好来对Hexo生成的网站进行设置了，对整站的设置，只要修改项目目录的<em>config.yml就可以了</em> </p>
 <pre><code>Extensions
 Plugins: https://hexo.io/plugins/
@@ -60,7 +60,8 @@ hexo d == hexo deploy
 </code></pre><p>安装插件<br>添加sitemap和feed插件</p>
 <pre><code>$ npm install hexo-generator-sitemap
 $ npm install hexo-generator-feed
-</code></pre>]]></content>
+</code></pre><p><em>注：</em><br>站点本地仓库文件夹目录下source是自己在本地的文件，新建的page和文章都在，hexo g命令后会自动生成public文件夹，生成的网页，文章里面的categories也是在source中，新建的page，categories是跟posts文件夹同级的，themes是主题目录</p>
+]]></content>
     
     <summary type="html">
     
