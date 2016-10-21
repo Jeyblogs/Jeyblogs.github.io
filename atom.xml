@@ -126,14 +126,16 @@ git config --global user.email xxx@xxx.com
     <link href="http://www.jeyblogs.com/2016/03/27/iOS%E8%BF%90%E8%A1%8C%E8%AF%81%E4%B9%A6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/"/>
     <id>http://www.jeyblogs.com/2016/03/27/iOS运行证书报错问题整理/</id>
     <published>2016-03-27T02:36:28.000Z</published>
-    <updated>2016-09-27T02:51:48.000Z</updated>
+    <updated>2016-09-27T03:16:11.000Z</updated>
     
     <content type="html"><![CDATA[<p>作为一名iOS工程师，在开发中遇到各种证书报错的问题，在这里，我就把多年的实践经验分享出来，希望能够对大家有所帮助：</p>
 <ol>
 <li><p>iPhone上已经装了Bundle ID一样的 App，删掉再运行。</p>
 <p> This application’s application-identifier entitlement does not match that of the installed application. These values must match for an upgrade to be allowed.</p>
 </li>
-<li>还是描述文件的问题，把发布的描述文件或者是 hoc 的描述文件当成开发描述文件使用了。<br> process launch failed: timed out trying to launch app</li>
+<li><p>还是描述文件的问题，把发布的描述文件或者是 hoc 的描述文件当成开发描述文件使用了。</p>
+<p> process launch failed: timed out trying to launch app</p>
+</li>
 </ol>
 ]]></content>
     
@@ -416,7 +418,7 @@ sudo xcode-select --reset
     <link href="http://www.jeyblogs.com/2015/03/20/Jey%E7%9A%84Github%E6%94%B6%E8%97%8F/"/>
     <id>http://www.jeyblogs.com/2015/03/20/Jey的Github收藏/</id>
     <published>2015-03-20T07:29:40.000Z</published>
-    <updated>2016-08-30T09:52:10.000Z</updated>
+    <updated>2016-10-21T08:43:22.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li>ARAnimation(封装的动画库):  <a href="https://github.com/AugustRush/ARAnimation" target="_blank" rel="external">https://github.com/AugustRush/ARAnimation</a></li>
@@ -438,7 +440,7 @@ sudo xcode-select --reset
 <li>ParallaxTableViewHeader：<a href="https://github.com/Vinodh-G/ParallaxTableViewHeader" target="_blank" rel="external">https://github.com/Vinodh-G/ParallaxTableViewHeader</a><br>当 tableView 滚动时的时候 UITableView 头部视图的视差滚动视图。</li>
 <li>PLPlayerKit：<a href="https://github.com/pili-engineering/PLPlayerKit" target="_blank" rel="external">https://github.com/pili-engineering/PLPlayerKit</a><br>是一个适用于 iOS 的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放，并且支持常见音视频文件例如 MP4/M4A 的播放。</li>
 <li>MJParallaxCollectionView：<a href="https://github.com/mayuur/MJParallaxCollectionView" target="_blank" rel="external">https://github.com/mayuur/MJParallaxCollectionView</a><br>TableView的cell视觉差效果</li>
-<li>YYKit：<a href="https://github.com/ibireme/YYKit" target="_blank" rel="external">https://github.com/ibireme/YYKit</a><br>是一组庞大、功能丰富的 iOS 组件。<br>•    YYModel — 高性能的 iOS JSON 模型框架。<br>•    YYCache — 高性能的 iOS 缓存框架。<br>•    YYImage — 功能强大的 iOS 图像框架。<br>•    YYWebImage — 高性能的 iOS 异步图像加载框架。<br>•    YYText — 功能强大的 iOS 富文本框架。<br>•    YYKeyboardManager — iOS 键盘监听管理工具。<br>•    YYDispatchQueuePool — iOS 全局并发队列管理工具。<br>•    YYAsyncLayer — iOS 异步绘制与显示的工具。<br>•    YYCategories — 功能丰富的 Category 类型工具库。</li>
+<li>YYKit：<a href="https://github.com/ibireme/YYKit" target="_blank" rel="external">https://github.com/ibireme/YYKit</a><br>是一组庞大、功能丰富的 iOS 组件。<br>• YYModel — 高性能的 iOS JSON 模型框架。<br>• YYCache — 高性能的 iOS 缓存框架。<br>• YYImage — 功能强大的 iOS 图像框架。<br>• YYWebImage — 高性能的 iOS 异步图像加载框架。<br>• YYText — 功能强大的 iOS 富文本框架。<br>• YYKeyboardManager — iOS 键盘监听管理工具。<br>• YYDispatchQueuePool — iOS 全局并发队列管理工具。<br>• YYAsyncLayer — iOS 异步绘制与显示的工具。<br>• YYCategories — 功能丰富的 Category 类型工具库。</li>
 <li>FancyTabBar：<a href="https://github.com/marvelapp/FancyTabBar" target="_blank" rel="external">https://github.com/marvelapp/FancyTabBar</a><br>类似新浪微博那种弹出动画效果的TabBar</li>
 <li>SDAutoLayout：<a href="https://github.com/gsdios/SDAutoLayout" target="_blank" rel="external">https://github.com/gsdios/SDAutoLayout</a><br>一行代码搞定自动布局！支持Cell和Tableview高度自适应，Label和ScrollView内容自适应，致力于做最简单易用的AutoLayout库。</li>
 <li>SDCycleScrollView：<a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="external">https://github.com/gsdios/SDCycleScrollView</a><br>Autoscroll Banner. 无限循环图片、文字轮播器。</li>
@@ -530,6 +532,27 @@ sudo xcode-select --reset
 <li>TagView：<a href="https://github.com/xhzengAIB/TagView" target="_blank" rel="external">https://github.com/xhzengAIB/TagView</a><br>图片标签,分叉树标签</li>
 <li>FunctionGuideController：<a href="https://github.com/wbxiaowangzi/FunctionGuideController" target="_blank" rel="external">https://github.com/wbxiaowangzi/FunctionGuideController</a><br>新功能引导控制器，传入两个数组就能使用，由于添加了自定义字体，和图片资源，所以比较大，代码本身并不大</li>
 <li>KVOController：<a href="https://github.com/facebook/KVOController" target="_blank" rel="external">https://github.com/facebook/KVOController</a><br>FBKVOControlloer是FaceBook开源的一个 在 iOS，maxOS上使用 kvo的 开源库；<br>提供了block和@selector(SEL) 的回调操作，很方便实用</li>
+<li>SXWaveAnimate:  <a href="https://github.com/dsxNiubility/SXWaveAnimate" target="_blank" rel="external">https://github.com/dsxNiubility/SXWaveAnimate</a><br>水花无限循环,灌水是用图片做的，现在已经改成了用贝塞尔曲线画,水波纹，百分比数字</li>
+<li>Context-Menu.iOS：<a href="https://github.com/Yalantis/Context-Menu.iOS" target="_blank" rel="external">https://github.com/Yalantis/Context-Menu.iOS</a><br>可以为app的菜单添加漂亮的动画展开菜单，可自定义icon，并可根据自己的喜好设计单元格和布局。</li>
+<li>BSCycleTextView：<a href="https://github.com/blurryssky/BSCycleTextView" target="_blank" rel="external">https://github.com/blurryssky/BSCycleTextView</a><br>滚动文字，循环</li>
+<li>MarqueeLabel：<a href="https://github.com/cbpowell/MarqueeLabel" target="_blank" rel="external">https://github.com/cbpowell/MarqueeLabel</a><br>一个实现了超长文本的自动滚动显示，类似 HTML 里的 \<marquee\> 标签的行为。</marquee\></li>
+<li>iOS_3D_ClusterAnnotation：<a href="https://github.com/hadesh/iOS_3D_ClusterAnnotation" target="_blank" rel="external">https://github.com/hadesh/iOS_3D_ClusterAnnotation</a><br>MAMapKit 点聚合，高德</li>
+<li>JYJNavigationBar：<a href="https://github.com/jiangyongjian/JYJNavigationBar" target="_blank" rel="external">https://github.com/jiangyongjian/JYJNavigationBar</a><br>不一样的导航栏渐变效果</li>
+<li>FDFullscreenPopGesture：<a href="https://github.com/forkingdog/FDFullscreenPopGesture" target="_blank" rel="external">https://github.com/forkingdog/FDFullscreenPopGesture</a><br>全屏POP手势动画，包含带顶栏标题和不带顶栏标题两种</li>
+<li>MotionKit：<a href="https://github.com/MHaroonBaig/MotionKit" target="_blank" rel="external">https://github.com/MHaroonBaig/MotionKit</a><br>一款CoreMotion框架实用又简洁的的包装，并且全部使用Swift书写。Core Motion框架的作用是从设备硬件获取设备运动数据，并对获取到的数据进行了一层加工。数据来源可以是加速计，磁力仪和陀螺仪。另外你还可以从CMDeviceMotion获取提炼加工过的陀螺仪和加速计数据。</li>
+<li>LocationManager：<a href="https://github.com/intuit/LocationManager" target="_blank" rel="external">https://github.com/intuit/LocationManager</a><br>定位管理</li>
+<li>Reader：<a href="https://github.com/vfr/Reader" target="_blank" rel="external">https://github.com/vfr/Reader</a><br>阅读器，能够让 iOS 开发者轻而易举地在 iOS 设备屏幕上显示 PDF 文件。代码通用，不需要任何 XIB （因为所有 UI 元素都是代码生成的，具有极大的灵活性），运行于 iOS 4.0 及其以上版本设备中，同时还支持所有 Retina Display 设备。</li>
+<li>Chameleon：<a href="https://github.com/ViccAlexander/Chameleon" target="_blank" rel="external">https://github.com/ViccAlexander/Chameleon</a><br>轻量级颜色框架</li>
+<li>awesome-ios-cn：<a href="https://github.com/jobbole/awesome-ios-cn" target="_blank" rel="external">https://github.com/jobbole/awesome-ios-cn</a><br>iOS 资源大全中文版，内容包括：框架、组件、测试、Apple Store、SDK、XCode、网站、书籍等</li>
+<li>Linkage：<a href="https://github.com/leejayID/Linkage" target="_blank" rel="external">https://github.com/leejayID/Linkage</a><br>【联动】：两个TableView之间的联动，TableView与CollectionView之间的联动，分类选择类似</li>
+<li>FTreasure：<a href="https://github.com/Cherishforever/FTreasure" target="_blank" rel="external">https://github.com/Cherishforever/FTreasure</a><br>高仿网易1元夺宝</li>
+<li>BGFMDB：<a href="https://github.com/huangzhibiao/BGFMDB" target="_blank" rel="external">https://github.com/huangzhibiao/BGFMDB</a><br>FMDB数据库封装</li>
+<li>iOS-Echarts：<a href="https://github.com/Pluto-Y/iOS-Echarts" target="_blank" rel="external">https://github.com/Pluto-Y/iOS-Echarts</a><br>图表框架</li>
+<li>NeiHanDuanZI：<a href="https://github.com/Charlesyaoxin/NeiHanDuanZI" target="_blank" rel="external">https://github.com/Charlesyaoxin/NeiHanDuanZI</a><br>纯干货：短期纯代码高仿优质《内涵段子》</li>
+<li>SRClimate：<a href="https://github.com/guowilling/SRClimate" target="_blank" rel="external">https://github.com/guowilling/SRClimate</a><br>简约天气预报</li>
+<li>SougouReading：<a href="https://github.com/YinTokey/SougouReading" target="_blank" rel="external">https://github.com/YinTokey/SougouReading</a><br>仿搜狗阅读 ，用 charles抓取数据</li>
+<li>LZEasemob3：<a href="https://github.com/nacker/LZEasemob3" target="_blank" rel="external">https://github.com/nacker/LZEasemob3</a><br>酷信 | 高仿微信| WeChat | 高仿朋友圈 | moments| Github上最牛逼的高仿微信项目没有之一</li>
+<li>SmallDay：<a href="https://github.com/ZhongTaoTian/SmallDay" target="_blank" rel="external">https://github.com/ZhongTaoTian/SmallDay</a><br>小日子 - By Swift 2.0</li>
 </ol>
 ]]></content>
     
