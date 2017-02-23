@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2017-02-23T07:53:56.000Z</updated>
+  <updated>2017-02-23T07:57:05.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -20,9 +20,20 @@
     <link href="http://www.jeyblogs.com/2016/11/23/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>http://www.jeyblogs.com/2016/11/23/iOS面试题/</id>
     <published>2016-11-23T13:36:19.000Z</published>
-    <updated>2017-02-23T07:53:56.000Z</updated>
+    <updated>2017-02-23T07:57:05.000Z</updated>
     
-    <content type="html"><![CDATA[<p>1.在oc中如何实现深度拷贝<br>2.请描述什么是delegate、block、NSNotification，他们有什么作用<br>3.请写出一个线程安全的单例模式<br>4.解释属性中strong、weak、assign、copy的区别<br>5.#import和#include的区别<br>6.描述tableView的重用机制<br>7.Object-C有多继承吗？没有的话用什么代替？<br>8.category与继承之间的区别<br>9.#define和const定义的变量，有什么区别<br>10.TCP和UDP的区别是什么？<br>11.MD5和Base64的区别是什么，各自场景是什么？<br>12.二叉搜索树的概念，时间复杂度多少？<br>13.如何添加一个自定义字体到工程中<br>14.如何制作一个静态库/动态库，他们的区别是什么？<br>15.Configuration中，debug和release的区别是什么？<br>16.push view controller 和 present view controller的区别<br>17.描述下tableview cell的重用机制<br>18.UIView的frame和bounds的区别是什么<br>19.new与alloc init的区别<br>20.NSArray实例化时，array与init的区别</p>
+    <content type="html"><![CDATA[<ol>
+<li>button 有个addTarget 事件，你能大概讲一下他内部大概是怎么实现的吗？<br>答：内部的一个消息监听，通过指针、响应函数地址实现方法调用</li>
+<li>常见的object-c的数据类型有那些， 和C的基本数据类型有什么区别?如：NSInteger和int<br>答：object-c的数据类型有NSString，NSNumber，NSArray，NSMutableArray，NSData等等，这些都是class，创建后便是对象，而C语言的基本数据类型int，只是一定字节的内存空间，用于存放数值;NSInteger是基本数据类型，并不是NSNumber的子类，当然也不是NSObject的子类。NSInteger是基本数据类型Int或者Long的别名(NSInteger的定义typedef long NSInteger)，它的区别在于，NSInteger会根据系统是32位还是64位来决定是本身是int还是Long。</li>
+<li>id 声明的对象有什么特性?<br>答：Id 声明的对象具有运行时的特性，即可以指向任意类型的objcetive-c的对象;</li>
+<li>代理的作用?<br>答：代理的目的是改变或传递控制链。允许一个类在某些特定时刻通知到其他类，而不需要获取到那些类的指针。可以减少框架复杂度。<br>另外一点，代理可以理解为java中的回调监听机制的一种类似。</li>
+<li><p>我们说的oc是动态运行时语言是什么意思?<br>答：多态。 主要是将数据类型的确定由编译时，推迟到了运行时。<br>这个问题其实浅涉及到两个概念，运行时和多态。<br>简单来说，运行时机制使我们直到运行时才去决定一个对象的类别，以及调用该类别对象指定方法。<br>多态：不同对象以自己的方式响应相同的消息的能力叫做多态。意思就是假设生物类(life)都用有一个相同的方法-eat;<br>那人类属于生物，猪也属于生物，都继承了life后，实现各自的eat，但是调用是我们只需调用各自的eat方法。<br>也就是不同的对象以自己的方式响应了相同的消息(响应了eat这个选择器)。<br>因此也可以说，运行时机制是多态的基础?</p>
+</li>
+<li><p>对于单例的理解<br>答：在objective-c中要实现一个单例类，至少需要做以下四个步骤：<br>1).为单例对象实现一个静态实例，并初始化，然后设置成nil，<br>2).实现一个实例构造方法检查上面声明的静态实例是否为nil，如果是则新建并返回一个本类的实例，<br>3).重写allocWithZone方法，用来保证其他人直接使用alloc和init试图获得一个新实力的时候不产生一个新实例，<br>4).适当实现allocWitheZone，copyWithZone，release和autorelease。</p>
+</li>
+<li>方法和选择器有何不同?<br>答：selector是一个方法的名字，method是一个组合体，包含了名字和实现.</li>
+</ol>
+<p>初级题目<br>1.在oc中如何实现深度拷贝<br>2.请描述什么是delegate、block、NSNotification，他们有什么作用<br>3.请写出一个线程安全的单例模式<br>4.解释属性中strong、weak、assign、copy的区别<br>5.#import和#include的区别<br>6.描述tableView的重用机制<br>7.Object-C有多继承吗？没有的话用什么代替？<br>8.category与继承之间的区别<br>9.#define和const定义的变量，有什么区别<br>10.TCP和UDP的区别是什么？<br>11.MD5和Base64的区别是什么，各自场景是什么？<br>12.二叉搜索树的概念，时间复杂度多少？<br>13.如何添加一个自定义字体到工程中<br>14.如何制作一个静态库/动态库，他们的区别是什么？<br>15.Configuration中，debug和release的区别是什么？<br>16.push view controller 和 present view controller的区别<br>17.描述下tableview cell的重用机制<br>18.UIView的frame和bounds的区别是什么<br>19.new与alloc init的区别<br>20.NSArray实例化时，array与init的区别</p>
 <p>中级题目<br>1.什么是arc？（arc是为了解决什么问题诞生的？）<br>2.请解释以下keywords的区别： assign vs weak, <strong>block vs </strong>weak<br>3.__block在arc和非arc下含义一样吗？<br>4.使用atomic一定是线程安全的吗？  </p>
 <ol>
 <li>描述一个你遇到过的retain cycle例子。(别撒谎，你肯定遇到过)  </li>
@@ -46,7 +57,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;1.在oc中如何实现深度拷贝&lt;br&gt;2.请描述什么是delegate、block、NSNotification，他们有什么作用&lt;br&gt;3.请写出一个线程安全的单例模式&lt;br&gt;4.解释属性中strong、weak、assign、copy的区别&lt;br&gt;5.#import和#in
+      &lt;ol&gt;
+&lt;li&gt;button 有个addTarget 事件，你能大概讲一下他内部大概是怎么实现的吗？&lt;br&gt;答：内部的一个消息监听，通过指针、响应函数地址实现方法调用&lt;/li&gt;
+&lt;li&gt;常见的object-c的数据类型有那些， 和C的基本数据类型有什么区别?如：NSIntege
     
     </summary>
     
