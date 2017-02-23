@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2017-02-23T07:48:03.000Z</updated>
+  <updated>2017-02-23T07:48:40.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>iOS面试题</title>
-    <link href="http://www.jeyblogs.com/2017/02/23/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>http://www.jeyblogs.com/2017/02/23/iOS面试题/</id>
-    <published>2017-02-23T07:36:19.000Z</published>
-    <updated>2017-02-23T07:48:03.000Z</updated>
+    <link href="http://www.jeyblogs.com/2016/11/23/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://www.jeyblogs.com/2016/11/23/iOS面试题/</id>
+    <published>2016-11-23T13:36:19.000Z</published>
+    <updated>2017-02-23T07:48:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>1.在oc中如何实现深度拷贝<br>2.请描述什么是delegate、block、NSNotification，他们有什么作用<br>3.请写出一个线程安全的单例模式<br>4.解释属性中strong、weak、assign、copy的区别<br>5.#import和#include的区别<br>6.描述tableView的重用机制<br>7.Object-C有多继承吗？没有的话用什么代替？<br>8.category与继承之间的区别<br>9.#define和const定义的变量，有什么区别<br>10.TCP和UDP的区别是什么？<br>11.MD5和Base64的区别是什么，各自场景是什么？<br>12.二叉搜索树的概念，时间复杂度多少？<br>13.如何添加一个自定义字体到工程中<br>14.如何制作一个静态库/动态库，他们的区别是什么？<br>15.Configuration中，debug和release的区别是什么？<br>16.push view controller 和 present view controller的区别<br>17.描述下tableview cell的重用机制<br>18.UIView的frame和bounds的区别是什么<br>19.new与alloc init的区别<br>20.NSArray实例化时，array与init的区别</p>
 <p>中级题目<br>1.什么是arc？（arc是为了解决什么问题诞生的？）  </p>
