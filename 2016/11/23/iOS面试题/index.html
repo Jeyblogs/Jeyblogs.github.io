@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Jey">
 <meta property="og:description" content="button 有个addTarget 事件，你能大概讲一下他内部大概是怎么实现的吗？答：内部的一个消息监听，通过指针、响应函数地址实现方法调用
 常见的object-c的数据类型有那些， 和C的基本数据类型有什么区别?如：NSInteger和int答：object-c的数据类型有NSString，NSNumber，NSArray，NSMutableArray，NSData等等，这些都是class，">
-<meta property="og:updated_time" content="2017-02-23T07:57:05.000Z">
+<meta property="og:updated_time" content="2017-02-23T08:32:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS面试题">
 <meta name="twitter:description" content="button 有个addTarget 事件，你能大概讲一下他内部大概是怎么实现的吗？答：内部的一个消息监听，通过指针、响应函数地址实现方法调用
@@ -369,8 +369,16 @@
 <li>GCD里面有哪几种Queue？你自己建立过串行queue吗？背后的线程模型是什么样的？  </li>
 <li>用过coredata或者sqlite吗？读写是分线程的吗？遇到过死锁没？咋解决的？  </li>
 <li>http的post和get啥区别？（区别挺多的，麻烦多说点）  </li>
-<li>我知道你大学毕业过后就没接触过算法数据结构了，但是请你一定告诉我什么是Binary search tree? search的时间复杂度是多少？我很想知道！<br>21.哪些类不适合使用单例模式？即使他们在周期中只会出现一次。<br>22.Notification的使用场景是什么？同步还是异步？<br>23.简单介绍一下KVC和KVO，他们都可以应用在哪些场景？<br>24.UIButton的父类是什么？UILabel呢？<br>25.发送10个网络请求，然后再接收到所有回应之后执行后续操作，如何实现？<br>26.实现一个第三方控件，可以在任何时候出现在APP界面最上层<br>27.不同版本的APP，数据库结构变化了，如何处理?<br>28.内存中的栈和堆的区别是什么？那些数据在栈上，哪些在堆上？<br>29.block中的weak self，是任何时候都需要加的么？<br>30.GCD的queue，main queue中执行的代码，一定是在main thread么？<br>31.NSOperationQueue有哪些使用方式<br>32.NSThread中的Runloop的作用，如何使用？<br>33..h文件中的变量，外部可以直接访问么？（注意是变量，不是property）<br>34.讲述一下runtime的概念，message send如果寻找不到相应的对象，会如何进行后续处理 ？<br>35.利用runtime实现一个对象的拷贝</li>
+<li>我知道你大学毕业过后就没接触过算法数据结构了，但是请你一定告诉我什么是Binary search tree? search的时间复杂度是多少？我很想知道！<br>21.哪些类不适合使用单例模式？即使他们在周期中只会出现一次。<br>22.Notification的使用场景是什么？同步还是异步？<br>23.简单介绍一下KVC和KVO，他们都可以应用在哪些场景？<br>24.UIButton的父类是什么？UILabel呢？<br>25.发送10个网络请求，然后再接收到所有回应之后执行后续操作，如何实现？<br>26.实现一个第三方控件，可以在任何时候出现在APP界面最上层<br>27.不同版本的APP，数据库结构变化了，如何处理?<br>28.内存中的栈和堆的区别是什么？那些数据在栈上，哪些在堆上？<br>29.block中的weak self，是任何时候都需要加的么？<br>30.GCD的queue，main queue中执行的代码，一定是在main thread么？<br>31.NSOperationQueue有哪些使用方式<br>32.NSThread中的Runloop的作用，如何使用？<br>33..h文件中的变量，外部可以直接访问么？（注意是变量，不是property）<br>34.讲述一下runtime的概念，message send如果寻找不到相应的对象，会如何进行后续处理 ？<br>35.利用runtime实现一个对象的拷贝__</li>
 </ol>
+<p>基础：<br>1.<br>2.ios中实现callback可以通过两种方法，委托和NSNotification<br>委托的话是一对一的关系，例如一个UIViewController里有一个tableView, 将该viewController设置为tableView的委托，tableView执行的时候调用委托的函数，同时可能需要得到反馈，比如tableView通过调用delegate中rowsOfSections函数来得到该tableView的行数，调用委托函数的时候也可能不需要反馈，例如UIApplication的在AppDelegate中的生命周期函数，还有UIScrollView的didScroll之类委托函数。委托的意思是有些方法不在类本身实现，而是在另一个类中实现。<br>NSNotification的话是一对多的关系，notification发出去以后发送方就不管了，接不接收以及接收后做什么发送方就不管了。</p>
+<p>委托的实现：<br>一般来说通过delegate来实现，但是apple引入block后通过block也可以实现委托。二者区别是，如果有一堆接口的话可以用delegate，例如UITableView的delegate，因为它需要通过委托知tableView有多少个section，每个section有多少row，每个row的cell是什么；但是如果是调用方和block的执行结果有直接因果关系，用block就比较合适，例如UIView animation方法中的complete block，动画结束后直接执行block中的逻辑，当然complete block也可以通过delegate实现，实现方法是给UIView设定一个delegate，动画结束后UIView调用delegate中的方法。<br>ps：delegate实现的过程中需要指定的类来实现特定的protocol。<br>block, 本质是封装了一段代码，可以被当做对象使用(可以定义成Property)。<br>3.<br>static Singleton* _instance = nil;</p>
+<p>+(instancetype) shareInstance<br>{<br>    static dispatch_once_t onceToken ;<br>    dispatch_once(&amp;onceToken, ^{<br>        _instance = [[super allocWithZone:NULL]() init] ;<br>    }) ;</p>
+<pre><code>return _instance ;
+</code></pre><p>}</p>
+<p>+(id) allocWithZone:(struct _NSZone *)zone<br>{<br>    return <a href="">Singleton shareInstance</a> ;<br>}</p>
+<p>-(id) copyWithZone:(struct _NSZone *)zone<br>{<br>    return <a href="">Singleton shareInstance</a> ;<br>}<br>4.<br>assign：用于对基本数据类型进行赋值操作，不更改引用计数。也可以用来修饰对象，但是，被assign修饰的对象在释放后，指针的地址还是存在的，也就是说指针并没有被置为nil，成为野指针。如果后续在分配对象到堆上的某块内存时，正好分到这块地址，程序就会crash。之所以可以修饰基本数据类型，因为基本数据类型一般分配在栈上，栈的内存会由系统自动处理，不会造成野指针。<br>weak：修饰Object类型，修饰的对象在释放后，指针地址会被置为nil，是一种弱引用。在ARC环境下，为避免循环引用，往往会把delegate属性用weak修饰；在MRC下使用assign修饰。weak和strong不同的是：当一个对象不再有strong类型的指针指向它的时候，它就会被释放，即使还有weak型指针指向它，那么这些weak型指针也将被清除。<br>ARC下的strong等同于MRC下的retain都会把对象引用计数加1。<br>copy：会在内存里拷贝一份对象，两个指针指向不同的内存地址。一般用来修饰NSString等有对应可变类型的对象，因为他们有可能和对应的可变类型（NSMutableString）之间进行赋值操作，为确保对象中的字符串不被修改 ，应该在设置属性是拷贝一份。而若用strong修饰，如果对象在外部被修改了，会影响到属性。</p>
+<p>block属性为什么需要用copy来修饰？<br>因为在MRC下，block在创建的时候，它的内存是分配在栈(stack)上的，而不是在堆(heap)上，可能被随时回收。他本身的作于域是属于创建时候的作用域，一旦在创建时候的作用域外面调用block将导致程序崩溃。通过copy可以把block拷贝（copy）到堆，保证block的声明域外使用。在ARC下写不写都行，编译器会自动对block进行copy操作。<br><strong>block与</strong>weak的区别<br>•    <strong>block：在ARC和MRC下都可用，可修饰对象，也可以修饰基本数据类型。<br>•    </strong>block对象可以在block被重新赋值，<strong>weak不可以。<br>•    </strong>weak：只在ARC中使用，只能修饰对象，不能修饰基本数据类型（int、bool）。<br>•    同时，在ARC下，要避免block出现循环引用，经常会：__weak typedof(self) weakSelf = self;</p>
 
       
     </div>
