@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2017-02-23T11:09:40.000Z</updated>
+  <updated>2017-03-01T02:46:09.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jeyblogs.com/2016/10/28/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AD%94%E6%A1%88/"/>
     <id>http://www.jeyblogs.com/2016/10/28/面试题答案/</id>
     <published>2016-10-28T15:20:38.000Z</published>
-    <updated>2017-02-23T11:09:40.000Z</updated>
+    <updated>2017-03-01T02:46:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>基础：<br>1.<br>2.ios中实现callback可以通过两种方法，委托和NSNotification<br>委托的话是一对一的关系，例如一个UIViewController里有一个tableView, 将该viewController设置为tableView的委托，tableView执行的时候调用委托的函数，同时可能需要得到反馈，比如tableView通过调用delegate中rowsOfSections函数来得到该tableView的行数，调用委托函数的时候也可能不需要反馈，例如UIApplication的在AppDelegate中的生命周期函数，还有UIScrollView的didScroll之类委托函数。委托的意思是有些方法不在类本身实现，而是在另一个类中实现。<br>NSNotification的话是一对多的关系，notification发出去以后发送方就不管了，接不接收以及接收后做什么发送方就不管了。</p>
 <p>委托的实现：<br>一般来说通过delegate来实现，但是apple引入block后通过block也可以实现委托。二者区别是，如果有一堆接口的话可以用delegate，例如UITableView的delegate，因为它需要通过委托知tableView有多少个section，每个section有多少row，每个row的cell是什么；但是如果是调用方和block的执行结果有直接因果关系，用block就比较合适，例如UIView animation方法中的complete block，动画结束后直接执行block中的逻辑，当然complete block也可以通过delegate实现，实现方法是给UIView设定一个delegate，动画结束后UIView调用delegate中的方法。<br>ps：delegate实现的过程中需要指定的类来实现特定的protocol。<br>block, 本质是封装了一段代码，可以被当做对象使用(可以定义成Property)。<br>3.<br>static Singleton* _instance = nil;</p>
@@ -62,7 +62,7 @@ int a = N/2;  //我们预想的a的值是2.5，可实际上a的值是3.5
     
     </summary>
     
-      <category term="IOS" scheme="http://www.jeyblogs.com/categories/IOS/"/>
+      <category term="IOS题库" scheme="http://www.jeyblogs.com/categories/IOS%E9%A2%98%E5%BA%93/"/>
     
     
       <category term="面试" scheme="http://www.jeyblogs.com/tags/%E9%9D%A2%E8%AF%95/"/>
@@ -74,7 +74,7 @@ int a = N/2;  //我们预想的a的值是2.5，可实际上a的值是3.5
     <link href="http://www.jeyblogs.com/2016/10/23/iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>http://www.jeyblogs.com/2016/10/23/iOS面试题/</id>
     <published>2016-10-23T13:36:19.000Z</published>
-    <updated>2017-02-23T08:46:14.000Z</updated>
+    <updated>2017-03-01T02:46:13.000Z</updated>
     
     <content type="html"><![CDATA[<ol>
 <li>button 有个addTarget 事件，你能大概讲一下他内部大概是怎么实现的吗？<br>答：内部的一个消息监听，通过指针、响应函数地址实现方法调用</li>
@@ -117,7 +117,7 @@ int a = N/2;  //我们预想的a的值是2.5，可实际上a的值是3.5
     
     </summary>
     
-      <category term="IOS" scheme="http://www.jeyblogs.com/categories/IOS/"/>
+      <category term="IOS题库" scheme="http://www.jeyblogs.com/categories/IOS%E9%A2%98%E5%BA%93/"/>
     
     
       <category term="面试" scheme="http://www.jeyblogs.com/tags/%E9%9D%A2%E8%AF%95/"/>
@@ -129,10 +129,10 @@ int a = N/2;  //我们预想的a的值是2.5，可实际上a的值是3.5
     <link href="http://www.jeyblogs.com/2016/08/16/hexo%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BAGithub-Page%E5%8D%9A%E5%AE%A2(2)/"/>
     <id>http://www.jeyblogs.com/2016/08/16/hexo——搭建Github-Page博客(2)/</id>
     <published>2016-08-16T02:18:28.000Z</published>
-    <updated>2016-09-23T02:29:08.000Z</updated>
+    <updated>2017-03-01T02:45:40.000Z</updated>
     
     <content type="html"><![CDATA[<p><em><strong>GitHub Pages是什么？</strong></em><br>GitHub Pages本用于介绍托管在GitHub的项目， 他的空间免费稳定，用来做搭建一个博客再好不过，还可以根据自己的风格定制主题。<br><strong>1.github上建立仓库</strong><br>登录后系统，在github首页，点击页面右下角「New Repository<br><em>project name：jeyblogs.github.io</em><br><em>description： Writing 1000 Words a Day Changed My Life</em><br>注：Github Pages的Repository名字跟Github账号是一致的，比如我的Github账号是jeyblogs，Github Pages Repository名字就是jeyblogs.github.io。<br><strong>2.在setting的Github Pages模块激活</strong><br><strong>3.把Github Page站点下载到本地</strong><br><code>git clone [https://github.com/jeyblogs/jeyblogs.github.io.git]</code><br><strong>4.生成hero</strong><br>cd /站点本地仓库文件夹<br>hexo init<br><strong>5.申请独立域名，Godaddy注册并购买域名，我的jeyblogs.com，指向Github pages</strong><br><strong>6.在Github Pages站点目录下新建文件CNAME，里面文本是你的域名，jeyblogs.com</strong><br><strong>7.在github仓库中创建一个分支gh-pages</strong></p>
-<p><em>进阶篇：Hexo设置</em><br>网站搭建完成后，就可以根据自己爱好来对Hexo生成的网站进行设置了，对整站的设置，只要修改项目目录的<em>config.yml就可以了</em> </p>
+<p><em>进阶篇：Hexo设置</em><br>网站搭建完成后，就可以根据自己爱好来对Hexo生成的网站进行设置了，对整站的设置，只要修改项目目录的_config.yml就可以了_ </p>
 <pre><code>Extensions
 Plugins: https://hexo.io/plugins/
 Themes: https://hexo.io/themes/
@@ -178,7 +178,7 @@ $ npm install hexo-generator-feed
     
     </summary>
     
-      <category term="Hexo" scheme="http://www.jeyblogs.com/categories/Hexo/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="Hexo" scheme="http://www.jeyblogs.com/tags/Hexo/"/>
@@ -292,11 +292,68 @@ git config --global user.email xxx@xxx.com
   </entry>
   
   <entry>
+    <title>KVO的实现原理</title>
+    <link href="http://www.jeyblogs.com/2016/03/01/KVO%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
+    <id>http://www.jeyblogs.com/2016/03/01/KVO的实现原理/</id>
+    <published>2016-03-01T02:21:38.000Z</published>
+    <updated>2017-03-01T03:00:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了指向实现类中的方法的指针，和其它数据。</p>
+<p><strong>addObserver:forKeyPath:options:context:各个参数的作用分别是什么, observer中需要实现哪个方法才能获得KVO回调？</strong></p>
+<pre><code>/**
+self.person：要监听的对象
+参数说明：
+    @param addObserver  观察者，负责处理监听事件的对象
+    @param forKeyPath 要监听的属性
+    @param  options 观察的选项（观察新、旧值，也可以都观察）
+    @param context 上下文，用于传递数据，可以利用上下文区分不同的监听
+ */
+[self.person addObserver:self forKeyPath:@&quot;name&quot; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:@&quot;Person Name&quot;];
+
+/**
+ 当监控的某个属性的值改变了就会调用
+ *
+ @param keyPath 监听的属性名
+ @param object  属性所属的对象
+ @param change  属性的修改情况（属性原来的值oldValue、属性最新的值newValue）
+ @param context 传递的上下文数据，与监听的时候传递的一致，可以利用上下文区分不同的监听
+ */
+(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+NSLog(@&quot;%@对象的%@属性改变了：%@&quot;, object, keyPath, change);
+}
+</code></pre><p>一、KVO (Key-Value Observing)<br>KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。<br>有意思的是，你不需要给被观察的对象添加任何额外代码，就能使用 KVO 。这是怎么做到的？<br>二、 KVO内部实现原理<br>•    KVO是基于runtime机制实现的<br>•    当某个类的属性对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的setter 方法。派生类在被重写的setter方法内实现真正的通知机制<br>•    如果原类为Person，那么生成的派生类名为NSKVONotifying_Person<br>•    每个类对象中都有一个isa指针指向当前类，当一个类对象的第一次被观察，那么系统会偷偷将isa指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的setter方法<br>•    键值观察通知依赖于NSObject 的两个方法: willChangeValueForKey: 和 didChangevlueForKey:；在一个被观察属性发生改变之前， willChangeValueForKey:一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey:会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。<br>•    补充：KVO的这套实现机制中苹果还偷偷重写了class方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类<br><img src="http://7xsdar.com1.z0.glb.clouddn.com/KVO%E5%86%85%E9%83%A8%E5%AE%9E" alt=""><br>三、如何手动触发一个value的KVO<br>•    自动触发的场景：在注册KVO之前设置一个初始值，注册之后，设置一个不一样的值，就可以触发了<br>•    想知道如何手动触发，必须知道自动触发 KVO 的原理，见上面的描述<br>•    手动触发演示</p>
+<pre><code>@property (nonatomic, strong) NSDate *now;
+
+(void)viewDidLoad
+{
+[super viewDidLoad];
+
+// “手动触发self.now的KVO”，必写。
+[self willChangeValueForKey:@&quot;now&quot;];
+
+// “手动触发self.now的KVO”，必写。
+[self didChangeValueForKey:@&quot;now&quot;];
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了
+    
+    </summary>
+    
+      <category term="疑难杂症" scheme="http://www.jeyblogs.com/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Xcode通过Jenkins自动打包ipa</title>
     <link href="http://www.jeyblogs.com/2015/11/25/Xcode%E9%80%9A%E8%BF%87Jenkins%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85ipa/"/>
     <id>http://www.jeyblogs.com/2015/11/25/Xcode通过Jenkins自动打包ipa/</id>
     <published>2015-11-25T08:40:19.000Z</published>
-    <updated>2016-08-31T09:49:12.000Z</updated>
+    <updated>2017-03-01T02:46:51.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Jenkins自动打包ipa"><a href="#Jenkins自动打包ipa" class="headerlink" title="Jenkins自动打包ipa"></a>Jenkins自动打包ipa</h3><p>如果Mac 上没有安装brew。先安装：ruby -e “$(curl -fsSL <a href="https://raw.github.com/Homebrew/homebrew/go/install" target="_blank" rel="external">https://raw.github.com/Homebrew/homebrew/go/install</a>)”<br>首先安装jenkins #: brew install jenkins        brew 官网：<a href="http://brew.sh" target="_blank" rel="external">http://brew.sh</a>   或直接从Jenkins下载：<a href="http://jenkins-ci.org" target="_blank" rel="external">http://jenkins-ci.org</a></p>
 <p>安装完成后浏览器打开：<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a>   Jenkins 默认地址<br>首先请确认本地的xcode 工程是否能生成ipa 最好先试一次。如果xcode 能正常生成ipa 那么下面的才能实现</p>
@@ -313,7 +370,7 @@ git config --global user.email xxx@xxx.com
     
     </summary>
     
-      <category term="工具" scheme="http://www.jeyblogs.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="Xcode" scheme="http://www.jeyblogs.com/tags/Xcode/"/>
@@ -325,7 +382,7 @@ git config --global user.email xxx@xxx.com
     <link href="http://www.jeyblogs.com/2015/11/15/GCD%20Dispatch/"/>
     <id>http://www.jeyblogs.com/2015/11/15/GCD Dispatch/</id>
     <published>2015-11-15T02:29:49.000Z</published>
-    <updated>2016-08-30T10:16:51.000Z</updated>
+    <updated>2017-03-01T02:48:15.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h4><p>GCD的工作原理是：让程序平行排队的特定任务，根据可用的处理资源，安排他们在任何可用的处理器核心上执行任务。<br>一个任务可以是一个函数(function)或者是一个block。 GCD的底层依然是用线程实现，不过这样可以让程序员不用关注实现的细节。<br>GCD中的FIFO队列称为dispatch queue，它可以保证先进来的任务先得到执行<br>dispatch queue分为下面三种：</p>
 <h4 id="Serial"><a href="#Serial" class="headerlink" title="Serial"></a>Serial</h4><p>又称为private dispatch queues，同时只执行一个任务。Serial queue通常用于同步访问特定的资源或数据。当你创建多个Serial queue时，虽然它们各自是同步执行的，但Serial queue与Serial queue之间是并发执行的。</p>
@@ -420,7 +477,7 @@ dispatch\_async(dispatch\_get\_main\_queue(), ^
     
     </summary>
     
-      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
+      <category term="疑难杂症" scheme="http://www.jeyblogs.com/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
     
     
       <category term="GCD Dispatch" scheme="http://www.jeyblogs.com/tags/GCD-Dispatch/"/>
@@ -432,7 +489,7 @@ dispatch\_async(dispatch\_get\_main\_queue(), ^
     <link href="http://www.jeyblogs.com/2015/10/23/CocoaPods%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/"/>
     <id>http://www.jeyblogs.com/2015/10/23/CocoaPods安装和使用/</id>
     <published>2015-10-23T06:57:35.000Z</published>
-    <updated>2016-08-30T09:59:50.000Z</updated>
+    <updated>2017-03-01T02:48:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>CocoaPods是iOS最常用的第三方类库管理工具，绝大部分有名的开源类库都支持CocoaPods。</p>
 <h5 id="CocoaPods安装"><a href="#CocoaPods安装" class="headerlink" title="CocoaPods安装"></a>CocoaPods安装</h5><p>步骤参考：<a href="http://www.cnblogs.com/wayne23/p/3912882.html" target="_blank" rel="external">http://www.cnblogs.com/wayne23/p/3912882.html</a></p>
@@ -453,7 +510,7 @@ dispatch\_async(dispatch\_get\_main\_queue(), ^
     
     </summary>
     
-      <category term="工具" scheme="http://www.jeyblogs.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="CocoaPods" scheme="http://www.jeyblogs.com/tags/CocoaPods/"/>
@@ -465,7 +522,7 @@ dispatch\_async(dispatch\_get\_main\_queue(), ^
     <link href="http://www.jeyblogs.com/2015/10/12/%E4%BD%BF%E7%94%A8Alcatraz%E6%9D%A5%E7%AE%A1%E7%90%86Xcode%E6%8F%92%E4%BB%B6/"/>
     <id>http://www.jeyblogs.com/2015/10/12/使用Alcatraz来管理Xcode插件/</id>
     <published>2015-10-12T08:06:36.000Z</published>
-    <updated>2016-09-22T08:39:49.000Z</updated>
+    <updated>2017-03-01T02:48:20.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://7xsdar.com1.z0.glb.clouddn.com/Alcatraz.png" alt="" title="img"></p>
 <h5 id="￼简介"><a href="#￼简介" class="headerlink" title="￼简介"></a>￼简介</h5><p>Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。</p>
@@ -493,7 +550,7 @@ sudo xcode-select --reset
     
     </summary>
     
-      <category term="工具" scheme="http://www.jeyblogs.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="插件" scheme="http://www.jeyblogs.com/tags/%E6%8F%92%E4%BB%B6/"/>
@@ -505,11 +562,11 @@ sudo xcode-select --reset
     <link href="http://www.jeyblogs.com/2015/09/21/Mac%E6%B5%8B%E8%AF%95%E6%A8%A1%E6%8B%9F%E6%85%A2%E7%BD%91%E9%80%9F/"/>
     <id>http://www.jeyblogs.com/2015/09/21/Mac测试模拟慢网速/</id>
     <published>2015-09-21T07:08:16.000Z</published>
-    <updated>2016-08-30T10:15:07.000Z</updated>
+    <updated>2017-03-01T02:47:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>先普及一下Kb,KB,Kbps,Mb,Mbps等一些列概念　<br>    1Byte = 8bit<br>    1KB (Kilobyte 千字节)=1024Byte<br>    1MB (Megabyte，兆字节，简称“兆”)=1024KB　　<br>    1GB (Gigabyte，吉字节，又称“千兆”)=1024MB<br>    1TB (Terabyte，太字节，或百万兆字节)=1024GB<br>    1KB=1024B<br>    1MB=1024KB<br>    1GB=1024MB 　<br>    1TB=1024GB</p>
-<p>1    Kb和KB的区别：计算机中的信息都是二进制的0和1来表示，其中每一个0或1被称作一个位，用小写b表示，即bit（位）；大写B表示byte,即字节，一个字节＝八个位，即1B＝8b；前面的大写K表示千的意思，即千个位（Kb)或千个字节(KB)。表示文件的大小单位，一般都使用字节（KB）来表示文件的大小。<br>2    Kb和Kbps的区别：首先要了解的是，ps指的是/s，即每秒。Kbps指的是网络速度，也就是每秒钟传送多少个千位的信息（K表示千位，Kb表示的是多少千个位），为了在直观上显得网络的传输速度较快，一般公司都使用kb（千位）来表示，如果是KBps，则表示每秒传送多少千字节。1KBps＝8Kbps。ADSL上网时的网速是512Kbps,如果转换成字节，就是512/8＝64KBps(即64千字节每秒）。 1389.25 Kbps =173.65625KB／S .另外比如你家1M宽带，理论上下载速度最高能达到1M/8=1024k/8=128KB</p>
-<p>3    Mbps,MB/s了解了面的2这个应该好理解了，直接举例,例如:560Mbps即560兆bit每秒，p就是“每”的意思，同”/“是一样的，但是如果你要用“MB”来计量的话，就要除以8（1Byte=8bit）了，也就是560Mbps/8=70MBps    </p>
+<p>1   Kb和KB的区别：计算机中的信息都是二进制的0和1来表示，其中每一个0或1被称作一个位，用小写b表示，即bit（位）；大写B表示byte,即字节，一个字节＝八个位，即1B＝8b；前面的大写K表示千的意思，即千个位（Kb)或千个字节(KB)。表示文件的大小单位，一般都使用字节（KB）来表示文件的大小。<br>2   Kb和Kbps的区别：首先要了解的是，ps指的是/s，即每秒。Kbps指的是网络速度，也就是每秒钟传送多少个千位的信息（K表示千位，Kb表示的是多少千个位），为了在直观上显得网络的传输速度较快，一般公司都使用kb（千位）来表示，如果是KBps，则表示每秒传送多少千字节。1KBps＝8Kbps。ADSL上网时的网速是512Kbps,如果转换成字节，就是512/8＝64KBps(即64千字节每秒）。 1389.25 Kbps =173.65625KB／S .另外比如你家1M宽带，理论上下载速度最高能达到1M/8=1024k/8=128KB</p>
+<p>3   Mbps,MB/s了解了面的2这个应该好理解了，直接举例,例如:560Mbps即560兆bit每秒，p就是“每”的意思，同”/“是一样的，但是如果你要用“MB”来计量的话，就要除以8（1Byte=8bit）了，也就是560Mbps/8=70MBps    </p>
 <p>Mac下模拟慢网速其实apple已经提供工具了Network Link Conditioner，这个包含在Hardware IO Tools for Xcode工具包中，Xcode——Open Developer Tool——More Developer Tools<br>搜索hardware，找到对应版本的Hardware IO Tools for Xcode下载下来（不到30M吧），Network Link<br>看到下面的选择Network Link Conditioner.prefPane双击，打开系统偏好设置</p>
 ]]></content>
     
@@ -519,7 +576,7 @@ sudo xcode-select --reset
     
     </summary>
     
-      <category term="Mac" scheme="http://www.jeyblogs.com/categories/Mac/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="模拟网速" scheme="http://www.jeyblogs.com/tags/%E6%A8%A1%E6%8B%9F%E7%BD%91%E9%80%9F/"/>
@@ -924,7 +981,7 @@ print?￼￼
     <link href="http://www.jeyblogs.com/2014/11/27/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://www.jeyblogs.com/2014/11/27/bash快捷键/</id>
     <published>2014-11-27T09:49:22.000Z</published>
-    <updated>2016-08-30T09:51:40.000Z</updated>
+    <updated>2017-03-01T02:47:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>ctrl键组合<br>ctrl+a:光标移到行首。<br>ctrl+b:光标左移一个字母<br>ctrl+c:杀死当前进程。<br>ctrl+d:退出当前 Shell。<br>ctrl+e:光标移到行尾。<br>ctrl+h:删除光标前一个字符，同 backspace 键相同。<br>ctrl+k:清除光标后至行尾的内容。<br>ctrl+l:清屏，相当于clear。<br>ctrl+r:搜索之前打过的命令。会有一个提示，根据你输入的关键字进行搜索bash的history<br>ctrl+u: 清除光标前至行首间的所有内容。<br>ctrl+w: 移除光标前的一个单词<br>ctrl+t: 交换光标位置前的两个字符<br>ctrl+y: 粘贴或者恢复上次的删除<br>ctrl+d: 删除光标所在字母;注意和backspace以及ctrl+h的区别，这2个是删除光标前的字符<br>ctrl+f: 光标右移<br>ctrl+z : 把当前进程转到后台运行，使用’ fg ‘命令恢复。比如top -d1 然后ctrl+z，到后台，然后fg,重新恢复<br>esc组合<br>esc+d: 删除光标后的一个词<br>esc+f: 往右跳一个词<br>esc+b: 往左跳一个词<br>esc+t: 交换光标位置前的两个单词。</p>
 ]]></content>
@@ -935,7 +992,7 @@ print?￼￼
     
     </summary>
     
-      <category term="Mac" scheme="http://www.jeyblogs.com/categories/Mac/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="bash" scheme="http://www.jeyblogs.com/tags/bash/"/>
@@ -1241,93 +1298,6 @@ vert：垂直的；
     
     
       <category term="iOS编码规范" scheme="http://www.jeyblogs.com/tags/iOS%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> iOS常用宏定义</title>
-    <link href="http://www.jeyblogs.com/2013/09/30/iOS%E5%B8%B8%E7%94%A8%E5%AE%8F%E5%AE%9A%E4%B9%89/"/>
-    <id>http://www.jeyblogs.com/2013/09/30/iOS常用宏定义/</id>
-    <published>2013-09-30T06:54:44.000Z</published>
-    <updated>2016-08-30T09:45:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="iOS常用宏定义"><a href="#iOS常用宏定义" class="headerlink" title="iOS常用宏定义"></a>iOS常用宏定义</h3><h1 id="ifndef-MacroDefinition-h"><a href="#ifndef-MacroDefinition-h" class="headerlink" title="ifndef MacroDefinition_h"></a>ifndef MacroDefinition_h</h1><h1 id="define-MacroDefinition-h"><a href="#define-MacroDefinition-h" class="headerlink" title="define MacroDefinition_h"></a>define MacroDefinition_h</h1><p>//——————-获取设备大小————————-<br>//NavBar高度</p>
-<h1 id="define-NavigationBar-HEIGHT-44"><a href="#define-NavigationBar-HEIGHT-44" class="headerlink" title="define NavigationBar_HEIGHT 44"></a>define NavigationBar_HEIGHT 44</h1><p>//获取屏幕 宽度、高度</p>
-<h1 id="define-SCREEN-WIDTH-UIScreen-mainScreen-bounds-size-width"><a href="#define-SCREEN-WIDTH-UIScreen-mainScreen-bounds-size-width" class="headerlink" title="define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)"></a>define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)</h1><h1 id="define-SCREEN-HEIGHT-UIScreen-mainScreen-bounds-size-height"><a href="#define-SCREEN-HEIGHT-UIScreen-mainScreen-bounds-size-height" class="headerlink" title="define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)"></a>define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)</h1><p>// MainScreen bounds</p>
-<h1 id="define-Main-Screen-Bounds-UIScreen-mainScreen-bounds"><a href="#define-Main-Screen-Bounds-UIScreen-mainScreen-bounds" class="headerlink" title="define Main_Screen_Bounds [[UIScreen mainScreen] bounds]"></a>define Main_Screen_Bounds [[UIScreen mainScreen] bounds]</h1><p>//——————-获取设备大小————————-</p>
-<p>//——————-打印日志————————-<br>//DEBUG 模式下打印日志,当前行</p>
-<h1 id="ifdef-DEBUG"><a href="#ifdef-DEBUG" class="headerlink" title="ifdef DEBUG"></a>ifdef DEBUG</h1><h1 id="define-DLog-fmt-…-NSLog-”-s-Line-d-“-fmt-PRETTY-FUNCTION-LINE-VA-ARGS"><a href="#define-DLog-fmt-…-NSLog-”-s-Line-d-“-fmt-PRETTY-FUNCTION-LINE-VA-ARGS" class="headerlink" title="define DLog(fmt, …) NSLog((@”%s [Line %d] “ fmt), PRETTY_FUNCTION, LINE, ##VA_ARGS);"></a>define DLog(fmt, …) NSLog((@”%s [Line %d] “ fmt), <strong>PRETTY_FUNCTION</strong>, <strong>LINE</strong>, ##<strong>VA_ARGS</strong>);</h1><h1 id="else"><a href="#else" class="headerlink" title="else"></a>else</h1><h1 id="define-DLog-…"><a href="#define-DLog-…" class="headerlink" title="define DLog(…)"></a>define DLog(…)</h1><h1 id="endif"><a href="#endif" class="headerlink" title="endif"></a>endif</h1><p>//重写NSLog,Debug模式下打印日志和当前行数</p>
-<h1 id="if-DEBUG"><a href="#if-DEBUG" class="headerlink" title="if DEBUG"></a>if DEBUG</h1><h1 id="define-NSLog-FORMAT-…-fprintf-stderr-”-nfunction-s-line-d-content-s-n”-FUNCTION-LINE-［NSString-stringWithFormat-FORMAT-VA-ARGS-UTF8String"><a href="#define-NSLog-FORMAT-…-fprintf-stderr-”-nfunction-s-line-d-content-s-n”-FUNCTION-LINE-［NSString-stringWithFormat-FORMAT-VA-ARGS-UTF8String" class="headerlink" title="define NSLog(FORMAT, …) fprintf(stderr,”\nfunction:%s line:%d content:%s\n”, FUNCTION, LINE, ［NSString stringWithFormat:FORMAT, ##VA_ARGS] UTF8String]);"></a>define NSLog(FORMAT, …) fprintf(stderr,”\nfunction:%s line:%d content:%s\n”, <strong>FUNCTION</strong>, <strong>LINE</strong>, ［NSString stringWithFormat:FORMAT, ##<strong>VA_ARGS</strong>] UTF8String]);</h1><h1 id="else-1"><a href="#else-1" class="headerlink" title="else"></a>else</h1><h1 id="define-NSLog-FORMAT-…-nil"><a href="#define-NSLog-FORMAT-…-nil" class="headerlink" title="define NSLog(FORMAT, …) nil"></a>define NSLog(FORMAT, …) nil</h1><h1 id="endif-1"><a href="#endif-1" class="headerlink" title="endif"></a>endif</h1><p>//DEBUG 模式下打印日志,当前行 并弹出一个警告</p>
-<h1 id="ifdef-DEBUG-1"><a href="#ifdef-DEBUG-1" class="headerlink" title="ifdef DEBUG"></a>ifdef DEBUG</h1><h1 id="define-ULog-fmt-…-UIAlertView-alert-［UIAlertView-alloc-initWithTitle-NSString-stringWithFormat-”-s-n-Line-d-“-PRETTY-FUNCTION-LINE-message-NSString-stringWithFormat-fmt-VA-ARGS-delegate-nil-cancelButtonTitle-”Ok”-otherButtonTitles-nil-alert-show"><a href="#define-ULog-fmt-…-UIAlertView-alert-［UIAlertView-alloc-initWithTitle-NSString-stringWithFormat-”-s-n-Line-d-“-PRETTY-FUNCTION-LINE-message-NSString-stringWithFormat-fmt-VA-ARGS-delegate-nil-cancelButtonTitle-”Ok”-otherButtonTitles-nil-alert-show" class="headerlink" title="define ULog(fmt, …) { UIAlertView *alert = ［UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@”%s\n [Line %d] “, PRETTY_FUNCTION, LINE] message:[NSString stringWithFormat:fmt, ##VA_ARGS] delegate:nil cancelButtonTitle:@”Ok” otherButtonTitles:nil]; [alert show]; }"></a>define ULog(fmt, …) { UIAlertView *alert = ［UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@”%s\n [Line %d] “, <strong>PRETTY_FUNCTION</strong>, <strong>LINE</strong>] message:[NSString stringWithFormat:fmt, ##<strong>VA_ARGS</strong>] delegate:nil cancelButtonTitle:@”Ok” otherButtonTitles:nil]; [alert show]; }</h1><h1 id="else-2"><a href="#else-2" class="headerlink" title="else"></a>else</h1><h1 id="define-ULog-…"><a href="#define-ULog-…" class="headerlink" title="define ULog(…)"></a>define ULog(…)</h1><h1 id="endif-2"><a href="#endif-2" class="headerlink" title="endif"></a>endif</h1><p>//打印Frame</p>
-<h1 id="define-LogFrame-frame-NSLog-”frame-X-1f-Y-1f-W-1f-H-1f”-frame-origin-x-frame-origin-y-frame-size-width-frame-size-height"><a href="#define-LogFrame-frame-NSLog-”frame-X-1f-Y-1f-W-1f-H-1f”-frame-origin-x-frame-origin-y-frame-size-width-frame-size-height" class="headerlink" title="define LogFrame(frame) NSLog(@”frame[X=%.1f,Y=%.1f,W=%.1f,H=%.1f”,frame.origin.x,frame.origin.y,frame.size.width,frame.size.height)"></a>define LogFrame(frame) NSLog(@”frame[X=%.1f,Y=%.1f,W=%.1f,H=%.1f”,frame.origin.x,frame.origin.y,frame.size.width,frame.size.height)</h1><p>//打印Point</p>
-<h1 id="define-LogPoint-point-NSLog-”Point-X-1f-Y-1f-”-point-x-point-y"><a href="#define-LogPoint-point-NSLog-”Point-X-1f-Y-1f-”-point-x-point-y" class="headerlink" title="define LogPoint(point) NSLog(@”Point[X=%.1f,Y=%.1f]”,point.x,point.y)"></a>define LogPoint(point) NSLog(@”Point[X=%.1f,Y=%.1f]”,point.x,point.y)</h1><p>//———————————————–<br>// 字体大小(常规/粗体)</p>
-<h1 id="define-BOLDSYSTEMFONT-FONTSIZE-UIFont-boldSystemFontOfSize-FONTSIZE"><a href="#define-BOLDSYSTEMFONT-FONTSIZE-UIFont-boldSystemFontOfSize-FONTSIZE" class="headerlink" title="define BOLDSYSTEMFONT(FONTSIZE)[UIFont boldSystemFontOfSize:FONTSIZE]"></a>define BOLDSYSTEMFONT(FONTSIZE)[UIFont boldSystemFontOfSize:FONTSIZE]</h1><h1 id="define-SYSTEMFONT-FONTSIZE-UIFont-systemFontOfSize-FONTSIZE"><a href="#define-SYSTEMFONT-FONTSIZE-UIFont-systemFontOfSize-FONTSIZE" class="headerlink" title="define SYSTEMFONT(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]"></a>define SYSTEMFONT(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]</h1><h1 id="define-FONT-NAME-FONTSIZE-UIFont-fontWithName-NAME-size-FONTSIZE"><a href="#define-FONT-NAME-FONTSIZE-UIFont-fontWithName-NAME-size-FONTSIZE" class="headerlink" title="define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]"></a>define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]</h1><p>//———————-系统—————————-</p>
-<p>// 是否iPad</p>
-<h1 id="define-isPad-UI-USER-INTERFACE-IDIOM-UIUserInterfaceIdiomPad"><a href="#define-isPad-UI-USER-INTERFACE-IDIOM-UIUserInterfaceIdiomPad" class="headerlink" title="define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)"></a>define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)</h1><p>// 是否iPad</p>
-<h1 id="define-someThing-UI-USER-INTERFACE-IDIOM-UIUserInterfaceIdiomPad-ipad-iphone"><a href="#define-someThing-UI-USER-INTERFACE-IDIOM-UIUserInterfaceIdiomPad-ipad-iphone" class="headerlink" title="define someThing (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? ipad: iphone"></a>define someThing (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? ipad: iphone</h1><p>//获取系统版本</p>
-<h1 id="define-IOS-VERSION-［-UIDevice-currentDevice-systemVersion-floatValue"><a href="#define-IOS-VERSION-［-UIDevice-currentDevice-systemVersion-floatValue" class="headerlink" title="define IOS_VERSION ［[UIDevice currentDevice] systemVersion] floatValue]"></a>define IOS_VERSION ［[UIDevice currentDevice] systemVersion] floatValue]</h1><h1 id="define-CurrentSystemVersion-［UIDevice-currentDevice-systemVersion"><a href="#define-CurrentSystemVersion-［UIDevice-currentDevice-systemVersion" class="headerlink" title="define CurrentSystemVersion ［UIDevice currentDevice] systemVersion]"></a>define CurrentSystemVersion ［UIDevice currentDevice] systemVersion]</h1><p>//App版本号</p>
-<h1 id="define-appMPVersion-NSBundle-mainBundle-infoDictionary-objectForKey-”CFBundleShortVersionString”"><a href="#define-appMPVersion-NSBundle-mainBundle-infoDictionary-objectForKey-”CFBundleShortVersionString”" class="headerlink" title="define appMPVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@”CFBundleShortVersionString”]"></a>define appMPVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@”CFBundleShortVersionString”]</h1><p>//获取当前语言</p>
-<h1 id="define-CurrentLanguage-［NSLocale-preferredLanguages-objectAtIndex-0"><a href="#define-CurrentLanguage-［NSLocale-preferredLanguages-objectAtIndex-0" class="headerlink" title="define CurrentLanguage (［NSLocale preferredLanguages] objectAtIndex:0])"></a>define CurrentLanguage (［NSLocale preferredLanguages] objectAtIndex:0])</h1><p>//判断是否 Retina屏、设备是否%fhone 5、是否是iPad</p>
-<h1 id="define-isRetina-UIScreen-instancesRespondToSelector-selector-currentMode-CGSizeEqualToSize-CGSizeMake-640-960-［UIScreen-mainScreen-currentMode-size-NO"><a href="#define-isRetina-UIScreen-instancesRespondToSelector-selector-currentMode-CGSizeEqualToSize-CGSizeMake-640-960-［UIScreen-mainScreen-currentMode-size-NO" class="headerlink" title="define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), ［UIScreen mainScreen] currentMode].size) : NO)"></a>define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), ［UIScreen mainScreen] currentMode].size) : NO)</h1><h1 id="define-iPhone5-UIScreen-instancesRespondToSelector-selector-currentMode-CGSizeEqualToSize-CGSizeMake-640-1136-［UIScreen-mainScreen-currentMode-size-NO"><a href="#define-iPhone5-UIScreen-instancesRespondToSelector-selector-currentMode-CGSizeEqualToSize-CGSizeMake-640-1136-［UIScreen-mainScreen-currentMode-size-NO" class="headerlink" title="define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), ［UIScreen mainScreen] currentMode].size) : NO)"></a>define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), ［UIScreen mainScreen] currentMode].size) : NO)</h1><h1 id="define-isPad-UI-USER-INTERFACE-IDIOM-UIUserInterfaceIdiomPad-1"><a href="#define-isPad-UI-USER-INTERFACE-IDIOM-UIUserInterfaceIdiomPad-1" class="headerlink" title="define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)"></a>define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)</h1><p>//判断设备的操做系统是不是ios7</p>
-<h1 id="define-IOS7-［-UIDevice-currentDevice-systemVersion-doubleValue-7-0"><a href="#define-IOS7-［-UIDevice-currentDevice-systemVersion-doubleValue-7-0" class="headerlink" title="define IOS7 (［[UIDevice currentDevice].systemVersion doubleValue] >= 7.0]"></a>define IOS7 (［[UIDevice currentDevice].systemVersion doubleValue] >= 7.0]</h1><p>//判断当前设备是不是iphone5</p>
-<h1 id="define-kScreenIphone5-［UIScreen-mainScreen-bounds-size-height-568"><a href="#define-kScreenIphone5-［UIScreen-mainScreen-bounds-size-height-568" class="headerlink" title="define kScreenIphone5 ((［UIScreen mainScreen] bounds].size.height)>=568)"></a>define kScreenIphone5 ((［UIScreen mainScreen] bounds].size.height)>=568)</h1><p>//获取当前屏幕的高度</p>
-<h1 id="define-kMainScreenHeight-UIScreen-mainScreen-applicationFrame-size-height"><a href="#define-kMainScreenHeight-UIScreen-mainScreen-applicationFrame-size-height" class="headerlink" title="define kMainScreenHeight ([UIScreen mainScreen].applicationFrame.size.height)"></a>define kMainScreenHeight ([UIScreen mainScreen].applicationFrame.size.height)</h1><p>//获取当前屏幕的宽度</p>
-<h1 id="define-kMainScreenWidth-UIScreen-mainScreen-applicationFrame-size-width"><a href="#define-kMainScreenWidth-UIScreen-mainScreen-applicationFrame-size-width" class="headerlink" title="define kMainScreenWidth ([UIScreen mainScreen].applicationFrame.size.width)"></a>define kMainScreenWidth ([UIScreen mainScreen].applicationFrame.size.width)</h1><p>//定义一个define函数</p>
-<h1 id="define-TT-RELEASE-CF-SAFELY-REF-if-nil-REF-CFRelease-REF-REF-nil"><a href="#define-TT-RELEASE-CF-SAFELY-REF-if-nil-REF-CFRelease-REF-REF-nil" class="headerlink" title="define TT_RELEASE_CF_SAFELY(REF) { if (nil != (REF)) { CFRelease(REF); REF = nil; } }"></a>define TT_RELEASE_CF_SAFELY(<strong>REF) { if (nil != (</strong>REF)) { CFRelease(<strong>REF); </strong>REF = nil; } }</h1><p>//判断是真机还是模拟器</p>
-<h1 id="if-TARGET-OS-IPHONE"><a href="#if-TARGET-OS-IPHONE" class="headerlink" title="if TARGET_OS_IPHONE"></a>if TARGET_OS_IPHONE</h1><p>//iPhone Device</p>
-<h1 id="endif-3"><a href="#endif-3" class="headerlink" title="endif"></a>endif</h1><h1 id="if-TARGET-IPHONE-SIMULATOR"><a href="#if-TARGET-IPHONE-SIMULATOR" class="headerlink" title="if TARGET_IPHONE_SIMULATOR"></a>if TARGET_IPHONE_SIMULATOR</h1><p>//iPhone Simulator</p>
-<h1 id="endif-4"><a href="#endif-4" class="headerlink" title="endif"></a>endif</h1><p>//检查系统版本</p>
-<h1 id="define-SYSTEM-VERSION-EQUAL-TO-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedSame"><a href="#define-SYSTEM-VERSION-EQUAL-TO-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedSame" class="headerlink" title="define SYSTEM_VERSION_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)"></a>define SYSTEM_VERSION_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</h1><h1 id="define-SYSTEM-VERSION-GREATER-THAN-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedDescending"><a href="#define-SYSTEM-VERSION-GREATER-THAN-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedDescending" class="headerlink" title="define SYSTEM_VERSION_GREATER_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)"></a>define SYSTEM_VERSION_GREATER_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</h1><h1 id="define-SYSTEM-VERSION-GREATER-THAN-OR-EQUAL-TO-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedAscending"><a href="#define-SYSTEM-VERSION-GREATER-THAN-OR-EQUAL-TO-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedAscending" class="headerlink" title="define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)"></a>define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</h1><h1 id="define-SYSTEM-VERSION-LESS-THAN-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedAscending"><a href="#define-SYSTEM-VERSION-LESS-THAN-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedAscending" class="headerlink" title="define SYSTEM_VERSION_LESS_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)"></a>define SYSTEM_VERSION_LESS_THAN(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</h1><h1 id="define-SYSTEM-VERSION-LESS-THAN-OR-EQUAL-TO-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedDescending"><a href="#define-SYSTEM-VERSION-LESS-THAN-OR-EQUAL-TO-v-［-UIDevice-currentDevice-systemVersion-compare-v-options-NSNumericSearch-NSOrderedDescending" class="headerlink" title="define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)"></a>define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) (［[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</h1><p>//———————-系统—————————-</p>
-<h1 id="define-TICK-NSDate-startTime-NSDate-date-写在方法头尾，测试运行时间"><a href="#define-TICK-NSDate-startTime-NSDate-date-写在方法头尾，测试运行时间" class="headerlink" title="define TICK   NSDate *startTime = [NSDate date]     //写在方法头尾，测试运行时间"></a>define TICK   NSDate *startTime = [NSDate date]     //写在方法头尾，测试运行时间</h1><h1 id="define-TOCK-NSLog-”Time-f”-startTime-timeIntervalSinceNow"><a href="#define-TOCK-NSLog-”Time-f”-startTime-timeIntervalSinceNow" class="headerlink" title="define TOCK   NSLog(@”Time: %f”, -[startTime timeIntervalSinceNow])"></a>define TOCK   NSLog(@”Time: %f”, -[startTime timeIntervalSinceNow])</h1><h1 id="define-TimeGetCurrent-CFAbsoluteTimeGetCurrent-写在要测试代码片段头尾，两个相减算运行时间"><a href="#define-TimeGetCurrent-CFAbsoluteTimeGetCurrent-写在要测试代码片段头尾，两个相减算运行时间" class="headerlink" title="define TimeGetCurrent  CFAbsoluteTimeGetCurrent()  // 写在要测试代码片段头尾，两个相减算运行时间"></a>define TimeGetCurrent  CFAbsoluteTimeGetCurrent()  // 写在要测试代码片段头尾，两个相减算运行时间</h1><h1 id="define-AC-Assert-condition-NSAssert-condition-NSString-stringWithFormat-”file-name-s-—-function-name-s-at-line-d”-FILE-FUNCTION-LINE"><a href="#define-AC-Assert-condition-NSAssert-condition-NSString-stringWithFormat-”file-name-s-—-function-name-s-at-line-d”-FILE-FUNCTION-LINE" class="headerlink" title="define AC_Assert(condition) NSAssert(condition, ([NSString stringWithFormat:@”file name = %s —> function name = %s at line: %d”, FILE, FUNCTION, LINE]));"></a>define AC_Assert(condition) NSAssert(condition, ([NSString stringWithFormat:@”file name = %s —> function name = %s at line: %d”, <strong>FILE</strong>, <strong>FUNCTION</strong>, <strong>LINE</strong>]));</h1><p>//————————————————————</p>
-<h1 id="define-CHECK-AlphaNum-”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789”"><a href="#define-CHECK-AlphaNum-”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789”" class="headerlink" title="define CHECK_AlphaNum   @”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789”"></a>define CHECK_AlphaNum   @”ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789”</h1><h1 id="define-CHECK-Num-”0123456789”"><a href="#define-CHECK-Num-”0123456789”" class="headerlink" title="define CHECK_Num   @”0123456789”"></a>define CHECK_Num   @”0123456789”</h1><p>//———————-内存—————————-</p>
-<p>//使用ARC和不使用ARC</p>
-<h1 id="if-has-feature-objc-arc"><a href="#if-has-feature-objc-arc" class="headerlink" title="if __has_feature(objc_arc)"></a>if __has_feature(objc_arc)</h1><p>//compiling with ARC</p>
-<h1 id="else-3"><a href="#else-3" class="headerlink" title="else"></a>else</h1><p>// compiling without ARC</p>
-<h1 id="endif-5"><a href="#endif-5" class="headerlink" title="endif"></a>endif</h1><h1 id="pragma-mark-common-functions"><a href="#pragma-mark-common-functions" class="headerlink" title="pragma mark - common functions"></a>pragma mark - common functions</h1><h1 id="define-RELEASE-SAFELY-POINTER-POINTER-release-POINTER-nil"><a href="#define-RELEASE-SAFELY-POINTER-POINTER-release-POINTER-nil" class="headerlink" title="define RELEASE_SAFELY(POINTER) { [POINTER release]; __POINTER = nil; }"></a>define RELEASE_SAFELY(<strong>POINTER) { [</strong>POINTER release]; __POINTER = nil; }</h1><p>//释放一个对象</p>
-<h1 id="define-SAFE-DELETE-P-if-P-P-release-P-nil"><a href="#define-SAFE-DELETE-P-if-P-P-release-P-nil" class="headerlink" title="define SAFE_DELETE(P) if(P) { [P release], P = nil; }"></a>define SAFE_DELETE(P) if(P) { [P release], P = nil; }</h1><h1 id="define-SAFE-RELEASE-x-x-release-x-nil"><a href="#define-SAFE-RELEASE-x-x-release-x-nil" class="headerlink" title="define SAFE_RELEASE(x) [x release];x=nil"></a>define SAFE_RELEASE(x) [x release];x=nil</h1><p>// 是否空对象</p>
-<h1 id="define-IS-NULL-CLASS-OBJECT-OBJECT-isKindOfClass-NSNull-class"><a href="#define-IS-NULL-CLASS-OBJECT-OBJECT-isKindOfClass-NSNull-class" class="headerlink" title="define IS_NULL_CLASS(OBJECT) [OBJECT isKindOfClass:[NSNull class]]"></a>define IS_NULL_CLASS(OBJECT) [OBJECT isKindOfClass:[NSNull class]]</h1><p>//———————-内存—————————-</p>
-<p>//———————-图片—————————-</p>
-<p>//读取本地图片</p>
-<h1 id="define-LOADIMAGE-file-ext-UIImage-imageWithContentsOfFile-［NSBundle-mainBundle-pathForResource-file-ofType-ext］"><a href="#define-LOADIMAGE-file-ext-UIImage-imageWithContentsOfFile-［NSBundle-mainBundle-pathForResource-file-ofType-ext］" class="headerlink" title="define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:［NSBundle mainBundle]pathForResource:file ofType:ext］"></a>define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:［NSBundle mainBundle]pathForResource:file ofType:ext］</h1><p>//定义UIImage对象</p>
-<h1 id="define-IMAGE-A-UIImage-imageWithContentsOfFile-［NSBundle-mainBundle-pathForResource-A-ofType-nil］"><a href="#define-IMAGE-A-UIImage-imageWithContentsOfFile-［NSBundle-mainBundle-pathForResource-A-ofType-nil］" class="headerlink" title="define IMAGE(A) [UIImage imageWithContentsOfFile:［NSBundle mainBundle] pathForResource:A ofType:nil］"></a>define IMAGE(A) [UIImage imageWithContentsOfFile:［NSBundle mainBundle] pathForResource:A ofType:nil］</h1><p>//定义UIImage对象</p>
-<h1 id="define-ImageNamed-pointer-UIImage-imageNamed-UIUtil-imageName-pointer］"><a href="#define-ImageNamed-pointer-UIImage-imageNamed-UIUtil-imageName-pointer］" class="headerlink" title="define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer］"></a>define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer］</h1><p>//可拉伸的图片</p>
-<h1 id="define-ResizableImage-name-top-left-bottom-right-UIImage-imageNamed-name-resizableImageWithCapInsets-UIEdgeInsetsMake-top-left-bottom-right"><a href="#define-ResizableImage-name-top-left-bottom-right-UIImage-imageNamed-name-resizableImageWithCapInsets-UIEdgeInsetsMake-top-left-bottom-right" class="headerlink" title="define ResizableImage(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]"></a>define ResizableImage(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]</h1><h1 id="define-ResizableImageWithMode-name-top-left-bottom-right-mode-UIImage-imageNamed-name-resizableImageWithCapInsets-UIEdgeInsetsMake-top-left-bottom-right-resizingMode-mode"><a href="#define-ResizableImageWithMode-name-top-left-bottom-right-mode-UIImage-imageNamed-name-resizableImageWithCapInsets-UIEdgeInsetsMake-top-left-bottom-right-resizingMode-mode" class="headerlink" title="define ResizableImageWithMode(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]"></a>define ResizableImageWithMode(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]</h1><p>//建议使用前两种宏定义,性能高于后者<br>//———————-图片—————————-</p>
-<p>//———————-颜色类—————————<br>// rgb颜色转换（16进制->10进制）</p>
-<h1 id="define-UIColorFromRGB-rgbValue-UIColor-colorWithRed-float-rgbValue-amp-0xFF0000-16-255-0-green-float-rgbValue-amp-0xFF00-8-255-0-blue-float-rgbValue-amp-0xFF-255-0-alpha-1-0"><a href="#define-UIColorFromRGB-rgbValue-UIColor-colorWithRed-float-rgbValue-amp-0xFF0000-16-255-0-green-float-rgbValue-amp-0xFF00-8-255-0-blue-float-rgbValue-amp-0xFF-255-0-alpha-1-0" class="headerlink" title="define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) >> 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) >> 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]"></a>define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) >> 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) >> 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]</h1><p>//带有RGBA的颜色设置</p>
-<h1 id="define-COLOR-R-G-B-A-UIColor-colorWithRed-R-255-0-green-G-255-0-blue-B-255-0-alpha-A"><a href="#define-COLOR-R-G-B-A-UIColor-colorWithRed-R-255-0-green-G-255-0-blue-B-255-0-alpha-A" class="headerlink" title="define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]"></a>define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]</h1><p>// 获取RGB颜色</p>
-<h1 id="define-RGBA-r-g-b-a-UIColor-colorWithRed-r-255-0f-green-g-255-0f-blue-b-255-0f-alpha-a"><a href="#define-RGBA-r-g-b-a-UIColor-colorWithRed-r-255-0f-green-g-255-0f-blue-b-255-0f-alpha-a" class="headerlink" title="define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]"></a>define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</h1><h1 id="define-RGB-r-g-b-RGBA-r-g-b-1-0f"><a href="#define-RGB-r-g-b-RGBA-r-g-b-1-0f" class="headerlink" title="define RGB(r,g,b) RGBA(r,g,b,1.0f)"></a>define RGB(r,g,b) RGBA(r,g,b,1.0f)</h1><p>//背景色</p>
-<h1 id="define-BACKGROUND-COLOR-UIColor-colorWithRed-242-0-255-0-green-236-0-255-0-blue-231-0-255-0-alpha-1-0"><a href="#define-BACKGROUND-COLOR-UIColor-colorWithRed-242-0-255-0-green-236-0-255-0-blue-231-0-255-0-alpha-1-0" class="headerlink" title="define BACKGROUND_COLOR [UIColor colorWithRed:242.0/255.0 green:236.0/255.0 blue:231.0/255.0 alpha:1.0]"></a>define BACKGROUND_COLOR [UIColor colorWithRed:242.0/255.0 green:236.0/255.0 blue:231.0/255.0 alpha:1.0]</h1><p>//清除背景色</p>
-<h1 id="define-CLEARCOLOR-UIColor-clearColor"><a href="#define-CLEARCOLOR-UIColor-clearColor" class="headerlink" title="define CLEARCOLOR [UIColor clearColor]"></a>define CLEARCOLOR [UIColor clearColor]</h1><h1 id="pragma-mark-color-functions"><a href="#pragma-mark-color-functions" class="headerlink" title="pragma mark - color functions"></a>pragma mark - color functions</h1><h1 id="define-RGBCOLOR-r-g-b-UIColor-colorWithRed-r-255-0f-green-g-255-0f-blue-b-255-0f-alpha-1"><a href="#define-RGBCOLOR-r-g-b-UIColor-colorWithRed-r-255-0f-green-g-255-0f-blue-b-255-0f-alpha-1" class="headerlink" title="define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]"></a>define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]</h1><h1 id="define-RGBACOLOR-r-g-b-a-UIColor-colorWithRed-r-255-0f-green-g-255-0f-blue-b-255-0f-alpha-a"><a href="#define-RGBACOLOR-r-g-b-a-UIColor-colorWithRed-r-255-0f-green-g-255-0f-blue-b-255-0f-alpha-a" class="headerlink" title="define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]"></a>define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]</h1><p>//———————-颜色类————————–</p>
-<p>//———————-其他—————————-</p>
-<p>//方正黑体简体字体定义</p>
-<h1 id="define-FONT-F-UIFont-fontWithName-”FZHTJW–GB1-0”-size-F"><a href="#define-FONT-F-UIFont-fontWithName-”FZHTJW–GB1-0”-size-F" class="headerlink" title="define FONT(F) [UIFont fontWithName:@”FZHTJW–GB1-0” size:F]"></a>define FONT(F) [UIFont fontWithName:@”FZHTJW–GB1-0” size:F]</h1><p>//定义一个API</p>
-<h1 id="define-APIURL-”http-xxxxx-“"><a href="#define-APIURL-”http-xxxxx-“" class="headerlink" title="define APIURL @”http://xxxxx/“"></a>define APIURL @”<a href="http://xxxxx/" target="_blank" rel="external">http://xxxxx/</a>“</h1><p>//登录API</p>
-<h1 id="define-APILogin-APIURL-stringByAppendingString-”Login”"><a href="#define-APILogin-APIURL-stringByAppendingString-”Login”" class="headerlink" title="define APILogin [APIURL stringByAppendingString:@”Login”]"></a>define APILogin [APIURL stringByAppendingString:@”Login”]</h1><p>//设置View的tag属性</p>
-<h1 id="define-VIEWWITHTAG-OBJECT-TAG-OBJECT-viewWithTag-TAG"><a href="#define-VIEWWITHTAG-OBJECT-TAG-OBJECT-viewWithTag-TAG" class="headerlink" title="define VIEWWITHTAG(_OBJECT, _TAG) [_OBJECT viewWithTag : _TAG]"></a>define VIEWWITHTAG(_OBJECT, _TAG) [_OBJECT viewWithTag : _TAG]</h1><p>//程序的本地化,引用国际化的文件</p>
-<h1 id="define-MyLocal-x-…-NSLocalizedString-x-nil"><a href="#define-MyLocal-x-…-NSLocalizedString-x-nil" class="headerlink" title="define MyLocal(x, …) NSLocalizedString(x, nil)"></a>define MyLocal(x, …) NSLocalizedString(x, nil)</h1><p>//G－C－D</p>
-<h1 id="define-BACK-block-dispatch-async-dispatch-get-global-queue-DISPATCH-QUEUE-PRIORITY-DEFAULT-0-block"><a href="#define-BACK-block-dispatch-async-dispatch-get-global-queue-DISPATCH-QUEUE-PRIORITY-DEFAULT-0-block" class="headerlink" title="define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)"></a>define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)</h1><h1 id="define-MAIN-block-dispatch-async-dispatch-get-main-queue-block"><a href="#define-MAIN-block-dispatch-async-dispatch-get-main-queue-block" class="headerlink" title="define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)"></a>define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)</h1><p>//NSUserDefaults 实例化</p>
-<h1 id="define-USER-DEFAULT-NSUserDefaults-standardUserDefaults"><a href="#define-USER-DEFAULT-NSUserDefaults-standardUserDefaults" class="headerlink" title="define USER_DEFAULT [NSUserDefaults standardUserDefaults]"></a>define USER_DEFAULT [NSUserDefaults standardUserDefaults]</h1><p>//由角度获取弧度 有弧度获取角度</p>
-<h1 id="define-degreesToRadian-x-M-PI-x-180-0"><a href="#define-degreesToRadian-x-M-PI-x-180-0" class="headerlink" title="define degreesToRadian(x) (M_PI * (x) / 180.0)"></a>define degreesToRadian(x) (M_PI * (x) / 180.0)</h1><h1 id="define-radianToDegrees-radian-radian-180-0-M-PI"><a href="#define-radianToDegrees-radian-radian-180-0-M-PI" class="headerlink" title="define radianToDegrees(radian) (radian*180.0)/(M_PI)"></a>define radianToDegrees(radian) (radian*180.0)/(M_PI)</h1><p>//单例化一个类</p>
-<h1 id="define-SYNTHESIZE-SINGLETON-FOR-CLASS-classname"><a href="#define-SYNTHESIZE-SINGLETON-FOR-CLASS-classname" class="headerlink" title="define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \"></a>define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \</h1><p>\<br>static classname *shared##classname = nil; \<br>\</p>
-<ul>
-<li>(classname *)shared##classname \<br>{ \<br>@synchronized(self) \<br>{ \<br>if (shared##classname == nil) \<br>{ \<br>shared##classname = ［self alloc] init]; \<br>} \<br>} \<br>\<br>return shared##classname; \<br>} \<br>\</li>
-<li>(id)allocWithZone:(NSZone *)zone \<br>{ \<br>@synchronized(self) \<br>{ \<br>if (shared##classname == nil) \<br>{ \<br>shared##classname = [super allocWithZone:zone]; \<br>return shared##classname; \<br>} \<br>} \<br>\<br>return nil; \<br>} \<br>\</li>
-</ul>
-<ul>
-<li>(id)copyWithZone:(NSZone *)zone \<br>{ \<br>return self; \<br>}</li>
-</ul>
-<h1 id="endif-6"><a href="#endif-6" class="headerlink" title="endif"></a>endif</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;iOS常用宏定义&quot;&gt;&lt;a href=&quot;#iOS常用宏定义&quot; class=&quot;headerlink&quot; title=&quot;iOS常用宏定义&quot;&gt;&lt;/a&gt;iOS常用宏定义&lt;/h3&gt;&lt;h1 id=&quot;ifndef-MacroDefinition-h&quot;&gt;&lt;a href=&quot;#ifnde
-    
-    </summary>
-    
-      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
-    
-    
-      <category term="宏定义" scheme="http://www.jeyblogs.com/tags/%E5%AE%8F%E5%AE%9A%E4%B9%89/"/>
     
   </entry>
   

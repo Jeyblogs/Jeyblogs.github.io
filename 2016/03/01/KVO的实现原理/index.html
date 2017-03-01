@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Hexo, NexT, jeyblogs, iOS" />
 
 
 
@@ -86,16 +86,21 @@
 
 
 
-<meta name="description" content="hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。Hexo环境配置先屡一下思路1.首先hexo是基于nodejs的，所以必须安装nodejs2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的">
+<meta name="description" content="KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了指向实现类中的方法的指针，和其它数据。
+addObserver:forKeyPath:options:context:各个参数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo——搭建Github Page博客之配置篇(1)">
-<meta property="og:url" content="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客(1)/index.html">
+<meta property="og:title" content="KVO的实现原理">
+<meta property="og:url" content="http://www.jeyblogs.com/2016/03/01/KVO的实现原理/index.html">
 <meta property="og:site_name" content="Jey">
-<meta property="og:description" content="hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。Hexo环境配置先屡一下思路1.首先hexo是基于nodejs的，所以必须安装nodejs2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的">
-<meta property="og:updated_time" content="2016-08-17T15:37:19.000Z">
+<meta property="og:description" content="KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了指向实现类中的方法的指针，和其它数据。
+addObserver:forKeyPath:options:context:各个参数">
+<meta property="og:image" content="http://7xsdar.com1.z0.glb.clouddn.com/KVO%E5%86%85%E9%83%A8%E5%AE%9E">
+<meta property="og:updated_time" content="2017-03-01T03:00:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo——搭建Github Page博客之配置篇(1)">
-<meta name="twitter:description" content="hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。Hexo环境配置先屡一下思路1.首先hexo是基于nodejs的，所以必须安装nodejs2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的">
+<meta name="twitter:title" content="KVO的实现原理">
+<meta name="twitter:description" content="KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了指向实现类中的方法的指针，和其它数据。
+addObserver:forKeyPath:options:context:各个参数">
+<meta name="twitter:image" content="http://7xsdar.com1.z0.glb.clouddn.com/KVO%E5%86%85%E9%83%A8%E5%AE%9E">
 
 
 
@@ -113,7 +118,7 @@
   };
 </script>
 
-  <title> hexo——搭建Github Page博客之配置篇(1) | Jey </title>
+  <title> KVO的实现原理 | Jey </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +276,7 @@
             
             
               
-                hexo——搭建Github Page博客之配置篇(1)
+                KVO的实现原理
               
             
           </h1>
@@ -283,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T10:29:49+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2016-03-01T10:21:38+08:00" content="2016-03-01">
+              2016-03-01
             </time>
           </span>
 
@@ -297,8 +302,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/疑难杂症/" itemprop="url" rel="index">
+                    <span itemprop="name">疑难杂症</span>
                   </a>
                 </span>
 
@@ -313,8 +318,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/15/hexo——搭建Github Page博客(1)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/hexo——搭建Github Page博客(1)/" itemprop="commentsCount"></span>
+                <a href="/2016/03/01/KVO的实现原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/KVO的实现原理/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,29 +342,43 @@
       
 
       
-        <p>hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。<br><strong>Hexo环境配置</strong><br>先屡一下思路<br>1.首先hexo是基于nodejs的，所以必须安装nodejs<br>2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它<br>3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定<br>4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的话也是一句话搞定（mac也有自带）<br>5.OK整理一下安装顺序：homebrew-nodejs-hexo-git</p>
-<h5 id="安装brewhome，一句话搞定"><a href="#安装brewhome，一句话搞定" class="headerlink" title="安装brewhome，一句话搞定"></a>安装brewhome，一句话搞定</h5><pre><code>ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)”
-</code></pre><h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><h6 id="第一种方式，brewhome安装，一句话搞定"><a href="#第一种方式，brewhome安装，一句话搞定" class="headerlink" title="第一种方式，brewhome安装，一句话搞定"></a>第一种方式，brewhome安装，一句话搞定</h6><pre><code>brew install node
-</code></pre><h6 id="第二种方式，前提是已经安装好Xcode和git"><a href="#第二种方式，前提是已经安装好Xcode和git" class="headerlink" title="第二种方式，前提是已经安装好Xcode和git"></a>第二种方式，前提是已经安装好Xcode和git</h6><pre><code>git clone git://github.com/joyent/node.git
-cd node
-./configure
-make
-sudo make install
-</code></pre><h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><h6 id="第一种方式，用nodejs自带npm安装"><a href="#第一种方式，用nodejs自带npm安装" class="headerlink" title="第一种方式，用nodejs自带npm安装"></a>第一种方式，用nodejs自带npm安装</h6><pre><code>npm install -g hexo
-hexo init
-npm install
-</code></pre><h6 id="第二种方式，下载源码-http-www-nodejs-org-download-，编译执行"><a href="#第二种方式，下载源码-http-www-nodejs-org-download-，编译执行" class="headerlink" title="第二种方式，下载源码(http://www.nodejs.org/download/)，编译执行"></a>第二种方式，下载源码(<a href="http://www.nodejs.org/download/)，编译执行" target="_blank" rel="external">http://www.nodejs.org/download/)，编译执行</a></h6><pre><code>./configure --prefix=~/nodejs &amp;&amp; make &amp;&amp; make install
-cp ~/nodejs/bin/node /usr/sbin/node
-~/nodejs/bin/npm install -g hexo
-</code></pre><h5 id="安装git（mac一般自带）"><a href="#安装git（mac一般自带）" class="headerlink" title="安装git（mac一般自带）"></a>安装git（mac一般自带）</h5><pre><code>sudo brew install git
-</code></pre><h5 id="SSH-key"><a href="#SSH-key" class="headerlink" title="SSH key"></a>SSH key</h5><h6 id="检查SSH-key"><a href="#检查SSH-key" class="headerlink" title="检查SSH key"></a>检查SSH key</h6><pre><code>cd ~/.ssh
-</code></pre><h6 id="备份已有的key，（如果有的话）"><a href="#备份已有的key，（如果有的话）" class="headerlink" title="备份已有的key，（如果有的话）"></a>备份已有的key，（如果有的话）</h6><pre><code>mkdir key_backup
-mv id_rsa* key_backup
-</code></pre><h6 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h6><pre><code>ssh-keygen -t rsa -C &quot;xxx@xxx.com”
-</code></pre><h6 id="将SSH-key添加到Github"><a href="#将SSH-key添加到Github" class="headerlink" title="将SSH key添加到Github"></a>将SSH key添加到Github</h6><p>登录到GitHub页面，Account Settings->deploy Keys->Add another key将生成的key(id_rsa.pub文件）内容copy到输入框中，save。_</p>
-<h6 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h6><pre><code>ssh git@github.com
-</code></pre><h6 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h6><pre><code>git config --global user.name &quot;xxx”
-git config --global user.email xxx@xxx.com
+        <p>KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了指向实现类中的方法的指针，和其它数据。</p>
+<p><strong>addObserver:forKeyPath:options:context:各个参数的作用分别是什么, observer中需要实现哪个方法才能获得KVO回调？</strong></p>
+<pre><code>/**
+self.person：要监听的对象
+参数说明：
+    @param addObserver  观察者，负责处理监听事件的对象
+    @param forKeyPath 要监听的属性
+    @param  options 观察的选项（观察新、旧值，也可以都观察）
+    @param context 上下文，用于传递数据，可以利用上下文区分不同的监听
+ */
+[self.person addObserver:self forKeyPath:@&quot;name&quot; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:@&quot;Person Name&quot;];
+
+/**
+ 当监控的某个属性的值改变了就会调用
+ *
+ @param keyPath 监听的属性名
+ @param object  属性所属的对象
+ @param change  属性的修改情况（属性原来的值oldValue、属性最新的值newValue）
+ @param context 传递的上下文数据，与监听的时候传递的一致，可以利用上下文区分不同的监听
+ */
+(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+NSLog(@&quot;%@对象的%@属性改变了：%@&quot;, object, keyPath, change);
+}
+</code></pre><p>一、KVO (Key-Value Observing)<br>KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。<br>有意思的是，你不需要给被观察的对象添加任何额外代码，就能使用 KVO 。这是怎么做到的？<br>二、 KVO内部实现原理<br>•    KVO是基于runtime机制实现的<br>•    当某个类的属性对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的setter 方法。派生类在被重写的setter方法内实现真正的通知机制<br>•    如果原类为Person，那么生成的派生类名为NSKVONotifying_Person<br>•    每个类对象中都有一个isa指针指向当前类，当一个类对象的第一次被观察，那么系统会偷偷将isa指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的setter方法<br>•    键值观察通知依赖于NSObject 的两个方法: willChangeValueForKey: 和 didChangevlueForKey:；在一个被观察属性发生改变之前， willChangeValueForKey:一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey:会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。<br>•    补充：KVO的这套实现机制中苹果还偷偷重写了class方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类<br><img src="http://7xsdar.com1.z0.glb.clouddn.com/KVO%E5%86%85%E9%83%A8%E5%AE%9E" alt=""><br>三、如何手动触发一个value的KVO<br>•    自动触发的场景：在注册KVO之前设置一个初始值，注册之后，设置一个不一样的值，就可以触发了<br>•    想知道如何手动触发，必须知道自动触发 KVO 的原理，见上面的描述<br>•    手动触发演示</p>
+<pre><code>@property (nonatomic, strong) NSDate *now;
+
+(void)viewDidLoad
+{
+[super viewDidLoad];
+
+// “手动触发self.now的KVO”，必写。
+[self willChangeValueForKey:@&quot;now&quot;];
+
+// “手动触发self.now的KVO”，必写。
+[self didChangeValueForKey:@&quot;now&quot;];
+}
 </code></pre>
       
     </div>
@@ -400,27 +419,21 @@ git config --global user.email xxx@xxx.com
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/27/iOS运行证书报错问题整理/" rel="next" title="iOS运行证书报错问题整理">
-                <i class="fa fa-chevron-left"></i> iOS运行证书报错问题整理
+              <a href="/2015/11/25/Xcode通过Jenkins自动打包ipa/" rel="next" title="Xcode通过Jenkins自动打包ipa">
+                <i class="fa fa-chevron-left"></i> Xcode通过Jenkins自动打包ipa
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/16/hexo——搭建Github-Page博客(2)/" rel="prev" title="hexo——搭建Github Page博客(2)">
-                hexo——搭建Github Page博客(2) <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/18/利用Xcode的代码块提高效率/" rel="prev" title="利用Xcode的代码块提高效率">
+                利用Xcode的代码块提高效率 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -436,10 +449,10 @@ git config --global user.email xxx@xxx.com
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/15/hexo——搭建Github Page博客(1)/"
-     data-title="hexo——搭建Github Page博客之配置篇(1)"
+        <div class="ds-share flat" data-thread-key="2016/03/01/KVO的实现原理/"
+     data-title="KVO的实现原理"
      data-content=""
-     data-url="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客(1)/">
+     data-url="http://www.jeyblogs.com/2016/03/01/KVO的实现原理/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -466,8 +479,8 @@ git config --global user.email xxx@xxx.com
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/15/hexo——搭建Github Page博客(1)/"
-           data-title="hexo——搭建Github Page博客之配置篇(1)" data-url="http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客(1)/">
+      <div class="ds-thread" data-thread-key="2016/03/01/KVO的实现原理/"
+           data-title="KVO的实现原理" data-url="http://www.jeyblogs.com/2016/03/01/KVO的实现原理/">
       </div>
     
   </div>
@@ -565,7 +578,7 @@ git config --global user.email xxx@xxx.com
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装brewhome，一句话搞定"><span class="nav-number">1.</span> <span class="nav-text">安装brewhome，一句话搞定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装nodejs"><span class="nav-number">2.</span> <span class="nav-text">安装nodejs</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#第一种方式，brewhome安装，一句话搞定"><span class="nav-number">2.1.</span> <span class="nav-text">第一种方式，brewhome安装，一句话搞定</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第二种方式，前提是已经安装好Xcode和git"><span class="nav-number">2.2.</span> <span class="nav-text">第二种方式，前提是已经安装好Xcode和git</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装hexo"><span class="nav-number">3.</span> <span class="nav-text">安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#第一种方式，用nodejs自带npm安装"><span class="nav-number">3.1.</span> <span class="nav-text">第一种方式，用nodejs自带npm安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第二种方式，下载源码-http-www-nodejs-org-download-，编译执行"><span class="nav-number">3.2.</span> <span class="nav-text">第二种方式，下载源码(http://www.nodejs.org/download/)，编译执行</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装git（mac一般自带）"><span class="nav-number">4.</span> <span class="nav-text">安装git（mac一般自带）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SSH-key"><span class="nav-number">5.</span> <span class="nav-text">SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#检查SSH-key"><span class="nav-number">5.1.</span> <span class="nav-text">检查SSH key</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#备份已有的key，（如果有的话）"><span class="nav-number">5.2.</span> <span class="nav-text">备份已有的key，（如果有的话）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#生成SSH-key"><span class="nav-number">5.3.</span> <span class="nav-text">生成SSH key</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将SSH-key添加到Github"><span class="nav-number">5.4.</span> <span class="nav-text">将SSH key添加到Github</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#测试连接"><span class="nav-number">5.5.</span> <span class="nav-text">测试连接</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#设置个人信息"><span class="nav-number">5.6.</span> <span class="nav-text">设置个人信息</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
