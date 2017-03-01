@@ -190,7 +190,7 @@ $ npm install hexo-generator-feed
     <link href="http://www.jeyblogs.com/2016/08/15/hexo%E2%80%94%E2%80%94%E6%90%AD%E5%BB%BAGithub%20Page%E5%8D%9A%E5%AE%A2(1)/"/>
     <id>http://www.jeyblogs.com/2016/08/15/hexo——搭建Github Page博客(1)/</id>
     <published>2016-08-15T02:29:49.000Z</published>
-    <updated>2016-08-17T15:37:19.000Z</updated>
+    <updated>2017-03-01T03:03:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>hero是一款轻量级的博客系统，它能够定制属于自己的个性化主题博客。<br><strong>Hexo环境配置</strong><br>先屡一下思路<br>1.首先hexo是基于nodejs的，所以必须安装nodejs<br>2.安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它<br>3.安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定<br>4.hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的话也是一句话搞定（mac也有自带）<br>5.OK整理一下安装顺序：homebrew-nodejs-hexo-git</p>
 <h5 id="安装brewhome，一句话搞定"><a href="#安装brewhome，一句话搞定" class="headerlink" title="安装brewhome，一句话搞定"></a>安装brewhome，一句话搞定</h5><pre><code>ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)”
@@ -223,7 +223,7 @@ git config --global user.email xxx@xxx.com
     
     </summary>
     
-      <category term="Hexo" scheme="http://www.jeyblogs.com/categories/Hexo/"/>
+      <category term="Tools" scheme="http://www.jeyblogs.com/categories/Tools/"/>
     
     
       <category term="Hexo" scheme="http://www.jeyblogs.com/tags/Hexo/"/>
@@ -296,7 +296,7 @@ git config --global user.email xxx@xxx.com
     <link href="http://www.jeyblogs.com/2016/03/01/KVO%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
     <id>http://www.jeyblogs.com/2016/03/01/KVO的实现原理/</id>
     <published>2016-03-01T02:21:38.000Z</published>
-    <updated>2017-03-01T03:00:45.000Z</updated>
+    <updated>2017-03-01T03:00:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>KVC运用了一个isa-swizzling技术。isa-swizzling就是类型混合指针机制。KVC主要通过isa-swizzling，来实现其内部查找定位的。isa指针，如其名称所指，（就是is a kind of的意思），指向维护分发表的对象的类。该分发表实际上包含了指向实现类中的方法的指针，和其它数据。</p>
 <p><strong>addObserver:forKeyPath:options:context:各个参数的作用分别是什么, observer中需要实现哪个方法才能获得KVO回调？</strong></p>
