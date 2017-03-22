@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Xcode," />
+  <meta name="keywords" content="地图," />
 
 
 
@@ -86,25 +86,40 @@
 
 
 
-<meta name="description" content="作为一名iOS工程师，在开发中遇到各种证书报错的问题，在这里，我就把多年的实践经验分享出来，希望能够对大家有所帮助：
-
-iPhone上已经装了Bundle ID一样的 App，删掉再运行。
- This application’s application-identifier entitlement does not match that of the installed application.">
+<meta name="description" content="//
+//  CLLocation+YCLocation.h
+//  Topevery.GPS 转换
+//
+//  Created by wangshuai on 15-5-10.
+//  Copyright (c) 2015年 wangshuai. All rights reserved.
+//  火星坐标系转换扩展
+/*
+ 从 CLLocationManager 取出来的经纬度放到 mapVi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS运行证书报错问题整理">
-<meta property="og:url" content="http://www.jeyblogs.com/2016/03/27/iOS运行证书报错问题整理/index.html">
+<meta property="og:title" content="地图坐标转换">
+<meta property="og:url" content="http://www.jeyblogs.com/2017/03/22/地图坐标转换/index.html">
 <meta property="og:site_name" content="Jey">
-<meta property="og:description" content="作为一名iOS工程师，在开发中遇到各种证书报错的问题，在这里，我就把多年的实践经验分享出来，希望能够对大家有所帮助：
-
-iPhone上已经装了Bundle ID一样的 App，删掉再运行。
- This application’s application-identifier entitlement does not match that of the installed application.">
-<meta property="og:updated_time" content="2016-09-27T03:16:11.000Z">
+<meta property="og:description" content="//
+//  CLLocation+YCLocation.h
+//  Topevery.GPS 转换
+//
+//  Created by wangshuai on 15-5-10.
+//  Copyright (c) 2015年 wangshuai. All rights reserved.
+//  火星坐标系转换扩展
+/*
+ 从 CLLocationManager 取出来的经纬度放到 mapVi">
+<meta property="og:updated_time" content="2017-03-22T01:52:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS运行证书报错问题整理">
-<meta name="twitter:description" content="作为一名iOS工程师，在开发中遇到各种证书报错的问题，在这里，我就把多年的实践经验分享出来，希望能够对大家有所帮助：
-
-iPhone上已经装了Bundle ID一样的 App，删掉再运行。
- This application’s application-identifier entitlement does not match that of the installed application.">
+<meta name="twitter:title" content="地图坐标转换">
+<meta name="twitter:description" content="//
+//  CLLocation+YCLocation.h
+//  Topevery.GPS 转换
+//
+//  Created by wangshuai on 15-5-10.
+//  Copyright (c) 2015年 wangshuai. All rights reserved.
+//  火星坐标系转换扩展
+/*
+ 从 CLLocationManager 取出来的经纬度放到 mapVi">
 
 
 
@@ -122,7 +137,7 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
   };
 </script>
 
-  <title> iOS运行证书报错问题整理 | Jey </title>
+  <title> 地图坐标转换 | Jey </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +295,7 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
             
             
               
-                iOS运行证书报错问题整理
+                地图坐标转换
               
             
           </h1>
@@ -292,8 +307,8 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-27T10:36:28+08:00" content="2016-03-27">
-              2016-03-27
+            <time itemprop="dateCreated" datetime="2017-03-22T09:48:47+08:00" content="2017-03-22">
+              2017-03-22
             </time>
           </span>
 
@@ -306,8 +321,8 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Developer/" itemprop="url" rel="index">
-                    <span itemprop="name">Developer</span>
+                  <a href="/categories/iOSDeveloper/" itemprop="url" rel="index">
+                    <span itemprop="name">iOSDeveloper</span>
                   </a>
                 </span>
 
@@ -322,8 +337,8 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/27/iOS运行证书报错问题整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/27/iOS运行证书报错问题整理/" itemprop="commentsCount"></span>
+                <a href="/2017/03/22/地图坐标转换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/地图坐标转换/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -346,16 +361,225 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
       
 
       
-        <p>作为一名iOS工程师，在开发中遇到各种证书报错的问题，在这里，我就把多年的实践经验分享出来，希望能够对大家有所帮助：</p>
-<ol>
-<li><p>iPhone上已经装了Bundle ID一样的 App，删掉再运行。</p>
-<p> This application’s application-identifier entitlement does not match that of the installed application. These values must match for an upgrade to be allowed.</p>
-</li>
-<li><p>还是描述文件的问题，把发布的描述文件或者是 hoc 的描述文件当成开发描述文件使用了。</p>
-<p> process launch failed: timed out trying to launch app</p>
-</li>
-</ol>
+        <pre><code>//
+//  CLLocation+YCLocation.h
+//  Topevery.GPS 转换
+//
+//  Created by wangshuai on 15-5-10.
+//  Copyright (c) 2015年 wangshuai. All rights reserved.
+//  火星坐标系转换扩展
+/*
+ 从 CLLocationManager 取出来的经纬度放到 mapView 上显示，是错误的!
+ 从 CLLocationManager 取出来的经纬度去 Google Maps API 做逆地址解析，当然是错的！
+ 从 MKMapView 取出来的经纬度去 Google Maps API 做逆地址解析终于对了。去百度地图API做逆地址解析，依旧是错的！
+ 从上面两处取的经纬度放到百度地图上显示都是错的！错的！的！
 
+ 分为 地球坐标，火星坐标（iOS mapView 高德 ， 国内google ,搜搜、阿里云 都是火星坐标），百度坐标(百度地图数据主要都是四维图新提供的)
+
+ 火星坐标: MKMapView
+ 地球坐标: CLLocationManager
+
+ 当用到CLLocationManager 得到的数据转化为火星坐标, MKMapView不用处理
+
+
+ API                坐标系
+ 百度地图API         百度坐标
+ 腾讯搜搜地图API      火星坐标
+ 搜狐搜狗地图API      搜狗坐标
+ 阿里云地图API       火星坐标
+ 图吧MapBar地图API   图吧坐标
+ 高德MapABC地图API   火星坐标
+ 灵图51ditu地图API   火星坐标
+
+ */
+
+import &lt;CoreLocation/CoreLocation.h&gt;
+
+@interface CLLocation (YCLocation)
+
+//从地图坐标转化到火星坐标
+(CLLocation*)locationMarsFromEarth;
+
+//从火星坐标转化到百度坐标
+(CLLocation*)locationBaiduFromMars;
+
+//从百度坐标到火星坐标
+(CLLocation*)locationMarsFromBaidu;
+
+//从火星坐标到地图坐标
+(CLLocation*)locationEarthFromMars;
+
+//从百度坐标到地图坐标
+(CLLocation*)locationEarthFromBaidu;
+
+@end
+
+import &quot;CLLocation+YCLocation.h&quot;
+
+void transform_earth_from_mars(double lat, double lng, double* tarLat, double* tarLng);
+void transform_mars_from_baidu(double lat, double lng, double* tarLat, double* tarLng);
+void transform_baidu_from_mars(double lat, double lng, double* tarLat, double* tarLng);
+
+@implementation CLLocation (YCLocation)
+
+(CLLocation*)locationMarsFromEarth
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_earth_from_mars(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat+self.coordinate.latitude, lng+self.coordinate.longitude)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+}
+
+(CLLocation*)locationEarthFromMars
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_earth_from_mars(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.coordinate.latitude-lat, self.coordinate.longitude-lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+    return nil;
+}
+
+(CLLocation*)locationBaiduFromMars
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_mars_from_baidu(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+}
+
+(CLLocation*)locationMarsFromBaidu
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_baidu_from_mars(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+}
+
+-(CLLocation*)locationEarthFromBaidu
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    CLLocation *Mars = [self locationMarsFromBaidu];
+
+    transform_earth_from_mars(Mars.coordinate.latitude, Mars.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(Mars.coordinate.latitude-lat, Mars.coordinate.longitude-lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+    return nil;
+}
+
+@end
+
+
+
+// --- transform_earth_from_mars ---
+// 参考来源：https://on4wp7.codeplex.com/SourceControl/changeset/view/21483#353936
+// Krasovsky 1940
+//
+// a = 6378245.0, 1/f = 298.3
+// b = a * (1 - f)
+// ee = (a^2 - b^2) / a^2;
+const double a = 6378245.0;
+const double ee = 0.00669342162296594323;
+
+bool transform_sino_out_china(double lat, double lon)
+{
+    if (lon &lt; 72.004 || lon &gt; 137.8347)
+        return true;
+    if (lat &lt; 0.8293 || lat &gt; 55.8271)
+        return true;
+    return false;
+}
+
+double transform_earth_from_mars_lat(double x, double y)
+{
+    double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * sqrt(abs(x));
+    ret += (20.0 * sin(6.0 * x * M_PI) + 20.0 * sin(2.0 * x * M_PI)) * 2.0 / 3.0;
+    ret += (20.0 * sin(y * M_PI) + 40.0 * sin(y / 3.0 * M_PI)) * 2.0 / 3.0;
+    ret += (160.0 * sin(y / 12.0 * M_PI) + 320 * sin(y * M_PI / 30.0)) * 2.0 / 3.0;
+    return ret;
+}
+
+double transform_earth_from_mars_lng(double x, double y)
+{
+    double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x));
+    ret += (20.0 * sin(6.0 * x * M_PI) + 20.0 * sin(2.0 * x * M_PI)) * 2.0 / 3.0;
+    ret += (20.0 * sin(x * M_PI) + 40.0 * sin(x / 3.0 * M_PI)) * 2.0 / 3.0;
+    ret += (150.0 * sin(x / 12.0 * M_PI) + 300.0 * sin(x / 30.0 * M_PI)) * 2.0 / 3.0;
+    return ret;
+}
+
+void transform_earth_from_mars(double lat, double lng, double* tarLat, double* tarLng)
+{
+    if (transform_sino_out_china(lat, lng))
+    {
+        *tarLat = lat;
+        *tarLng = lng;
+        return;
+    }
+    double dLat = transform_earth_from_mars_lat(lng - 105.0, lat - 35.0);
+    double dLon = transform_earth_from_mars_lng(lng - 105.0, lat - 35.0);
+    double radLat = lat / 180.0 * M_PI;
+    double magic = sin(radLat);
+    magic = 1 - ee * magic * magic;
+    double sqrtMagic = sqrt(magic);
+    dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * M_PI);
+    dLon = (dLon * 180.0) / (a / sqrtMagic * cos(radLat) * M_PI);
+    *tarLat = dLat;
+    *tarLng = dLon;
+}
+
+// --- transform_earth_from_mars end ---
+// --- transform_mars_vs_bear_paw ---
+// 参考来源：http://blog.woodbunny.com/post-68.html
+const double x_pi = M_PI * 3000.0 / 180.0;
+
+void transform_mars_from_baidu(double gg_lat, double gg_lon, double *bd_lat, double *bd_lon)
+{
+    double x = gg_lon, y = gg_lat;
+    double z = sqrt(x * x + y * y) + 0.00002 * sin(y * x_pi);
+    double theta = atan2(y, x) + 0.000003 * cos(x * x_pi);
+    *bd_lon = z * cos(theta) + 0.0065;
+    *bd_lat = z * sin(theta) + 0.006;
+}
+
+void transform_baidu_from_mars(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
+{
+    double x = bd_lon - 0.0065, y = bd_lat - 0.006;
+    double z = sqrt(x * x + y * y) - 0.00002 * sin(y * x_pi);
+    double theta = atan2(y, x) - 0.000003 * cos(x * x_pi);
+    *gg_lon = z * cos(theta);
+    *gg_lat = z * sin(theta);
+}
+</code></pre>
       
     </div>
 
@@ -397,7 +621,7 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
       
         <div class="post-tags">
           
-            <a href="/tags/Xcode/" rel="tag">#Xcode</a>
+            <a href="/tags/地图/" rel="tag">#地图</a>
           
         </div>
       
@@ -406,17 +630,13 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/18/利用Xcode的代码块提高效率/" rel="next" title="利用Xcode的代码块提高效率">
-                <i class="fa fa-chevron-left"></i> 利用Xcode的代码块提高效率
+              <a href="/2016/10/28/面试题答案/" rel="next" title="iOS面试题答案">
+                <i class="fa fa-chevron-left"></i> iOS面试题答案
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/15/hexo——搭建Github Page博客(1)/" rel="prev" title="hexo——搭建Github Page博客之配置篇(1)">
-                hexo——搭建Github Page博客之配置篇(1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -431,10 +651,10 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/27/iOS运行证书报错问题整理/"
-     data-title="iOS运行证书报错问题整理"
+        <div class="ds-share flat" data-thread-key="2017/03/22/地图坐标转换/"
+     data-title="地图坐标转换"
      data-content=""
-     data-url="http://www.jeyblogs.com/2016/03/27/iOS运行证书报错问题整理/">
+     data-url="http://www.jeyblogs.com/2017/03/22/地图坐标转换/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -461,8 +681,8 @@ iPhone上已经装了Bundle ID一样的 App，删掉再运行。
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/27/iOS运行证书报错问题整理/"
-           data-title="iOS运行证书报错问题整理" data-url="http://www.jeyblogs.com/2016/03/27/iOS运行证书报错问题整理/">
+      <div class="ds-thread" data-thread-key="2017/03/22/地图坐标转换/"
+           data-title="地图坐标转换" data-url="http://www.jeyblogs.com/2017/03/22/地图坐标转换/">
       </div>
     
   </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jeyblogs.com/"/>
-  <updated>2017-03-01T02:46:09.000Z</updated>
+  <updated>2017-03-22T01:52:18.000Z</updated>
   <id>http://www.jeyblogs.com/</id>
   
   <author>
@@ -14,6 +14,251 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>地图坐标转换</title>
+    <link href="http://www.jeyblogs.com/2017/03/22/%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://www.jeyblogs.com/2017/03/22/地图坐标转换/</id>
+    <published>2017-03-22T01:48:47.000Z</published>
+    <updated>2017-03-22T01:52:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>//
+//  CLLocation+YCLocation.h
+//  Topevery.GPS 转换
+//
+//  Created by wangshuai on 15-5-10.
+//  Copyright (c) 2015年 wangshuai. All rights reserved.
+//  火星坐标系转换扩展
+/*
+ 从 CLLocationManager 取出来的经纬度放到 mapView 上显示，是错误的!
+ 从 CLLocationManager 取出来的经纬度去 Google Maps API 做逆地址解析，当然是错的！
+ 从 MKMapView 取出来的经纬度去 Google Maps API 做逆地址解析终于对了。去百度地图API做逆地址解析，依旧是错的！
+ 从上面两处取的经纬度放到百度地图上显示都是错的！错的！的！
+
+ 分为 地球坐标，火星坐标（iOS mapView 高德 ， 国内google ,搜搜、阿里云 都是火星坐标），百度坐标(百度地图数据主要都是四维图新提供的)
+
+ 火星坐标: MKMapView
+ 地球坐标: CLLocationManager
+
+ 当用到CLLocationManager 得到的数据转化为火星坐标, MKMapView不用处理
+
+
+ API                坐标系
+ 百度地图API         百度坐标
+ 腾讯搜搜地图API      火星坐标
+ 搜狐搜狗地图API      搜狗坐标
+ 阿里云地图API       火星坐标
+ 图吧MapBar地图API   图吧坐标
+ 高德MapABC地图API   火星坐标
+ 灵图51ditu地图API   火星坐标
+
+ */
+
+import &lt;CoreLocation/CoreLocation.h&gt;
+
+@interface CLLocation (YCLocation)
+
+//从地图坐标转化到火星坐标
+(CLLocation*)locationMarsFromEarth;
+
+//从火星坐标转化到百度坐标
+(CLLocation*)locationBaiduFromMars;
+
+//从百度坐标到火星坐标
+(CLLocation*)locationMarsFromBaidu;
+
+//从火星坐标到地图坐标
+(CLLocation*)locationEarthFromMars;
+
+//从百度坐标到地图坐标
+(CLLocation*)locationEarthFromBaidu;
+
+@end
+
+import &quot;CLLocation+YCLocation.h&quot;
+
+void transform_earth_from_mars(double lat, double lng, double* tarLat, double* tarLng);
+void transform_mars_from_baidu(double lat, double lng, double* tarLat, double* tarLng);
+void transform_baidu_from_mars(double lat, double lng, double* tarLat, double* tarLng);
+
+@implementation CLLocation (YCLocation)
+
+(CLLocation*)locationMarsFromEarth
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_earth_from_mars(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat+self.coordinate.latitude, lng+self.coordinate.longitude)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+}
+
+(CLLocation*)locationEarthFromMars
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_earth_from_mars(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.coordinate.latitude-lat, self.coordinate.longitude-lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+    return nil;
+}
+
+(CLLocation*)locationBaiduFromMars
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_mars_from_baidu(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+}
+
+(CLLocation*)locationMarsFromBaidu
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    transform_baidu_from_mars(self.coordinate.latitude, self.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+}
+
+-(CLLocation*)locationEarthFromBaidu
+{
+    double lat = 0.0;
+    double lng = 0.0;
+    CLLocation *Mars = [self locationMarsFromBaidu];
+
+    transform_earth_from_mars(Mars.coordinate.latitude, Mars.coordinate.longitude, &amp;lat, &amp;lng);
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(Mars.coordinate.latitude-lat, Mars.coordinate.longitude-lng)
+                                         altitude:self.altitude
+                               horizontalAccuracy:self.horizontalAccuracy
+                                 verticalAccuracy:self.verticalAccuracy
+                                           course:self.course
+                                            speed:self.speed
+                                        timestamp:self.timestamp];
+    return nil;
+}
+
+@end
+
+
+
+// --- transform_earth_from_mars ---
+// 参考来源：https://on4wp7.codeplex.com/SourceControl/changeset/view/21483#353936
+// Krasovsky 1940
+//
+// a = 6378245.0, 1/f = 298.3
+// b = a * (1 - f)
+// ee = (a^2 - b^2) / a^2;
+const double a = 6378245.0;
+const double ee = 0.00669342162296594323;
+
+bool transform_sino_out_china(double lat, double lon)
+{
+    if (lon &lt; 72.004 || lon &gt; 137.8347)
+        return true;
+    if (lat &lt; 0.8293 || lat &gt; 55.8271)
+        return true;
+    return false;
+}
+
+double transform_earth_from_mars_lat(double x, double y)
+{
+    double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * sqrt(abs(x));
+    ret += (20.0 * sin(6.0 * x * M_PI) + 20.0 * sin(2.0 * x * M_PI)) * 2.0 / 3.0;
+    ret += (20.0 * sin(y * M_PI) + 40.0 * sin(y / 3.0 * M_PI)) * 2.0 / 3.0;
+    ret += (160.0 * sin(y / 12.0 * M_PI) + 320 * sin(y * M_PI / 30.0)) * 2.0 / 3.0;
+    return ret;
+}
+
+double transform_earth_from_mars_lng(double x, double y)
+{
+    double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x));
+    ret += (20.0 * sin(6.0 * x * M_PI) + 20.0 * sin(2.0 * x * M_PI)) * 2.0 / 3.0;
+    ret += (20.0 * sin(x * M_PI) + 40.0 * sin(x / 3.0 * M_PI)) * 2.0 / 3.0;
+    ret += (150.0 * sin(x / 12.0 * M_PI) + 300.0 * sin(x / 30.0 * M_PI)) * 2.0 / 3.0;
+    return ret;
+}
+
+void transform_earth_from_mars(double lat, double lng, double* tarLat, double* tarLng)
+{
+    if (transform_sino_out_china(lat, lng))
+    {
+        *tarLat = lat;
+        *tarLng = lng;
+        return;
+    }
+    double dLat = transform_earth_from_mars_lat(lng - 105.0, lat - 35.0);
+    double dLon = transform_earth_from_mars_lng(lng - 105.0, lat - 35.0);
+    double radLat = lat / 180.0 * M_PI;
+    double magic = sin(radLat);
+    magic = 1 - ee * magic * magic;
+    double sqrtMagic = sqrt(magic);
+    dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * M_PI);
+    dLon = (dLon * 180.0) / (a / sqrtMagic * cos(radLat) * M_PI);
+    *tarLat = dLat;
+    *tarLng = dLon;
+}
+
+// --- transform_earth_from_mars end ---
+// --- transform_mars_vs_bear_paw ---
+// 参考来源：http://blog.woodbunny.com/post-68.html
+const double x_pi = M_PI * 3000.0 / 180.0;
+
+void transform_mars_from_baidu(double gg_lat, double gg_lon, double *bd_lat, double *bd_lon)
+{
+    double x = gg_lon, y = gg_lat;
+    double z = sqrt(x * x + y * y) + 0.00002 * sin(y * x_pi);
+    double theta = atan2(y, x) + 0.000003 * cos(x * x_pi);
+    *bd_lon = z * cos(theta) + 0.0065;
+    *bd_lat = z * sin(theta) + 0.006;
+}
+
+void transform_baidu_from_mars(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
+{
+    double x = bd_lon - 0.0065, y = bd_lat - 0.006;
+    double z = sqrt(x * x + y * y) - 0.00002 * sin(y * x_pi);
+    double theta = atan2(y, x) - 0.000003 * cos(x * x_pi);
+    *gg_lon = z * cos(theta);
+    *gg_lat = z * sin(theta);
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;//
+//  CLLocation+YCLocation.h
+//  Topevery.GPS 转换
+//
+//  Created by wangshuai on 15-5-10.
+//  Copyright (c) 2015年 wangshuai. All
+    
+    </summary>
+    
+      <category term="iOSDeveloper" scheme="http://www.jeyblogs.com/categories/iOSDeveloper/"/>
+    
+    
+      <category term="地图" scheme="http://www.jeyblogs.com/tags/%E5%9C%B0%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS面试题答案</title>
@@ -1188,116 +1433,6 @@ print?￼￼
     
     
       <category term="第三方资源" scheme="http://www.jeyblogs.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Object-C——iOS开发编码规范</title>
-    <link href="http://www.jeyblogs.com/2013/10/18/Object-C%E2%80%94%E2%80%94iOS%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>http://www.jeyblogs.com/2013/10/18/Object-C——iOS开发编码规范/</id>
-    <published>2013-10-18T03:41:32.000Z</published>
-    <updated>2016-08-17T09:07:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li><p>任意函数长度不得超过50行。</p>
-</li>
-<li><p>每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后就会在代码80个字符处有一条竖线。</p>
-</li>
-<li><p>方法的“+”，“-”与括号之间留空格</p>
-</li>
-<li><p>在方法和方法之间留空一行。</p>
-</li>
-<li><p>功能相近的方法要放在一起，并推荐使用#pragma mark - <strong> </strong>来标注，在代码导航栏可以快速查找</p>
-</li>
-<li><p>二元运算符和参数之间要有一个空格，如赋值号 = 左右各留一个空格。<br>self.myString = @”235423rew523452345”;</p>
-</li>
-<li><p>一元运算符和参数之间不放置空格，比如！非运算符，&amp;按位与，|按位或。<br>BOOL isOpen = true;<br>BOOL isClose = !isOpen;</p>
-</li>
-<li><p>强制类型转换和参数之间不放置空格。<br>NSString <em>str3 = (NSString</em>)self.myString;</p>
-</li>
-<li><p>长的变量值应该拆分为多行。尤其体现在使用数组或者字典。以下也分别是快速声明数组@[]和字典@{}的方法。<br>NSArray *array = @[@”111”,</p>
-<pre><code>@&quot;2222222222&quot;,
-@&quot;3333333&quot;,
-@&quot;wwwwwwwwwwww&quot;
-];
-</code></pre><p>NSDictionary *dict = @{@”name”:@”jack”,</p>
-<pre><code>@&quot;age&quot;:@&quot;20&quot;,
-@&quot;gender&quot;:@&quot;female&quot;,
-@&quot;isMarried&quot;:@&quot;false&quot;
-};
-</code></pre></li>
-<li><p>使用有意义的名字命名，拒绝使用i,j等无意义字符命名。类的命名首字母大写，其他变量的命名首字符小写，并使用驼峰式分割单词。</p>
-</li>
-<li><p>尽量减少在代码中直接使用数字常量，而使用宏定义等方式。如：MAX_NUMBER_PHONE替代8等等。</p>
-</li>
-<li><p>尽量减少代码中的重复计算，比如代码中多处要使用屏幕宽度，然后计算：[[UIScreenmainScreen] bounds].size.width ,很多次，闲得很繁琐，代码也冗长。不如直接宏定义：<br>#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)<br>宏定义全部字母大写</p>
-</li>
-<li><p>合理使用约定俗成的缩略词：</p>
-<pre><code>alloc:分配；
-alt：轮流，交替；
-app:应用程序；
-calc：计算；
-dealloc：销毁、析构；
-func：函数、方法；
-horiz：水平的；
-info：信息；
-init：初始化；
-max：最大的；
-min：最小的；
-msg：消息；
-nib：Interface Builder；
-rect：矩形；
-temp：暂时的；
-vert：垂直的；
-</code></pre></li>
-<li><p>合理范围内使用链式编程:<br>NSString *myName = [[NSString alloc] init];<br>但是嵌套不宜超过3层，超过3层需进行重构。</p>
-</li>
-<li><p>函数调用时所有参数在同一行。如果参数过多，则可以每行一个参数，每个参数以冒号对齐。</p>
-</li>
-<li><p>对传入参数的保护或者说是否为空的判断，尽量不要使用if(!obj),而使用NSAssert断言来处理。NSAssert是系统定义的宏。<br>NSAssert(myName != nil, @”myName参数为空”);</p>
-<pre><code>如果条件判断为真，则程序继续执行；
-如果判断条件为假，则抛出异常，异常内容为后面定义的字符串；
-</code></pre></li>
-<li><p>if-else超过四层的时候，就要考虑重构，多层的if-else结构很难维护。</p>
-</li>
-<li><p>当需要一定条件才执行某项操作时，最左边的应该是最重要的代码，不要将最重要的代码内嵌到if中。<br>如良好的风格是：</p>
-</li>
-</ol>
-<ul>
-<li>(void) someMethod {if(![someOther boolValue]) {   return;<br>}//最重要的代码写在这里；}<br>  反面教材:</li>
-<li>(void) someMethod {if([someOther boolValue]) {<br>  //重要代码；<br>}<br>}</li>
-</ul>
-<ol>
-<li><p>所有的逻辑块都使用{}花括号包围，就算只是一行代码。</p>
-</li>
-<li><p>明确指定构造函数，并且加上注释的注释，加上注释，加上注释！</p>
-</li>
-<li><p>UIView的子类初始化的时候，不要进行任何的布局操作。布局操作应该在layoutSubviews里面做；需要重新布局的时候调用setNeedsLayout，而不要直接调用layoutSubviews。</p>
-</li>
-<li><p>保持公共API简单，也就是保持.h文件简单。放在.h中声明的函数都是会被公开的，如果根本就没必要对其他类公开，再不要在.h中声明。OC中的方法都是公有方法，没有私有方法一说。</p>
-</li>
-<li><p>一个文件只实现一个类。同一个文件中不要有多个类。</p>
-</li>
-<li><p>Protocol单独用一个文件来创建，尽量不要与相关类混在一个文件中。</p>
-</li>
-<li><p>布局时尽量使用相对布局，比如使用子View在父View中的相对位置。</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;任意函数长度不得超过50行。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;每一行行代码不能超过80个字符。设置提醒：可以在Xcode中设置超过80个字符的提醒，Preferences—Text Editing—Page guide at column勾上.设置完之后
-    
-    </summary>
-    
-      <category term="Developer" scheme="http://www.jeyblogs.com/categories/Developer/"/>
-    
-    
-      <category term="iOS编码规范" scheme="http://www.jeyblogs.com/tags/iOS%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
